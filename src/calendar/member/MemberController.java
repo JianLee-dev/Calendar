@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 public class MemberController implements Initializable {
 
 	Parent root;
+	IMemberService ms;
 	
 	
 	
@@ -19,7 +20,8 @@ public class MemberController implements Initializable {
 	
 	
 	public void confirm() {
-		
+		ms.addMember(root);
+		CommonService.close(root);
 	}
 	public void cancel(){
 		CommonService.close(root);
@@ -29,7 +31,7 @@ public class MemberController implements Initializable {
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-	
+	ms = new MemberService();
 		
 	}
 }
