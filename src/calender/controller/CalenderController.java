@@ -5,7 +5,7 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.Initializable;
 
-public class LoginController implements Initializable {
+public class CalenderController implements Initializable {
 
 	
 	@Override
