@@ -26,6 +26,7 @@ public class MemberMain {
 			e.printStackTrace();
 		}
 		
+		mc.setRoot(root);
 		
 		
 		stage.setScene(new Scene(root));
