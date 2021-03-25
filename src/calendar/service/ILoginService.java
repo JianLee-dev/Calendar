@@ -1,4 +1,4 @@
-package calender.service;
+package calendar.service;
 
 public interface ILoginService {
 

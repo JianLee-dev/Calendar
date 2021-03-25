@@ -1,4 +1,4 @@
-package calender.service;
+package calendar.service;
 
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
