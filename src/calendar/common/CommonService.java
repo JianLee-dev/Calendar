@@ -1,23 +1,17 @@
-package calendar.service;
+package calendar.common;
 
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
-public class CommonService implements ICommonService {
+public class CommonService {
 
-	@Override
-	public void close(Parent root) {
+	public static void close(Parent root) {
 		((Stage)root.getScene().getWindow()).close();
-
 	}
-
-	@Override
-	public void alert(AlertType alertType, String message) {
+	
+	public static void alert(AlertType alertType, String message) {
 		new Alert(alertType,message).show();
-		
-		
 	}
-
 }

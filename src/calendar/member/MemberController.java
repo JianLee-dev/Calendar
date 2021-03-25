@@ -3,15 +3,14 @@ package calendar.member;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import calendar.service.CommonService;
-import calendar.service.ICommonService;
+import calendar.common.CommonService;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 
 public class MemberController implements Initializable {
 
 	Parent root;
-	ICommonService ms;
+	
 	
 	
 	public void setRoot(Parent root) {
@@ -22,15 +21,15 @@ public class MemberController implements Initializable {
 	public void confirm() {
 		
 	}
-	public void cancel() {
-		
+	public void cancel(){
+		CommonService.close(root);
 	}
 	
 	
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		ms = new CommonService();
+	
 		
 	}
 }

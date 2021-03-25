@@ -3,9 +3,8 @@ package calendar.login;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import calendar.common.CommonService;
 import calendar.member.MemberMain;
-import calendar.service.CommonService;
-import calendar.service.ICommonService;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -17,7 +16,7 @@ public class LoginController implements Initializable{
 	@FXML ImageView imageView;
 	
 	Parent root;
-	ICommonService cs;
+	
 	
 	
 	public void setRoot(Parent root) {
@@ -33,11 +32,11 @@ public class LoginController implements Initializable{
 	
 	
 	public void confirm() {
-		//cs.close(root);
+		CommonService.close(root);
 		
 	}
 	public void cancel() {
-		cs.close(root);
+		CommonService.close(root);
 	}
 	public void register() {
 		new MemberMain();
@@ -48,7 +47,7 @@ public class LoginController implements Initializable{
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		cs = new CommonService();
+
 		
 	}
 }
