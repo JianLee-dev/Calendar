@@ -1,4 +1,4 @@
-package calendar.calendar;
+package calendar.main;
 
 import java.io.IOException;
 
@@ -14,7 +14,7 @@ public class CalendarMain {
 		Stage stage = new Stage();
 		Parent root = null;
 		CalendarController cc = null;
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("calendar.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("mainForm.fxml"));
 		try {
 			root = loader.load();
 			cc = loader.getController();

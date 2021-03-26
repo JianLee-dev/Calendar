@@ -3,9 +3,9 @@ package calendar.login;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import calendar.calendar.CalendarMain;
 import calendar.common.CommonService;
 import calendar.datadase.UserVO;
+import calendar.main.CalendarMain;
 import calendar.member.MemberMain;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

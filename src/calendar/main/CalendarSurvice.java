@@ -1,4 +1,4 @@
-package calendar.calendar;
+package calendar.main;
 
 public class CalendarSurvice implements IcalendarSurvice{
 

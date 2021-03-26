@@ -1,4 +1,4 @@
-package calendar.calendar;
+package calendar.main;
 
 import java.net.URL;
 import java.util.ResourceBundle;
