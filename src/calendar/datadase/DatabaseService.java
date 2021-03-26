@@ -166,6 +166,36 @@ public class DatabaseService implements IDatabaseService{
 			try {
 				pstmt.close();
 				conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
+
+	
+
+
+	@Override
+	public void saveCalendar(CalendarVO cvo) {
+		String sql = "INSERT INTO calender VALUES(?,?,?,?,?)";
+		try {
+			conn = DriverManager.getConnection(url,uid,upw);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,cvo.getcId());
+			pstmt.setInt(2,cvo.getcDate());
+			pstmt.setString(3,cvo.getcCategory());
+			pstmt.setString(4,cvo.getcName());
+			pstmt.setInt(5,cvo.getcPrice());
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -173,14 +203,57 @@ public class DatabaseService implements IDatabaseService{
 		
 	}
 
-	
-	@Override
-	public int saveCalendar(CalendarVO cvo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
 
+
+
+	@Override
+	public void modifyCalendar(CalendarVO cvo) {
+		String sql = "UPDATE FROM calender SET c_id=?, c_date=?, c_category=?, c_name=?, c_price=?";
+		try {
+			conn = DriverManager.getConnection(url,uid,upw);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,cvo.getcId());
+			pstmt.setInt(2,cvo.getcDate());
+			pstmt.setInt(3,cvo.getcDate());
+			pstmt.setString(4,cvo.getcName());
+			pstmt.setInt(5,cvo.getcPrice());
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
+
+
+
+
+	@Override
+	public void deleteCalendar(CalendarVO cvo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+
+	@Override
+	public void getCalendar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	
 		
 		
 	

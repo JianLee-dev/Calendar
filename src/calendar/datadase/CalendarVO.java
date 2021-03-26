@@ -18,7 +18,7 @@ public class CalendarVO {
 	private Integer cDate;
 	private String cCategory;
 	private String cName;
-	private String cPrice;
+	private int cPrice;
 	public String getcId() {
 		return cId;
 	}
@@ -43,10 +43,10 @@ public class CalendarVO {
 	public void setcName(String cName) {
 		this.cName = cName;
 	}
-	public String getcPrice() {
+	public int getcPrice() {
 		return cPrice;
 	}
-	public void setcPrice(String cPrice) {
+	public void setcPrice(int cPrice) {
 		this.cPrice = cPrice;
 	}
 	
