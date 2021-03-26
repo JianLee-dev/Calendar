@@ -112,10 +112,20 @@ public class DatabaseService implements IDatabaseService{
 
 
 
-
-
 	
+	@Override
+	public int saveCalendar(CalendarVO cvo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
+	@Override
+	public int saveUser(UserVO uvo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+		
+		
 	
 	
 	
