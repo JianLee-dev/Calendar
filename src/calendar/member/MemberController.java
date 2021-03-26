@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import calendar.common.CommonService;
+import calendar.datadase.UserVO;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 
@@ -20,8 +21,11 @@ public class MemberController implements Initializable {
 	
 	
 	public void confirm() {
-		ms.addMember(root);
-		CommonService.close(root);
+		UserVO userVO = ms.checkMember(root);
+		if(userVO != null) {
+			ms.addMember(userVO);
+			CommonService.close(root);
+		};
 	}
 	public void cancel(){
 		CommonService.close(root);

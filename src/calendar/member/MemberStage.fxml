@@ -12,7 +12,7 @@
       <Label alignment="CENTER" layoutX="83.0" layoutY="28.0" prefHeight="73.0" prefWidth="134.0" text="회원가입" />
       <TextField fx:id="userId" layoutX="113.0" layoutY="109.0" />
       <PasswordField fx:id="userPw" layoutX="113.0" layoutY="145.0" />
-      <PasswordField layoutX="113.0" layoutY="178.0" />
+      <PasswordField fx:id="userPwChk" layoutX="113.0" layoutY="178.0" />
       <TextField fx:id="userName" layoutX="113.0" layoutY="213.0" />
       <DatePicker fx:id="userBirth" layoutX="101.0" layoutY="249.0" />
       <TextField fx:id="userPhone" layoutX="114.0" layoutY="287.0" />
