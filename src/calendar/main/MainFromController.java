@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import calendar.info.InfoMain;
+import calendar.info.InfoMain;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -35,7 +36,7 @@ public class MainFromController implements Initializable{
 	}
 
 	public void btn03() {
-		borderPane.setCenter(new InfoMain());
+		borderPane.setCenter((new InfoMain()).getRoot());
 		System.out.println("회원 정보 화면으로 이동");
 		cs.showInfo();
 
