@@ -5,7 +5,7 @@ import java.util.ResourceBundle;
 
 import calendar.common.CommonService;
 import calendar.datadase.UserVO;
-import calendar.main.CalendarMain;
+import calendar.main.FormMain;
 import calendar.member.MemberMain;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -42,7 +42,7 @@ public class LoginController implements Initializable{
 //		}else {
 //			CommonService.alert(AlertType.WARNING, "없는 사용자 이거나 잘못된 비밀번호 입니다.");
 //		}
-		new CalendarMain();
+		new FormMain();
 		
 	}
 	public void cancel() {
