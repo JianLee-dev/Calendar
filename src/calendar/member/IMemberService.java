@@ -1,6 +1,7 @@
 package calendar.member;
 
 import calendar.datadase.UserVO;
+import javafx.scene.Parent;
 
 public interface IMemberService {
 	
@@ -11,7 +12,10 @@ public interface IMemberService {
 	void delMember(String userId);
 	
 	//회원수정
-	void modifyMember(UserVO userVO);
+	void modifyMember(Parent root);
+	
+	//로그인 검사
+	UserVO checkMember(Parent root);
 	
 	
 	
