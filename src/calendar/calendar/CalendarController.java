@@ -2,7 +2,7 @@ package calendar.calendar;
 
 import javafx.scene.Parent;
 
-public class CalenderController {
+public class CalendarController {
 	Parent root;
 
 	public void setRoot(Parent root) {

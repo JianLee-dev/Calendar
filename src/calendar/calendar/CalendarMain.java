@@ -13,7 +13,7 @@ public class CalendarMain extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		Parent root = null;
-		CalenderController cc = null;
+		CalendarController cc = null;
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("calender.fxml"));
 		try {
 			root = loader.load();
