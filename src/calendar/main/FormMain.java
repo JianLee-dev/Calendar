@@ -7,13 +7,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class CalendarMain {
+public class FormMain {
 	
 	
-	public CalendarMain() {
+	public FormMain() {
 		Stage stage = new Stage();
 		Parent root = null;
-		CalendarController cc = null;
+		MainFromController cc = null;
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("mainForm.fxml"));
 		try {
 			root = loader.load();
