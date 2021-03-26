@@ -1,8 +1,12 @@
 package calendar.calendar;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 
-public class CalendarController {
+public class CalendarController implements Initializable{
 	Parent root;
 
 	public void setRoot(Parent root) {
@@ -20,5 +24,12 @@ public class CalendarController {
 
 	public void btn03() {
 		System.out.println("회원 정보 화면으로 이동");
+	}
+	
+	
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+		
 	}
 }

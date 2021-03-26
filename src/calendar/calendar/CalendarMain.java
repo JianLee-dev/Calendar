@@ -2,19 +2,19 @@ package calendar.calendar;
 
 import java.io.IOException;
 
-import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class CalendarMain extends Application {
-
-	@Override
-	public void start(Stage primaryStage) {
+public class CalendarMain {
+	
+	
+	public CalendarMain() {
+		Stage stage = new Stage();
 		Parent root = null;
 		CalendarController cc = null;
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("calender.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("calendar.fxml"));
 		try {
 			root = loader.load();
 			cc = loader.getController();
@@ -22,11 +22,7 @@ public class CalendarMain extends Application {
 			e.printStackTrace();
 		}
 		cc.setRoot(root);
-		primaryStage.setScene(new Scene(root));
-		primaryStage.show();
-	}
-
-	public static void main(String[] args) {
-		launch(args);
+		stage.setScene(new Scene(root));
+		stage.show();
 	}
 }
