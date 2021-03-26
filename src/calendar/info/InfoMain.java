@@ -4,29 +4,31 @@ import java.io.IOException;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.layout.AnchorPane;
 
-public class InfoMain extends AnchorPane {
+public class InfoMain {
 	
-	public InfoMain() {
+	Parent root = null;
+	
+public InfoMain() {
+	
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Info.fxml"));
-		Parent root = this;
-		loader.setRoot(this);
-		loader.setController(this);
+		
+		
+	
 		try {
-			loader.load();
+			root = loader.load();
 		} catch (IOException e) {
 			e.printStackTrace();		
 		}
+		
+		InfoController ic = loader.getController();
+		ic.setRoot(root);
+		
 	}
+
 	
-	public void confirm() {
-		System.out.println("확인");
+	public Parent getRoot() {
+		return root;
 	}
-	public void cancel() {
-		
-	}
-	public void modify() {
-		
-	}
+
 }
