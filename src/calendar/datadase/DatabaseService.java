@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import calendar.login.LoginController;
+
 public class DatabaseService implements IDatabaseService{
 	
 	//localhost
@@ -81,7 +83,36 @@ public class DatabaseService implements IDatabaseService{
 		
 	}
 
-
+	@Override
+	public UserVO getMember(String userId) {
+		String sql = "SELECT * FROM userInfo WHERE user_id=?";
+		try {
+			conn = DriverManager.getConnection(url,uid,upw);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,userId);
+			rs = pstmt.executeQuery();
+			UserVO userVO = new UserVO();
+			while(rs.next()) {
+				userVO.setUserId(rs.getString("user_id"));
+				userVO.setUserPw(rs.getString("user_pw"));
+				userVO.setUserName(rs.getString("user_name"));
+				userVO.setUserBirth(rs.getInt("user_birth"));
+				userVO.setUserPhone(rs.getInt("user_phone"));
+			}
+			return userVO;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				conn.close();
+				rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
 
 
 

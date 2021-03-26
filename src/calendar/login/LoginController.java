@@ -10,7 +10,6 @@ import calendar.member.MemberMain;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -19,15 +18,11 @@ public class LoginController implements Initializable{
 	@FXML ImageView imageView;
 	
 	private Parent root;
-	private UserVO user;
+	public static UserVO user;
 	private ILoginService ls;
 	
-	public void setUser(UserVO user) {
-		this.user = user;
-	}
-	public UserVO getUser() {
-		return user;
-	}
+	
+
 	public void setRoot(Parent root) {
 		this.root = root;
 		setImage();
@@ -41,6 +36,7 @@ public class LoginController implements Initializable{
 	
 	public void confirm() {
 //		if(ls.loginCheck(root)) {
+//			ls.setLogin(root);
 //			new CalendarMain();
 //			CommonService.close(root);
 //		}else {

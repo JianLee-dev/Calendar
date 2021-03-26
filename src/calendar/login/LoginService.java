@@ -21,4 +21,9 @@ public class LoginService implements ILoginService {
 		return ds.loginCheck(userVO);
 	}
 
+	@Override
+	public void setLogin(Parent root) {
+		LoginController.user = ds.getMember(((TextField)root.lookup("#userId")).getText());
+		
+	}
 }
