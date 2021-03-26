@@ -10,6 +10,7 @@ import calendar.member.MemberMain;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -39,9 +40,13 @@ public class LoginController implements Initializable{
 	
 	
 	public void confirm() {
-		//ls.loginCheck(root);
+//		if(ls.loginCheck(root)) {
+//			new CalendarMain();
+//			CommonService.close(root);
+//		}else {
+//			CommonService.alert(AlertType.WARNING, "없는 사용자 이거나 잘못된 비밀번호 입니다.");
+//		}
 		new CalendarMain();
-		CommonService.close(root);
 		
 	}
 	public void cancel() {

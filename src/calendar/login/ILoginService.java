@@ -4,6 +4,6 @@ import javafx.scene.Parent;
 
 public interface ILoginService {
 	
-	void loginCheck(Parent root);
+	boolean loginCheck(Parent root);
 
 }

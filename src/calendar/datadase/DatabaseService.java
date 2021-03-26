@@ -110,7 +110,37 @@ public class DatabaseService implements IDatabaseService{
 		}
 	}
 
-
+	@Override
+	public boolean loginCheck(UserVO userVO) {
+		String sql = "SELECT user_pw FROM userInfo WHERE user_id=?";
+		String pw;
+		try {
+			conn = DriverManager.getConnection(url,uid,upw);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,userVO.getUserId());
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				pw = rs.getString("user_pw");
+			}
+			
+			if (userVO.getUserPw().equals("pw")) {
+				return true;
+			}else {
+				return false;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
 
 	
 	@Override
@@ -119,11 +149,7 @@ public class DatabaseService implements IDatabaseService{
 		return 0;
 	}
 	
-	@Override
-	public int saveUser(UserVO uvo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+
 		
 		
 	
