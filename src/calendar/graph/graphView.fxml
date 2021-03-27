@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="calendar.graph.GraphController">
+   <children>
+      <Label fx:id="labelYM" layoutX="41.0" layoutY="35.0" text="0000년 00월">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="102.0" layoutY="93.0" text="카테고리별 지출 현황">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="447.0" layoutY="93.0" text="월별 지출 현황">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <PieChart fx:id="pieChart" layoutX="57.0" layoutY="130.0" prefHeight="252.0" prefWidth="251.0" />
+      <AreaChart fx:id="areaChart" layoutX="359.0" layoutY="130.0" prefHeight="252.0" prefWidth="286.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </AreaChart>
+      <Label fx:id="labelCompare" layoutX="72.0" layoutY="416.0" text="이번 달, 가가 님은 00대 평균과 비교했을 때, 00원을 더 지출하고 있습니다.">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import calendar.login.LoginController;
 
@@ -30,7 +31,7 @@ public class DatabaseService implements IDatabaseService{
 	
 
 
-	//회원추가
+	//�쉶�썝異붽�
 
 	@Override
 	public void addMember(UserVO userVO) {
@@ -250,6 +251,42 @@ public class DatabaseService implements IDatabaseService{
 	public void getCalendar() {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+
+
+	@Override
+	//GraphController에서 사용
+	public int getCatAvg(String id, int yearMonth, String category) {
+		int catAvg = 0;
+		//select AVG(c_price) from calendar where c_id=id,(c_date/100)=yearMonth,c_category= category;
+		
+		return catAvg;
+	}
+
+
+
+	@Override
+	//GraphController에서 사용
+	public int getMonthTotal(String id, int yearMonth) {
+		int monthTotal = 0;
+		//select SUM(c_price) from calendar where c_id=id,(c_date/100)=yearMonth;
+		
+		return monthTotal;
+	}
+
+
+
+
+	@Override
+	//GraphController에서 사용
+	public ArrayList<String> getMembers() {
+		ArrayList<String> members = new ArrayList<String>();
+		//select DISTINCT c_user from calendar;
+		
+		
+		return members;
 	}
 
 	

@@ -1,5 +1,7 @@
 package calendar.datadase;
 
+import java.util.ArrayList;
+
 public interface IDatabaseService {
 
 
@@ -14,4 +16,7 @@ public interface IDatabaseService {
 	void deleteCalendar(CalendarVO cvo);
 	void getCalendar();
 	
+	int getCatAvg(String id, int yearMonth, String category);
+	int getMonthTotal(String id, int yearMonth);
+	ArrayList<String> getMembers();
 }
