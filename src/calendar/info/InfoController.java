@@ -16,6 +16,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 
 public class InfoController implements Initializable {
 	
@@ -30,6 +31,8 @@ public class InfoController implements Initializable {
 
 	
 	public void confirm(){
+		TextInputDialog dialog = new TextInputDialog("");
+		dialog.show();
 		CommonService.alert(AlertType.INFORMATION, "회원정보가 수정되었습니다.");
 		is.disable();
 	}

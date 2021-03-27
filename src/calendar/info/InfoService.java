@@ -33,12 +33,16 @@ public class InfoService {
 		userBirth =((DatePicker)root.lookup("#userBirth"));
 		userPhone = ((TextField)root.lookup("#userPhone"));
 
-		userId.setText("아이디"); //userInfo.getUserId()
-		userPw.setText("비밀번호");  //userInfo.getUserPw()
-		userName.setText("이름");	//userInfo.getName()
-		userPhone.setText("핸드폰");	//userInfo.getPhone()
-		int year = 1999, month = 05, dayOfMonth = 30; //userInfo.getBirth() 19990303 
-		userBirth.setValue(LocalDate.of(year, month, dayOfMonth));
+		userId.setText(userInfo.getUserId()); //userInfo.getUserId()
+		userPw.setText(userInfo.getUserPw());  //userInfo.getUserPw()
+		userName.setText(userInfo.getUserName());	//userInfo.getName()
+		userPhone.setText(userInfo.getUserPhone()+"");	//userInfo.getPhone()
+		int birth = userInfo.getUserBirth();
+		int year = birth/10000;
+		int month = (birth-(year*10000))/100;
+		int day = birth-((year*10000)+(month*100));
+		System.out.println("생일 : " + birth ); //userInfo.getBirth() 19990303 
+		userBirth.setValue(LocalDate.of(year, month, day));
 		userPw.setText("비번");
 		userId.setDisable(true);
 		userPw.setDisable(true);

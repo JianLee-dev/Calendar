@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calendar.main.MainFromController">
    <left>
-      <VBox prefHeight="500.0" prefWidth="100.0" style="-fx-background-color: #EAEAEA;" BorderPane.alignment="CENTER">
+      <VBox prefHeight="499.0" prefWidth="100.0" style="-fx-background-color: #EAEAEA;" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="homeBtn01" mnemonicParsing="false" onAction="#btn01" prefHeight="46.0" prefWidth="100.0" text="Calendar" />
             <Button fx:id="homeBtn02" mnemonicParsing="false" onAction="#btn02" prefHeight="46.0" prefWidth="100.0" text="Graph" />
             <Button fx:id="homeBtn03" mnemonicParsing="false" onAction="#btn03" prefHeight="46.0" prefWidth="100.0" text="My Info" />
+            <Label prefHeight="315.0" prefWidth="100.0" />
+            <Button fx:id="logout" mnemonicParsing="false" onAction="#logout" prefHeight="47.0" prefWidth="100.0" text="Logout" />
          </children>
       </VBox>
    </left>

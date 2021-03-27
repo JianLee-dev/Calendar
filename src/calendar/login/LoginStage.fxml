@@ -16,12 +16,18 @@
             <Font name="SansSerif Bold" size="36.0" />
          </font>
       </Label>
-      <TextField layoutX="196.0" layoutY="213.0" />
-      <PasswordField layoutX="196.0" layoutY="265.0" />
+      <TextField fx:id="userId" layoutX="196.0" layoutY="213.0" />
+      <PasswordField fx:id="userPw" layoutX="196.0" layoutY="265.0" />
       <Button alignment="CENTER" layoutX="104.0" layoutY="345.0" mnemonicParsing="false" onAction="#confirm" prefHeight="30.0" prefWidth="80.0" text="확인" />
       <Button layoutX="212.0" layoutY="345.0" mnemonicParsing="false" onAction="#cancel" prefHeight="30.0" prefWidth="80.0" text="취소" />
       <Button layoutX="317.0" layoutY="345.0" mnemonicParsing="false" onAction="#register" prefHeight="30.0" prefWidth="80.0" text="회원가입" />
-      <Label layoutX="121.0" layoutY="217.0" text="Label" />
-      <Label layoutX="121.0" layoutY="269.0" text="Label" />
+      <Label layoutX="135.0" layoutY="215.0" text="아이디">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="121.0" layoutY="269.0" text="비밀번호">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
    </children>
 </AnchorPane>

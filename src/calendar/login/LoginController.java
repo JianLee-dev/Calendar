@@ -10,8 +10,10 @@ import calendar.member.MemberMain;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 public class LoginController implements Initializable{
 
@@ -25,7 +27,7 @@ public class LoginController implements Initializable{
 
 	public void setRoot(Parent root) {
 		this.root = root;
-		setImage();
+		setImage();		
 	}
 	
 	public void setImage() {
@@ -35,14 +37,15 @@ public class LoginController implements Initializable{
 	
 	
 	public void confirm() {
-//		if(ls.loginCheck(root)) {
-//			ls.setLogin(root);
-//			new CalendarMain();
-//			CommonService.close(root);
-//		}else {
-//			CommonService.alert(AlertType.WARNING, "없는 사용자 이거나 잘못된 비밀번호 입니다.");
-//		}
-		new FormMain();
+		if(ls.loginCheck(root)) {
+			ls.setLogin(root);
+			new FormMain();
+			((Stage)root.getScene().getWindow()).close();
+			CommonService.close(root);
+		}else {
+			CommonService.alert(AlertType.WARNING, "없는 사용자 이거나 잘못된 비밀번호 입니다.");
+		}
+		
 		
 	}
 	public void cancel() {

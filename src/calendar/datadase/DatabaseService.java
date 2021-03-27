@@ -11,7 +11,7 @@ import calendar.login.LoginController;
 public class DatabaseService implements IDatabaseService{
 	
 	//localhost
-	private String url = "jdbc:oracle:thin:@localhost:1521:XE";
+	private String url = "jdbc:oracle:thin:@125.132.133.80:1521:XE";
 	private String uid = "java";
 	private String upw = "1234";
 	private Connection conn = null;
@@ -144,7 +144,7 @@ public class DatabaseService implements IDatabaseService{
 	@Override
 	public boolean loginCheck(UserVO userVO) {
 		String sql = "SELECT user_pw FROM userInfo WHERE user_id=?";
-		String pw;
+		String pw = null;
 		try {
 			conn = DriverManager.getConnection(url,uid,upw);
 			pstmt = conn.prepareStatement(sql);
@@ -154,7 +154,7 @@ public class DatabaseService implements IDatabaseService{
 				pw = rs.getString("user_pw");
 			}
 			
-			if (userVO.getUserPw().equals("pw")) {
+			if (userVO.getUserPw().equals(pw)) {
 				return true;
 			}else {
 				return false;
