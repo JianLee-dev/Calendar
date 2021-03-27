@@ -10,8 +10,8 @@ import calendar.login.LoginController;
 
 public class DatabaseService implements IDatabaseService{
 	
-	//localhost
-	private String url = "jdbc:oracle:thin:@125.132.133.80:1521:XE";
+	//localhost 125.132.133.80
+	private String url = "jdbc:oracle:thin:@localhost:1521:XE";
 	private String uid = "java";
 	private String upw = "1234";
 	private Connection conn = null;
@@ -118,7 +118,7 @@ public class DatabaseService implements IDatabaseService{
 
 	@Override
 	public void modifyMember(UserVO userVO) {
-		String sql = "UPDATE FROM userInfo SET user_pw=?, user_name=?, user_birth=?, user_phone=? WHERE id=?";
+		String sql = "UPDATE userInfo SET user_pw=?, user_name=?, user_birth=?, user_phone=? WHERE user_id=?";
 		try {
 			conn = DriverManager.getConnection(url,uid,upw);
 			pstmt = conn.prepareStatement(sql);

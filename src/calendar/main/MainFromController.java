@@ -3,7 +3,6 @@ package calendar.main;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import calendar.calendar.CalendarMain;
 import calendar.info.InfoMain;
 import calendar.login.LoginController;
 import calendar.login.LoginMain;

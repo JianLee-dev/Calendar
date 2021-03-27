@@ -27,36 +27,26 @@ public class InfoService {
 		
 		
 		userId = ((TextField)root.lookup("#userId"));
-		userPw = ((TextField)root.lookup("#userPw"));
-		//userPwChk = ((PasswordField)root.lookup("#userPwChk"));
+		userPw = ((PasswordField)root.lookup("#userPw"));
 		userName = ((TextField)root.lookup("#userName"));
 		userBirth =((DatePicker)root.lookup("#userBirth"));
 		userPhone = ((TextField)root.lookup("#userPhone"));
 
-		userId.setText(userInfo.getUserId()); //userInfo.getUserId()
-		userPw.setText(userInfo.getUserPw());  //userInfo.getUserPw()
-		userName.setText(userInfo.getUserName());	//userInfo.getName()
-		userPhone.setText(userInfo.getUserPhone()+"");	//userInfo.getPhone()
+		userId.setText(userInfo.getUserId()); 
+		userPw.setText(userInfo.getUserPw());  
+		userName.setText(userInfo.getUserName());	
+		userPhone.setText("0"+userInfo.getUserPhone());	
 		int birth = userInfo.getUserBirth();
 		int year = birth/10000;
 		int month = (birth-(year*10000))/100;
 		int day = birth-((year*10000)+(month*100));
-		System.out.println("생일 : " + birth ); //userInfo.getBirth() 19990303 
+		System.out.println("생일 : " + birth ); 
 		userBirth.setValue(LocalDate.of(year, month, day));
-		userPw.setText("비번");
-		userId.setDisable(true);
-		userPw.setDisable(true);
-		userName.setDisable(true);
-		userBirth.setDisable(true);
-		userPhone.setDisable(true);
 		
-/////////////////////////////////////////////////////////////////		
-	
-		
-	
-
-	
+		disable();
 	}
+	
+	
 	//check Info 
 	public UserVO checkInfo(Parent root) {
 
@@ -68,15 +58,12 @@ public class InfoService {
 			CommonService.alert(AlertType.WARNING, "비밀번호를 입력하세요");
 			return null;
 		}
-		if (!userPw.getText().equals(userPwChk.getText())) {
-			CommonService.alert(AlertType.WARNING, "비밀번호가 일치하지 않습니다");
-			return null;
-		}
+		
 		if (userName == null || userName.getText().equals("")) {
 			CommonService.alert(AlertType.WARNING, "이름을 입력하세요");
 			return null;
 		}
-		if (userBirth == null) {
+		if (userBirth == null || userBirth.getValue() == null) {
 			CommonService.alert(AlertType.WARNING, "생일을 입력하세요");
 			return null;
 		}
@@ -112,7 +99,7 @@ public class InfoService {
 	
 	//enable 
 	public void enable() {
-		userId.setDisable(false);
+		userId.setDisable(true);
 		userPw.setDisable(false);
 		userName.setDisable(false);
 		userBirth.setDisable(false);
