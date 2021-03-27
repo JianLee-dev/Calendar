@@ -6,16 +6,24 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 
-public class CalendarMain extends AnchorPane{
+public class CalendarMain {
+	
+	Parent root;
+	
+	
 	public CalendarMain() {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("calender.fxml"));
-		Parent root = this;
-		loader.setRoot(this);
-		loader.setController(this);
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("calendar.fxml"));
+
 		try {
-			loader.load();
+			root = loader.load();
 		} catch (IOException e) {
 			e.printStackTrace();		
 		}
 	}
+	
+	
+	public Parent getRoot() {
+		return root;
+	}
+	
 }

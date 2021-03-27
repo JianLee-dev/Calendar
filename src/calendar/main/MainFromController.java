@@ -22,13 +22,12 @@ public class MainFromController implements Initializable{
 	
 
 	public void setRoot(Parent root) {
-		
 		this.root = root;
-		
+		btn01();
 	}
 
 	public void btn01() {
-		borderPane.setCenter(new CalendarMain());
+		borderPane.setCenter(new CalendarMain().getRoot());
 		System.out.println("캘린더 화면으로 이동");
 
 	}

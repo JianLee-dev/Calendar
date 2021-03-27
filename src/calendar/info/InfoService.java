@@ -14,12 +14,11 @@ import javafx.scene.control.TextField;
 public class InfoService {
 	
 	
-	private TextField userId;
-	private TextField userPw;
-	private TextField userPwChk;
-	private TextField userName;
-	private DatePicker userBirth;
-	private TextField userPhone;
+	private TextField userId=null;
+	private TextField userPw=null;
+	private TextField userName=null;
+	private DatePicker userBirth=null;
+	private TextField userPhone=null;
 	UserVO userInfo = LoginController.user;
 	
 	//setInfo
@@ -32,11 +31,11 @@ public class InfoService {
 		userBirth =((DatePicker)root.lookup("#userBirth"));
 		userPhone = ((TextField)root.lookup("#userPhone"));
 
-		userId.setText(userInfo.getUserId()); 
-		userPw.setText(userInfo.getUserPw());  
-		userName.setText(userInfo.getUserName());	
-		userPhone.setText("0"+userInfo.getUserPhone());	
-		int birth = userInfo.getUserBirth();
+		userId.setText(LoginController.user.getUserId()); 
+		userPw.setText(LoginController.user.getUserPw());  
+		userName.setText(LoginController.user.getUserName());	
+		userPhone.setText("0"+LoginController.user.getUserPhone());	
+		int birth = LoginController.user.getUserBirth();
 		int year = birth/10000;
 		int month = (birth-(year*10000))/100;
 		int day = birth-((year*10000)+(month*100));

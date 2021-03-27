@@ -10,12 +10,16 @@ import calendar.datadase.UserVO;
 import calendar.login.LoginController;
 import calendar.member.IMemberService;
 import calendar.member.MemberService;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 
 public class InfoController implements Initializable {
-	
+	@FXML Button confirm;
+	@FXML Button cancel;
+	@FXML Button modify;
 	Parent root = null;
 	IMemberService ms;
 	InfoService is;
@@ -23,6 +27,8 @@ public class InfoController implements Initializable {
 	public void setRoot(Parent root) {
 		this.root = root;
 		is.setInfo(root);
+		confirm.setDisable(true);
+		cancel.setDisable(true);
 	}
 	
 
@@ -34,16 +40,19 @@ public class InfoController implements Initializable {
 			LoginController.user = user;
 			CommonService.alert(AlertType.INFORMATION, "회원정보가 수정되었습니다.");
 			is.disable();
+
 		}
 	
 	}
 	public void modify() {
 		is.enable();
+
 	}
 	
 	public void cancel() {
 		is.setInfo(root);
 		is.disable();
+
 	}
 	
 	@Override
