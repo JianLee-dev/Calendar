@@ -3,6 +3,7 @@ package calendar.main;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import calendar.calendar.CalendarMain;
 import calendar.info.InfoMain;
 import calendar.login.LoginController;
 import calendar.login.LoginMain;
@@ -27,6 +28,7 @@ public class MainFromController implements Initializable{
 	}
 
 	public void btn01() {
+		borderPane.setCenter(new CalendarMain());
 		System.out.println("캘린더 화면으로 이동");
 
 	}
