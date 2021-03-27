@@ -1,1 +1,8 @@
+<<<<<<< HEAD
 /bin/
+=======
+/.settings/
+/bin/
+/.project
+/.classpath
+>>>>>>> 166d423c7cba2cb631a711d0d89d3f1b426d6d49
