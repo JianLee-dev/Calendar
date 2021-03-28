@@ -258,22 +258,59 @@ public class DatabaseService implements IDatabaseService{
 
 	@Override
 	//GraphController에서 사용
-	public int getCatAvg(String id, int yearMonth, String category) {
-		int catAvg = 0;
-		//select AVG(c_price) from calendar where c_id=id,(c_date/100)=yearMonth,c_category= category;
-		
-		return catAvg;
+	public int getCatAvg(String id, int yearMonth, String category) { //yearMonth형식 : 20210100 
+		String sql = "SELECT AVG(c_price) AS average FROM CALENDER WHERE C_ID=? and TRUNC(c_date,-2)=? and c_category= ?";
+		try {
+			conn = DriverManager.getConnection(url,uid,upw);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,id);
+			pstmt.setInt(2,yearMonth);
+			pstmt.setString(3,category);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				conn.close();
+				rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return 0;
 	}
 
 
 
 	@Override
 	//GraphController에서 사용
-	public int getMonthTotal(String id, int yearMonth) {
-		int monthTotal = 0;
-		//select SUM(c_price) from calendar where c_id=id,(c_date/100)=yearMonth;
-		
-		return monthTotal;
+	public int getMonthTotal(String id, int yearMonth) { //yearMonth형식 : 20210100 
+		String sql = "SELECT SUM(C_PRICE) FROM CALENDER where C_ID=? and TRUNC(C_DATE,-2)=?";
+		try {
+			conn = DriverManager.getConnection(url,uid,upw);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,id);
+			pstmt.setInt(2,yearMonth);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				conn.close();
+				rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return 0;
 	}
 
 
@@ -283,16 +320,31 @@ public class DatabaseService implements IDatabaseService{
 	//GraphController에서 사용
 	public ArrayList<String> getMembers() {
 		ArrayList<String> members = new ArrayList<String>();
-		//select DISTINCT c_user from calendar;
-		
-		
+		String sql = "SELECT DISTINCT C_ID FROM CALENDER";
+		try {
+			conn = DriverManager.getConnection(url,uid,upw);
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			int i = 1;
+			while(rs.next()) {
+				members.add(rs.getString(i));
+				i++;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				conn.close();
+				rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 		return members;
 	}
 
 	
-	
-		
-		
 	
 	
 	

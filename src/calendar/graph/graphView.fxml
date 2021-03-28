@@ -10,7 +10,6 @@
 
 
 <AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="calendar.graph.GraphController">
-   <children>
       <Label fx:id="labelYM" layoutX="41.0" layoutY="35.0" text="0000년 00월">
          <font>
             <Font size="20.0" />

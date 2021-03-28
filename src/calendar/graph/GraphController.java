@@ -37,33 +37,33 @@ public class GraphController implements Initializable{
 		labelYM.setText(getCurrentYear()+"년 "+getCurrentMonth()+"월");
 		
 		pieChart.setData(FXCollections.observableArrayList(
-				new PieChart.Data("식비",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*100)+getCurrentMonth(),"식비")),
-				new PieChart.Data("생활",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*100)+getCurrentMonth(),"생활")),
-				new PieChart.Data("쇼핑",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*100)+getCurrentMonth(),"쇼핑")),
-				new PieChart.Data("교육",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*100)+getCurrentMonth(),"교육")),
-				new PieChart.Data("교통",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*100)+getCurrentMonth(),"교통")),
-				new PieChart.Data("건강",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*100)+getCurrentMonth(),"건강")),
-				new PieChart.Data("금융",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*100)+getCurrentMonth(),"금융")),
-				new PieChart.Data("문화활동",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*100)+getCurrentMonth(),"문화활동")),
-				new PieChart.Data("여가/숙박",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*100)+getCurrentMonth(),"여가/숙박")),
-				new PieChart.Data("기타",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*100)+getCurrentMonth(),"기타"))
+				new PieChart.Data("식비",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"식비")),
+				new PieChart.Data("생활",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"생활")),
+				new PieChart.Data("쇼핑",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"쇼핑")),
+				new PieChart.Data("교육",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"교육")),
+				new PieChart.Data("교통",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"교통")),
+				new PieChart.Data("건강",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"건강")),
+				new PieChart.Data("금융",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"금융")),
+				new PieChart.Data("문화활동",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"문화활동")),
+				new PieChart.Data("여가/숙박",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"여가/숙박")),
+				new PieChart.Data("기타",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"기타"))
 				));
 		
 		
 		XYChart.Series series1 = new XYChart.Series();
 		series1.setData(FXCollections.observableArrayList(
-				new XYChart.Data("1월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*100)+1)),
-				new XYChart.Data("2월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*100)+2)),
-				new XYChart.Data("3월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*100)+3)),
-				new XYChart.Data("4월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*100)+4)),
-				new XYChart.Data("5월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*100)+5)),
-				new XYChart.Data("6월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*100)+6)),
-				new XYChart.Data("7월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*100)+7)),
-				new XYChart.Data("8월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*100)+8)),
-				new XYChart.Data("9월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*100)+9)),
-				new XYChart.Data("10월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*100)+10)),
-				new XYChart.Data("11월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*100)+11)),
-				new XYChart.Data("12월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*100)+12))
+				new XYChart.Data("1월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+100)),
+				new XYChart.Data("2월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+200)),
+				new XYChart.Data("3월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+300)),
+				new XYChart.Data("4월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+400)),
+				new XYChart.Data("5월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+500)),
+				new XYChart.Data("6월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+600)),
+				new XYChart.Data("7월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+700)),
+				new XYChart.Data("8월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+800)),
+				new XYChart.Data("9월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+900)),
+				new XYChart.Data("10월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+1000)),
+				new XYChart.Data("11월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+1100)),
+				new XYChart.Data("12월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+1200))
 				));
 		areaChart.getData().add(series1);
 		
@@ -87,7 +87,6 @@ public class GraphController implements Initializable{
 		String month = format2.format(time);
 		return Integer.parseInt(month);
 	}
-	
 	private int calcAge(String userId) {
 		
 		int CurrentY = getCurrentYear();
@@ -109,7 +108,7 @@ public class GraphController implements Initializable{
 		}
 
 		for(String userId : getMatchUser) {
-			sum += db.getMonthTotal(currentUserDB.getUserId(), (year*100)+mon);
+			sum += db.getMonthTotal(currentUserDB.getUserId(), (year*10000)+(mon*100));
 		}
 		avg = sum /(getMatchUser.size());
 		return avg;		
