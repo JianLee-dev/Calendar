@@ -6,28 +6,47 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calendar.login.LoginController">
    <children>
-      <ImageView fx:id="imageView" fitHeight="500.0" fitWidth="500.0" layoutX="-4.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
-      <Label alignment="CENTER" layoutX="121.0" layoutY="92.0" prefHeight="86.0" prefWidth="262.0" text="나만의 가계부" textAlignment="CENTER">
+      <ImageView fx:id="imageView" fitHeight="500.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true" />
+      <Label alignment="CENTER" layoutX="103.0" layoutY="76.0" prefHeight="86.0" prefWidth="299.0" text="financial ledger" textAlignment="CENTER">
          <font>
             <Font name="SansSerif Bold" size="36.0" />
          </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="0.5904761904761904" startX="1.0" startY="0.580952380952381">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.00749063670411985">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
       </Label>
-      <TextField fx:id="userId" layoutX="196.0" layoutY="213.0" />
-      <PasswordField fx:id="userPw" layoutX="196.0" layoutY="265.0" />
-      <Button alignment="CENTER" layoutX="104.0" layoutY="345.0" mnemonicParsing="false" onAction="#confirm" prefHeight="30.0" prefWidth="80.0" text="확인" />
-      <Button layoutX="212.0" layoutY="345.0" mnemonicParsing="false" onAction="#cancel" prefHeight="30.0" prefWidth="80.0" text="취소" />
-      <Button layoutX="317.0" layoutY="345.0" mnemonicParsing="false" onAction="#register" prefHeight="30.0" prefWidth="80.0" text="회원가입" />
-      <Label layoutX="135.0" layoutY="215.0" text="아이디">
+      <TextField fx:id="userId" layoutX="127.0" layoutY="201.0" prefHeight="30.0" prefWidth="250.0" />
+      <PasswordField fx:id="userPw" layoutX="127.0" layoutY="241.0" prefHeight="30.0" prefWidth="250.0" />
+      <Button fx:id="confirm" alignment="CENTER" contentDisplay="CENTER" layoutX="127.0" layoutY="284.0" mnemonicParsing="false" onAction="#confirm" prefHeight="30.0" prefWidth="250.0" text="로    그    인" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="14.0" />
-         </font></Label>
-      <Label layoutX="121.0" layoutY="269.0" text="비밀번호">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
+         </font></Button>
+      <Button fx:id="cancel" alignment="CENTER" contentDisplay="CENTER" layoutX="127.0" layoutY="314.0" mnemonicParsing="false" onAction="#cancel" prefHeight="30.0" prefWidth="250.0" text="취    소" textFill="WHITE" />
+      <Button fx:id="register" alignment="CENTER" contentDisplay="CENTER" layoutX="127.0" layoutY="344.0" mnemonicParsing="false" onAction="#register" prefHeight="30.0" prefWidth="250.0" text="회    원    가    입" textFill="WHITE" />
    </children>
 </AnchorPane>

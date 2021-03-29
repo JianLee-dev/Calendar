@@ -13,11 +13,11 @@ public class LoginService implements ILoginService {
 	
 	@Override
 	public boolean loginCheck(Parent root) {
-		String userId = ((TextField)root.lookup("#userId")).getText();
-		String userPw = ((PasswordField)root.lookup("#userPw")).getText();
+		TextField userId = ((TextField)root.lookup("#userId"));
+		PasswordField userPw = ((PasswordField)root.lookup("#userPw"));
 		UserVO userVO = new UserVO();
-		userVO.setUserId(userId);
-		userVO.setUserPw(userPw);
+		userVO.setUserId(userId.getText());
+		userVO.setUserPw(userPw.getText());
 		return ds.loginCheck(userVO);
 	}
 
