@@ -32,12 +32,12 @@ public class GraphMain extends Application{
 	}
 	
 	
-	public Scene getGraphScene() throws IOException {
+	public Parent getGraphScene() throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("graphView.fxml"));
 		Parent root = loader.load();
-		Scene scene = new Scene(root);
+		//Scene scene = new Scene(root);
 		
-		return scene;
+		return root;
 	}
 
 }

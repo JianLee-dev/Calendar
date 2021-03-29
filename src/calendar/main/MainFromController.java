@@ -1,5 +1,6 @@
 package calendar.main;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -35,7 +36,11 @@ public class MainFromController implements Initializable{
 
 	public void btn02() {
 		System.out.println("그래프로 화면 이동");
-
+		try {
+			borderPane.setCenter(new GraphMain().getGraphScene());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void btn03() {
