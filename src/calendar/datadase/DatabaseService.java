@@ -181,7 +181,7 @@ public class DatabaseService implements IDatabaseService{
 
 	@Override
 	public void saveCalendar(CalendarVO cvo) {
-		String sql = "INSERT INTO calender VALUES(?,?,?,?,?)";
+		String sql = "INSERT INTO calendar VALUES(?,?,?,?,?)";
 		try {
 			conn = DriverManager.getConnection(url,uid,upw);
 			pstmt = conn.prepareStatement(sql);
@@ -210,7 +210,7 @@ public class DatabaseService implements IDatabaseService{
 
 	@Override
 	public void modifyCalendar(CalendarVO cvo) {
-		String sql = "UPDATE FROM calender SET c_id=?, c_date=?, c_category=?, c_name=?, c_price=?";
+		String sql = "UPDATE FROM calendar SET c_id=?, c_date=?, c_category=?, c_name=?, c_price=?";
 		try {
 			conn = DriverManager.getConnection(url,uid,upw);
 			pstmt = conn.prepareStatement(sql);
@@ -260,7 +260,7 @@ public class DatabaseService implements IDatabaseService{
 	@Override
 	//GraphController에서 사용
 	public int getCatAvg(String id, int yearMonth, String category) { //yearMonth형식 : 20210100 
-		String sql = "SELECT AVG(c_price) AS average FROM CALENDER WHERE C_ID=? and TRUNC(c_date,-2)=? and c_category= ?";
+		String sql = "SELECT AVG(c_price) AS average FROM CALENDAR WHERE C_ID=? and TRUNC(c_date,-2)=? and c_category= ?";
 		try {
 			conn = DriverManager.getConnection(url,uid,upw);
 			pstmt = conn.prepareStatement(sql);
@@ -290,7 +290,7 @@ public class DatabaseService implements IDatabaseService{
 	@Override
 	//GraphController에서 사용
 	public int getMonthTotal(String id, int yearMonth) { //yearMonth형식 : 20210100 
-		String sql = "SELECT SUM(C_PRICE) FROM CALENDER where C_ID=? and TRUNC(C_DATE,-2)=?";
+		String sql = "SELECT SUM(C_PRICE) FROM CALENDAR where C_ID=? and TRUNC(C_DATE,-2)=?";
 		try {
 			conn = DriverManager.getConnection(url,uid,upw);
 			pstmt = conn.prepareStatement(sql);
@@ -321,7 +321,7 @@ public class DatabaseService implements IDatabaseService{
 	//GraphController에서 사용
 	public ArrayList<String> getMembers() {
 		ArrayList<String> members = new ArrayList<String>();
-		String sql = "SELECT DISTINCT C_ID FROM CALENDER";
+		String sql = "SELECT DISTINCT C_ID FROM CALENDAR";
 		try {
 			conn = DriverManager.getConnection(url,uid,upw);
 			pstmt = conn.prepareStatement(sql);

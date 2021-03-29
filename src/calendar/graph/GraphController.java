@@ -71,7 +71,15 @@ public class GraphController implements Initializable{
 		
 		int comparePrice = getMemberMonthAvg(getCurrentYear(), getCurrentMonth()) - db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+(getCurrentMonth()*100));
 		
-		labelCompare.setText("이번 달, "+currentUserDB.getUserId()+" 님은 "+(calcAge(currentUserDB.getUserId())*10)+"대 평균과 비교했을 때, "+comparePrice+"원을 지출하고 있습니다.");
+		if(comparePrice == 0) {
+			labelCompare.setText("현재 "+currentUserDB.getUserId()+" 님은 평균적으로 지출하고 있습니다.");
+		}else if(comparePrice > 0) {
+			labelCompare.setText("현재 "+currentUserDB.getUserId()+" 님은 "+(calcAge(currentUserDB.getUserId())*10)+"대 평균과 비교했을 때, "+comparePrice+"원을 더 소비하고 있습니다.");
+		}else {
+			comparePrice *= -1;
+			labelCompare.setText("현재 "+currentUserDB.getUserId()+" 님은 "+(calcAge(currentUserDB.getUserId())*10)+"대 평균과 비교했을 때, "+comparePrice+"원을 절약하고 있습니다.");
+		}
+		
 		
 	}
 	
@@ -116,7 +124,9 @@ public class GraphController implements Initializable{
 			sum += db.getMonthTotal(currentUserDB.getUserId(), (year*10000)+(mon*100));
 //			sum += db.getMonthTotal("가가가", (year*10000)+(mon*100));  : 테스트
 		}
-		avg = sum /(getMatchUser.size());
+		if(getMatchUser.size() != 0) {
+			avg = sum /(getMatchUser.size());
+		}
 		return avg;		
 	}
 
