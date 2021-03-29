@@ -42,7 +42,7 @@ public class InfoService {
 		int month = (birth-(year*10000))/100;
 		int day = birth-((year*10000)+(month*100));
 		userBirth.setValue(LocalDate.of(year, month, day));
-		
+
 		disable();
 	}
 	
