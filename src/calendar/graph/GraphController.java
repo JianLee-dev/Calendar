@@ -36,20 +36,21 @@ public class GraphController implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		labelYM.setText(getCurrentYear()+"년 "+getCurrentMonth()+"월");
 		
-		pieChart.setData(FXCollections.observableArrayList(
-//				new PieChart.Data("카테고리",db.getCatAvg("가가가",(getCurrentYear()*10000)+(getCurrentMonth()*100),"카테고리")) :테스트
-				new PieChart.Data("식비",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"식비")),
-				new PieChart.Data("생활",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"생활")),
-				new PieChart.Data("쇼핑",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"쇼핑")),
-				new PieChart.Data("교육",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"교육")),
-				new PieChart.Data("교통",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"교통")),
-				new PieChart.Data("건강",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"건강")),
-				new PieChart.Data("금융",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"금융")),
-				new PieChart.Data("문화활동",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"문화활동")),
-				new PieChart.Data("여가/숙박",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"여가/숙박")),
-				new PieChart.Data("기타",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"기타"))
-				));
-		
+		if(db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+(getCurrentMonth()*100)) != 0) {
+			pieChart.setData(FXCollections.observableArrayList(
+//					new PieChart.Data("카테고리",db.getCatAvg("가가가",(getCurrentYear()*10000)+(getCurrentMonth()*100),"카테고리")) :테스트
+					new PieChart.Data("식비",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"식비")),
+					new PieChart.Data("생활",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"생활")),
+					new PieChart.Data("쇼핑",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"쇼핑")),
+					new PieChart.Data("교육",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"교육")),
+					new PieChart.Data("교통",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"교통")),
+					new PieChart.Data("건강",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"건강")),
+					new PieChart.Data("금융",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"금융")),
+					new PieChart.Data("문화활동",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"문화활동")),
+					new PieChart.Data("여가/숙박",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"여가/숙박")),
+					new PieChart.Data("기타",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"기타"))
+					));
+		}
 		
 		XYChart.Series series1 = new XYChart.Series();
 		series1.setData(FXCollections.observableArrayList(
@@ -71,7 +72,9 @@ public class GraphController implements Initializable{
 		
 		int comparePrice = getMemberMonthAvg(getCurrentYear(), getCurrentMonth()) - db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+(getCurrentMonth()*100));
 		
-		if(comparePrice == 0) {
+		if(db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+(getCurrentMonth()*100)) == 0) {
+			labelCompare.setText(" ");
+		}else if(comparePrice == 0) {
 			labelCompare.setText("현재 "+currentUserDB.getUserId()+" 님은 평균적으로 지출하고 있습니다.");
 		}else if(comparePrice > 0) {
 			labelCompare.setText("현재 "+currentUserDB.getUserId()+" 님은 "+(calcAge(currentUserDB.getUserId())*10)+"대 평균과 비교했을 때, "+comparePrice+"원을 더 소비하고 있습니다.");
