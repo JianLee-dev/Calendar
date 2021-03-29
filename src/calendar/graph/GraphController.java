@@ -32,8 +32,10 @@ public class GraphController implements Initializable{
 	UserVO currentUserDB = LoginController.user;
 	DatabaseService db = new DatabaseService();
 	
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		System.out.println(db.getMonthTotal("abc", 20210300)); ///////LOG DB TEST 
 		labelYM.setText(getCurrentYear()+"년 "+getCurrentMonth()+"월");
 		
 		pieChart.setData(FXCollections.observableArrayList(
