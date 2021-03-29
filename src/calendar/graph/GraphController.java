@@ -36,7 +36,7 @@ public class GraphController implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		System.out.println(db.getMonthTotal("abc", 20210300)); ///////LOG DB TEST 
-		labelYM.setText(getCurrentYear()+"년 "+getCurrentMonth()+"월");
+		labelYM.setText(getCurrentYear()+". "+getCurrentMonth());
 		
 		if(db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+(getCurrentMonth()*100)) != 0) {
 			pieChart.setData(FXCollections.observableArrayList(
@@ -137,5 +137,6 @@ public class GraphController implements Initializable{
 		return avg;		
 	}
 
+	
 	
 }

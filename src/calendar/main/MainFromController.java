@@ -12,7 +12,9 @@ import calendar.login.LoginMain;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class MainFromController implements Initializable{
@@ -20,6 +22,10 @@ public class MainFromController implements Initializable{
 	
 
 	@FXML BorderPane borderPane;
+	@FXML Button homeBtn01;
+	@FXML Button homeBtn02;
+	@FXML Button homeBtn03;
+	@FXML Button logout;
 
 	
 
@@ -30,6 +36,7 @@ public class MainFromController implements Initializable{
 
 	public void btn01() {
 		borderPane.setCenter(new CalendarMain().getRoot());
+		btn1Click();
 		System.out.println("캘린더 화면으로 이동");
 
 	}
@@ -60,4 +67,23 @@ public class MainFromController implements Initializable{
 
 
 	}
+	
+	public void btn1Click() {
+		homeBtn01.setFont(new Font(18));
+		homeBtn02.setFont(new Font(15));
+		homeBtn03.setFont(new Font(15));
+	}
+	
+	public void btn2Click() {
+		homeBtn01.setFont(new Font(15));
+		homeBtn02.setFont(new Font(18));
+		homeBtn03.setFont(new Font(15));
+	}
+	
+	public void btn3Click() {
+		homeBtn01.setFont(new Font(15));
+		homeBtn02.setFont(new Font(15));
+		homeBtn03.setFont(new Font(18));
+	}
+	
 }
