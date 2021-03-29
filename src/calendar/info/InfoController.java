@@ -27,6 +27,9 @@ public class InfoController implements Initializable {
 	public void setRoot(Parent root) {
 		this.root = root;
 		is.setInfo(root);
+		is.setImg(root);
+		cancel.setDisable(true);
+		confirm.setDisable(true);
 	}
 	
 
@@ -38,11 +41,15 @@ public class InfoController implements Initializable {
 			LoginController.user = user;
 			CommonService.alert(AlertType.INFORMATION, "회원정보가 수정되었습니다.");
 			is.disable();
+			cancel.setDisable(true);
+			confirm.setDisable(true);
 
 		}
 	
 	}
 	public void modify() {
+		cancel.setDisable(false);
+		confirm.setDisable(false);
 		is.enable();
 
 	}
@@ -50,6 +57,8 @@ public class InfoController implements Initializable {
 	public void cancel() {
 		is.setInfo(root);
 		is.disable();
+		cancel.setDisable(true);
+		confirm.setDisable(true);
 
 	}
 	

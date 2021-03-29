@@ -3,7 +3,7 @@ package calendar.datadase;
 public class CalendarVO {
 /*
 		    
-		CREATE TABLE calender(
+		CREATE TABLE calendar(
 		    c_id VARCHAR2(20) NOT NULL,
 		    c_date NUMBER NOT NULL,
 		    c_category VARCHAR2(20) NOT NULL,
