@@ -5,11 +5,16 @@ import java.time.LocalDate;
 import calendar.common.CommonService;
 import calendar.datadase.DatabaseService;
 import calendar.datadase.UserVO;
+import javafx.event.EventHandler;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 public class MemberService implements IMemberService {
 	
@@ -22,8 +27,8 @@ public class MemberService implements IMemberService {
 	DatabaseService ds = new DatabaseService();
 	
 	@Override
-	public void addMember(UserVO userVO) {
-		ds.addMember(userVO);
+	public int addMember(UserVO userVO) {
+		return ds.addMember(userVO);
 		
 	}
 
@@ -107,5 +112,52 @@ public class MemberService implements IMemberService {
 		userVO.setUserPhone(userPhone);
 		return userVO;
 	
+	}
+
+	@Override
+	public UserVO duplicateMember(String userId) {
+		return ds.getMember(userId);
+		
+	}
+	
+	
+	@Override
+	public void setImg(Parent root) {
+		((ImageView)root.lookup("#imageView")).setImage(new Image("/calendar/resources/img/red_pink.jpg"));
+		
+	}
+
+	@Override
+	public void setStyle(Parent root, MemberController mc) {
+		
+		TextField userId = ((TextField)root.lookup("#userId"));
+		PasswordField userPw = ((PasswordField)root.lookup("#userPw"));
+		PasswordField userPwChk = ((PasswordField)root.lookup("#userPwChk"));
+		TextField userName = ((TextField)root.lookup("#userName"));
+		DatePicker userBirth =((DatePicker)root.lookup("#userBirth"));
+		TextField userPhone = ((TextField)root.lookup("#userPhone"));
+		
+		userId.setPromptText("아이디");
+		userPw.setPromptText("비밀번호");
+		userPwChk.setPromptText("비밀번호 확인");
+		userName.setPromptText("이름");
+		userBirth.setPromptText("생일");
+		userPhone.setPromptText("연락처");
+		
+		EventHandler<KeyEvent> enter = new EventHandler<KeyEvent>() {
+			public void handle(KeyEvent event) {
+				if(event.getCode().equals(KeyCode.ENTER)) {
+					mc.confirm();
+				} //if end
+			}; //method handle end 
+		}; // new end
+				
+		userId.setOnKeyPressed(enter);
+		userPw.setOnKeyPressed(enter);
+		userPwChk.setOnKeyPressed(enter);
+		userName.setOnKeyPressed(enter);
+		userBirth.setOnKeyPressed(enter);
+		userPhone.setOnKeyPressed(enter);
+		
 	}
 }

@@ -32,7 +32,7 @@ public class DatabaseService implements IDatabaseService{
 
 	//회원가입
 	@Override
-	public void addMember(UserVO userVO) {
+	public int addMember(UserVO userVO) {
 		String sql = "INSERT INTO userInfo values(?,?,?,?,?)";
 		try {
 			conn = DriverManager.getConnection(url,uid,upw);
@@ -42,10 +42,11 @@ public class DatabaseService implements IDatabaseService{
 			pstmt.setString(3,userVO.getUserName());
 			pstmt.setInt(4,userVO.getUserBirth());
 			pstmt.setInt(5,userVO.getUserPhone());
-			pstmt.executeUpdate();
+			return pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return 0;
 		}finally {
 			try {
 				pstmt.close();

@@ -7,6 +7,7 @@ import calendar.common.CommonService;
 import calendar.datadase.UserVO;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert.AlertType;
 
 public class MemberController implements Initializable {
 
@@ -17,14 +18,20 @@ public class MemberController implements Initializable {
 	
 	public void setRoot(Parent root) {
 		this.root = root;
+		ms.setImg(root);
+		ms.setStyle(root, this);
 	}
 	
 	
 	public void confirm() {
-		UserVO userVO = ms.checkMember(root);
-		if(userVO != null) {
-			ms.addMember(userVO);
-			CommonService.close(root);
+		UserVO userVO = ms.checkMember(root); //회원가입창 정보입력 확인
+		if(userVO != null) { 
+			if(ms.duplicateMember(userVO.getUserId()).getUserId()==null) { //회원가입 중복 아이디 판별
+				ms.addMember(userVO);
+				CommonService.close(root);		
+			}else{ 
+				CommonService.alert(AlertType.WARNING, "이미 등록된 아이디 입니다.");
+			};
 		};
 	}
 	public void cancel(){

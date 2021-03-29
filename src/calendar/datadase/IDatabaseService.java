@@ -7,7 +7,7 @@ public interface IDatabaseService {
 
 	void delMember(String userId);
 	void modifyMember(UserVO userVO);
-	void addMember(UserVO userVO);
+	int addMember(UserVO userVO);
 	UserVO getMember(String userId);
 	boolean loginCheck(UserVO userVO);
 	

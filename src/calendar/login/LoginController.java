@@ -5,7 +5,7 @@ import java.util.ResourceBundle;
 
 import calendar.common.CommonService;
 import calendar.datadase.UserVO;
-import calendar.main.FormMain;
+import calendar.main.MainForm;
 import calendar.member.MemberMain;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -36,54 +36,30 @@ public class LoginController implements Initializable{
 	
 
 	public void setRoot(Parent root) {
-		this.root = root;
-		setStyle();		
+		this.root = root;						
+		ls.setStyle(root,this);					//스타일
+		ls.setImg(root);						//이미지 
 	}
 	
-	public void setStyle() {
-		Image img1 = new Image("/calendar/resources/img/calendar.jpg");
-		imageView.setImage(img1);
-		confirm.setStyle("-fx-base: #8F98FF;");
-		cancel.setStyle("-fx-base: #8F98FF;");
-		register.setStyle("-fx-base: #8F98FF;");
-		userId.setPromptText("아이디");
-		userPw.setPromptText("비밀번호");
-		//입력후 enter -> 로그인 버튼 클릭
-		userId.setOnKeyPressed(new EventHandler<KeyEvent>() {
-		public void handle(KeyEvent event) {
-			if(event.getCode().equals(KeyCode.ENTER)) {
-				confirm();
-			}
-			};
-		});
-		//입력후 enter -> 로그인 버튼 클릭
-		userPw.setOnKeyPressed(new EventHandler<KeyEvent>() {
-			public void handle(KeyEvent event) {
-				if(event.getCode().equals(KeyCode.ENTER)) {
-					confirm();
-				}
-				};
-			});
-	}
 	
 	
 	public void confirm() {
-		if(ls.loginCheck(root)) {
-			ls.setLogin(root);
-			new FormMain();
-			((Stage)root.getScene().getWindow()).close();
-			CommonService.close(root);
-		}else {
-			CommonService.alert(AlertType.WARNING, "없는 사용자 이거나 잘못된 비밀번호 입니다.");
+		if(ls.loginCheck(root)) { 				//비밀번호 확인
+			ls.setLogin(root);					//로그인 사용자정보 저장 
+			new MainForm(); 					// MainForm 오픈 
+			CommonService.close(root); 			//로그인창 닫기
+		}else { //아이디또는 비밀번호 틀릴시 진입 	
+			CommonService.alert(AlertType.WARNING, "없는 사용자 이거나 잘못된 비밀번호 입니다."); 
+			((PasswordField)root.lookup("#userPw")).clear(); 								//비밀번호 오류시 비밀번호 삭제
 		}
 		
 		
 	}
 	public void cancel() {
-		CommonService.close(root);
+		CommonService.close(root);				//취소 누를시 로그인창 닫기
 	}
 	public void register() {
-		new MemberMain();
+		new MemberMain(); 						//회원가입 누를시 회원가입창 오픈
 	}
 	
 	

@@ -7,10 +7,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class FormMain {
+public class MainForm {
 	
 	
-	public FormMain() {
+	public MainForm() {
 		Stage stage = new Stage();
 		Parent root = null;
 		MainFromController cc = null;
