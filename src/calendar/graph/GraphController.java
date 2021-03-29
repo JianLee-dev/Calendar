@@ -116,6 +116,7 @@ public class GraphController implements Initializable{
 //			sum += db.getMonthTotal(currentUserDB.getUserId(), (year*10000)+(mon*100));
 			sum += db.getMonthTotal("가가가", (year*10000)+(mon*100));
 		}
+		
 		avg = sum /(getMatchUser.size());
 		return avg;		
 	}

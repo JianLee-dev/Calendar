@@ -5,48 +5,50 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calendar.info.InfoController">
    <children>
-      <Label alignment="CENTER" layoutX="291.0" layoutY="56.0" prefHeight="49.0" prefWidth="138.0" text="회원정보">
+      <ImageView fx:id="imageView" fitHeight="500.0" fitWidth="700.0" layoutX="10.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
+      <Label alignment="CENTER" layoutX="276.0" layoutY="56.0" prefHeight="50.0" prefWidth="176.0" text="My Info">
+         <font>
+            <Font name="SansSerif Bold" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="200.0" layoutY="132.0" text="ID">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="216.0" layoutY="132.0" text="아이디">
+      <Label layoutX="200.0" layoutY="173.0" text="PW">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="204.0" layoutY="172.0" text="비밀번호">
+      <Label layoutX="200.0" layoutY="218.0" text="Name">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="216.0" layoutY="217.0" text="이름">
+      <Label layoutX="200.0" layoutY="260.0" text="Birth">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="204.0" layoutY="259.0" text="생년월일">
+      <Label layoutX="200.0" layoutY="303.0" text="Contact">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="210.0" layoutY="303.0" text="핸드폰">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="userId" layoutX="349.0" layoutY="132.0" />
-      <TextField fx:id="userName" layoutX="349.0" layoutY="218.0" />
-      <TextField fx:id="userPhone" layoutX="349.0" layoutY="303.0" prefHeight="23.0" prefWidth="161.0" />
-      <Button fx:id="confirm" layoutX="184.0" layoutY="414.0" mnemonicParsing="false" onAction="#confirm" text="확인" />
-      <Button fx:id="cancel" layoutX="349.0" layoutY="414.0" mnemonicParsing="false" onAction="#cancel" text="취소" />
-      <Button fx:id="modify" layoutX="490.0" layoutY="414.0" mnemonicParsing="false" onAction="#modify" text="수정" />
-      <DatePicker fx:id="userBirth" layoutX="349.0" layoutY="260.0" />
-      <PasswordField fx:id="userPw" layoutX="349.0" layoutY="173.0" />
+      <TextField fx:id="userId" layoutX="320.0" layoutY="132.0" prefHeight="25.0" prefWidth="200.0" />
+      <TextField fx:id="userName" layoutX="320.0" layoutY="218.0" prefHeight="25.0" prefWidth="200.0" />
+      <TextField fx:id="userPhone" layoutX="320.0" layoutY="303.0" prefHeight="25.0" prefWidth="200.0" />
+      <Button fx:id="confirm" layoutX="197.0" layoutY="355.0" mnemonicParsing="false" onAction="#confirm" prefHeight="50.0" prefWidth="100.0" text="확인" />
+      <Button fx:id="cancel" layoutX="314.0" layoutY="355.0" mnemonicParsing="false" onAction="#cancel" prefHeight="50.0" prefWidth="100.0" text="취소" />
+      <Button fx:id="modify" layoutX="429.0" layoutY="355.0" mnemonicParsing="false" onAction="#modify" prefHeight="50.0" prefWidth="100.0" text="수정" />
+      <DatePicker fx:id="userBirth" layoutX="320.0" layoutY="260.0" prefHeight="25.0" prefWidth="200.0" />
+      <PasswordField fx:id="userPw" layoutX="320.0" layoutY="173.0" prefHeight="25.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

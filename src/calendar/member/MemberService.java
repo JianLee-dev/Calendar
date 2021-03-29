@@ -64,9 +64,9 @@ public class MemberService implements IMemberService {
 			};
 			String day = null;
 			if(date.getDayOfMonth()<10) {
-				day = "0" + date.getMonthValue();
+				day = "0" + date.getDayOfMonth();
 			}else{
-				day = "" + date.getMonthValue();
+				day = "" + date.getDayOfMonth();
 			};
 			userBirth = Integer.parseInt(year + month + day);
 			System.out.println(userBirth + "사용자 생일 로그 ");
