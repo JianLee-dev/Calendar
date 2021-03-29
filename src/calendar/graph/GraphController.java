@@ -27,48 +27,49 @@ public class GraphController implements Initializable{
 
 	@FXML PieChart pieChart;
 	@FXML AreaChart<Integer, Integer> areaChart;
-	@FXML Label labelYM; //0000³â 00¿ù
-	@FXML Label labelCompare; //ÀÌ¹ø ´Ş, °¡°¡ ´ÔÀº 00´ë Æò±Õ°ú ºñ±³ÇßÀ» ¶§, 00¿øÀ» ´õ ÁöÃâÇÏ°í ÀÖ½À´Ï´Ù.
+	@FXML Label labelYM; //0000ë…„ 00ì›”
+	@FXML Label labelCompare; //ì´ë²ˆ ë‹¬, ê°€ê°€ ë‹˜ì€ 00ëŒ€ í‰ê· ê³¼ ë¹„êµí–ˆì„ ë•Œ, +00ì›ì„ ì§€ì¶œí•˜ê³  ìˆìŠµë‹ˆë‹¤.
 	UserVO currentUserDB = LoginController.user;
 	DatabaseService db = new DatabaseService();
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		labelYM.setText(getCurrentYear()+"³â "+getCurrentMonth()+"¿ù");
+		labelYM.setText(getCurrentYear()+"ë…„ "+getCurrentMonth()+"ì›”");
 		
-		pieChart.setData(FXCollections.observableArrayList(
-				new PieChart.Data("½Äºñ",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"½Äºñ")),
-				new PieChart.Data("»ıÈ°",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"»ıÈ°")),
-				new PieChart.Data("¼îÇÎ",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"¼îÇÎ")),
-				new PieChart.Data("±³À°",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"±³À°")),
-				new PieChart.Data("±³Åë",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"±³Åë")),
-				new PieChart.Data("°Ç°­",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"°Ç°­")),
-				new PieChart.Data("±İÀ¶",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"±İÀ¶")),
-				new PieChart.Data("¹®È­È°µ¿",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"¹®È­È°µ¿")),
-				new PieChart.Data("¿©°¡/¼÷¹Ú",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"¿©°¡/¼÷¹Ú")),
-				new PieChart.Data("±âÅ¸",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"±âÅ¸"))
-				));
-		
-		
-		XYChart.Series series1 = new XYChart.Series();
-		series1.setData(FXCollections.observableArrayList(
-				new XYChart.Data("1¿ù",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+100)),
-				new XYChart.Data("2¿ù",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+200)),
-				new XYChart.Data("3¿ù",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+300)),
-				new XYChart.Data("4¿ù",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+400)),
-				new XYChart.Data("5¿ù",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+500)),
-				new XYChart.Data("6¿ù",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+600)),
-				new XYChart.Data("7¿ù",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+700)),
-				new XYChart.Data("8¿ù",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+800)),
-				new XYChart.Data("9¿ù",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+900)),
-				new XYChart.Data("10¿ù",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+1000)),
-				new XYChart.Data("11¿ù",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+1100)),
-				new XYChart.Data("12¿ù",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+1200))
-				));
-		areaChart.getData().add(series1);
-		
-		
-		labelCompare.setText("ÀÌ¹ø ´Ş, "+currentUserDB.getUserName()+" ´ÔÀº "+(calcAge(currentUserDB.getUserId())*10)+"´ë Æò±Õ°ú ºñ±³ÇßÀ» ¶§, "+getMemberMonthAvg(getCurrentYear(), getCurrentMonth())+"¿øÀ» ´õ ÁöÃâÇÏ°í ÀÖ½À´Ï´Ù.");
+//		pieChart.setData(FXCollections.observableArrayList(
+//				new PieChart.Data("ì‹ë¹„",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"ì‹ë¹„")),
+//				new PieChart.Data("ìƒí™œ",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"ìƒí™œ")),
+//				new PieChart.Data("ì‡¼í•‘",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"ì‡¼í•‘")),
+//				new PieChart.Data("êµìœ¡",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"êµìœ¡")),
+//				new PieChart.Data("êµí†µ",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"êµí†µ")),
+//				new PieChart.Data("ê±´ê°•",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"ê±´ê°•")),
+//				new PieChart.Data("ê¸ˆìœµ",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"ê¸ˆìœµ")),
+//				new PieChart.Data("ë¬¸í™”í™œë™",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"ë¬¸í™”í™œë™")),
+//				new PieChart.Data("ì—¬ê°€/ìˆ™ë°•",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"ì—¬ê°€/ìˆ™ë°•")),
+//				new PieChart.Data("ê¸°íƒ€",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"ê¸°íƒ€"))
+//				));
+//		
+//		
+//		XYChart.Series series1 = new XYChart.Series();
+//		series1.setData(FXCollections.observableArrayList(
+//				new XYChart.Data("1ì›”",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+100)),
+//				new XYChart.Data("2ì›”",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+200)),
+//				new XYChart.Data("3ì›”",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+300)),
+//				new XYChart.Data("4ì›”",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+400)),
+//				new XYChart.Data("5ì›”",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+500)),
+//				new XYChart.Data("6ì›”",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+600)),
+//				new XYChart.Data("7ì›”",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+700)),
+//				new XYChart.Data("8ì›”",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+800)),
+//				new XYChart.Data("9ì›”",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+900)),
+//				new XYChart.Data("10ì›”",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+1000)),
+//				new XYChart.Data("11ì›”",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+1100)),
+//				new XYChart.Data("12ì›”",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+1200))
+//				));
+//		areaChart.getData().add(series1);
+//		
+//		int comparePrice = getMemberMonthAvg(getCurrentYear(), getCurrentMonth()) - db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+(getCurrentMonth()*100));
+//		
+//		labelCompare.setText("ì´ë²ˆ ë‹¬, "+currentUserDB.getUserName()+" ë‹˜ì€ "+(calcAge(currentUserDB.getUserId())*10)+"ëŒ€ í‰ê· ê³¼ ë¹„êµí–ˆì„ ë•Œ,"+comparePrice+"ì›ì„ ì§€ì¶œí•˜ê³  ìˆìŠµë‹ˆë‹¤.");
 		
 	}
 	
@@ -91,7 +92,7 @@ public class GraphController implements Initializable{
 		
 		int CurrentY = getCurrentYear();
 		int userBirthY = currentUserDB.getUserBirth() / 10000;
-		int age = (CurrentY - userBirthY)/10; //¿¬·É´ë (10´ë:1 20´ë:2)
+		int age = (CurrentY - userBirthY)/10; //ì—°ë ¹ëŒ€ (10ëŒ€ :1 20ëŒ€ :2)
 		
 		return age;
 	}

@@ -33,7 +33,7 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </AreaChart>
-      <Label fx:id="labelCompare" layoutX="56.0" layoutY="417.0" text="이번 달, 가가 님은 00대 평균과 비교했을 때, 00원을 더 지출하고 있습니다.">
+      <Label fx:id="labelCompare" layoutX="56.0" layoutY="417.0" text="이번 달, 가가 님은 00대 평균과 비교했을 때, +00원을 지출하고 있습니다.">
          <font>
             <Font size="18.0" />
          </font>
