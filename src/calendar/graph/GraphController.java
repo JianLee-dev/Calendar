@@ -36,42 +36,42 @@ public class GraphController implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		labelYM.setText(getCurrentYear()+"년 "+getCurrentMonth()+"월");
 		
-//		pieChart.setData(FXCollections.observableArrayList(
-////				new PieChart.Data("카테고리",db.getCatAvg("가가가",(getCurrentYear()*10000)+(getCurrentMonth()*100),"카테고리")) :테스트
-//				new PieChart.Data("식비",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"식비")),
-//				new PieChart.Data("생활",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"생활")),
-//				new PieChart.Data("쇼핑",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"쇼핑")),
-//				new PieChart.Data("교육",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"교육")),
-//				new PieChart.Data("교통",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"교통")),
-//				new PieChart.Data("건강",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"건강")),
-//				new PieChart.Data("금융",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"금융")),
-//				new PieChart.Data("문화활동",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"문화활동")),
-//				new PieChart.Data("여가/숙박",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"여가/숙박")),
-//				new PieChart.Data("기타",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"기타"))
-//				));
-//		
-//		
-//		XYChart.Series series1 = new XYChart.Series();
-//		series1.setData(FXCollections.observableArrayList(
-////				new XYChart.Data("1월",db.getMonthTotal("가가가", (getCurrentYear()*10000)+100)) :테스트
-//				new XYChart.Data("1월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+100)),
-//				new XYChart.Data("2월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+200)),
-//				new XYChart.Data("3월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+300)),
-//				new XYChart.Data("4월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+400)),
-//				new XYChart.Data("5월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+500)),
-//				new XYChart.Data("6월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+600)),
-//				new XYChart.Data("7월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+700)),
-//				new XYChart.Data("8월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+800)),
-//				new XYChart.Data("9월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+900)),
-//				new XYChart.Data("10월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+1000)),
-//				new XYChart.Data("11월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+1100)),
-//				new XYChart.Data("12월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+1200))
-//				));
-//		areaChart.getData().add(series1);
+		pieChart.setData(FXCollections.observableArrayList(
+//				new PieChart.Data("카테고리",db.getCatAvg("가가가",(getCurrentYear()*10000)+(getCurrentMonth()*100),"카테고리")) :테스트
+				new PieChart.Data("식비",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"식비")),
+				new PieChart.Data("생활",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"생활")),
+				new PieChart.Data("쇼핑",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"쇼핑")),
+				new PieChart.Data("교육",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"교육")),
+				new PieChart.Data("교통",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"교통")),
+				new PieChart.Data("건강",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"건강")),
+				new PieChart.Data("금융",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"금융")),
+				new PieChart.Data("문화활동",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"문화활동")),
+				new PieChart.Data("여가/숙박",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"여가/숙박")),
+				new PieChart.Data("기타",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"기타"))
+				));
 		
-		int comparePrice = getMemberMonthAvg(getCurrentYear(), getCurrentMonth()) - db.getMonthTotal("가가가", (getCurrentYear()*10000)+(getCurrentMonth()*100));
 		
-		labelCompare.setText("이번 달, "+"가가가"+" 님은 "+(calcAge("가가가")*10)+"대 평균과 비교했을 때,"+comparePrice+"원을 지출하고 있습니다.");
+		XYChart.Series series1 = new XYChart.Series();
+		series1.setData(FXCollections.observableArrayList(
+//				new XYChart.Data("1월",db.getMonthTotal("가가가", (getCurrentYear()*10000)+100)) :테스트
+				new XYChart.Data("1월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+100)),
+				new XYChart.Data("2월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+200)),
+				new XYChart.Data("3월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+300)),
+				new XYChart.Data("4월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+400)),
+				new XYChart.Data("5월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+500)),
+				new XYChart.Data("6월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+600)),
+				new XYChart.Data("7월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+700)),
+				new XYChart.Data("8월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+800)),
+				new XYChart.Data("9월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+900)),
+				new XYChart.Data("10월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+1000)),
+				new XYChart.Data("11월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+1100)),
+				new XYChart.Data("12월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+1200))
+				));
+		areaChart.getData().add(series1);
+		
+		int comparePrice = getMemberMonthAvg(getCurrentYear(), getCurrentMonth()) - db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+(getCurrentMonth()*100));
+		
+		labelCompare.setText("이번 달, "+currentUserDB.getUserId()+" 님은 "+(calcAge(currentUserDB.getUserId())*10)+"대 평균과 비교했을 때, "+comparePrice+"원을 지출하고 있습니다.");
 		
 	}
 	
@@ -93,8 +93,8 @@ public class GraphController implements Initializable{
 	private int calcAge(String userId) {
 		
 		int CurrentY = getCurrentYear();
-//		int userBirthY = currentUserDB.getUserBirth() / 10000;
-		int userBirthY = 19990101 / 10000;
+		int userBirthY = currentUserDB.getUserBirth() / 10000;
+//		int userBirthY = 19990101 / 10000;   : 테스트
 		int age = (CurrentY - userBirthY)/10; //연령대 (10대 :1 20대 :2)
 		
 		return age;
@@ -106,15 +106,15 @@ public class GraphController implements Initializable{
 		int sum = 0;
 		int avg = 0;
 		for(String usersId : db.getMembers()) {
-//			if(calcAge(usersId) == calcAge(currentUserDB.getUserId())) {
-			if(calcAge(usersId) == calcAge("가가가")) {
+			if(calcAge(usersId) == calcAge(currentUserDB.getUserId())) {
+//			if(calcAge(usersId) == calcAge("가가가")) {   : 테스트
 				getMatchUser.add(usersId);
 			}
 		}
 
 		for(String userId : getMatchUser) {
-//			sum += db.getMonthTotal(currentUserDB.getUserId(), (year*10000)+(mon*100));
-			sum += db.getMonthTotal("가가가", (year*10000)+(mon*100));
+			sum += db.getMonthTotal(currentUserDB.getUserId(), (year*10000)+(mon*100));
+//			sum += db.getMonthTotal("가가가", (year*10000)+(mon*100));  : 테스트
 		}
 		
 		avg = sum /(getMatchUser.size());
