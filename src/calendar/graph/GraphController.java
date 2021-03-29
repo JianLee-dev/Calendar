@@ -37,6 +37,7 @@ public class GraphController implements Initializable{
 		labelYM.setText(getCurrentYear()+"년 "+getCurrentMonth()+"월");
 		
 //		pieChart.setData(FXCollections.observableArrayList(
+////				new PieChart.Data("카테고리",db.getCatAvg("가가가",(getCurrentYear()*10000)+(getCurrentMonth()*100),"카테고리")) :테스트
 //				new PieChart.Data("식비",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"식비")),
 //				new PieChart.Data("생활",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"생활")),
 //				new PieChart.Data("쇼핑",db.getCatAvg(currentUserDB.getUserId(),(getCurrentYear()*10000)+(getCurrentMonth()*100),"쇼핑")),
@@ -52,6 +53,7 @@ public class GraphController implements Initializable{
 //		
 //		XYChart.Series series1 = new XYChart.Series();
 //		series1.setData(FXCollections.observableArrayList(
+////				new XYChart.Data("1월",db.getMonthTotal("가가가", (getCurrentYear()*10000)+100)) :테스트
 //				new XYChart.Data("1월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+100)),
 //				new XYChart.Data("2월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+200)),
 //				new XYChart.Data("3월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+300)),
@@ -66,10 +68,10 @@ public class GraphController implements Initializable{
 //				new XYChart.Data("12월",db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+1200))
 //				));
 //		areaChart.getData().add(series1);
-//		
-//		int comparePrice = getMemberMonthAvg(getCurrentYear(), getCurrentMonth()) - db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+(getCurrentMonth()*100));
-//		
-//		labelCompare.setText("이번 달, "+currentUserDB.getUserName()+" 님은 "+(calcAge(currentUserDB.getUserId())*10)+"대 평균과 비교했을 때,"+comparePrice+"원을 지출하고 있습니다.");
+		
+		int comparePrice = getMemberMonthAvg(getCurrentYear(), getCurrentMonth()) - db.getMonthTotal("가가가", (getCurrentYear()*10000)+(getCurrentMonth()*100));
+		
+		labelCompare.setText("이번 달, "+"가가가"+" 님은 "+(calcAge("가가가")*10)+"대 평균과 비교했을 때,"+comparePrice+"원을 지출하고 있습니다.");
 		
 	}
 	
@@ -91,7 +93,8 @@ public class GraphController implements Initializable{
 	private int calcAge(String userId) {
 		
 		int CurrentY = getCurrentYear();
-		int userBirthY = currentUserDB.getUserBirth() / 10000;
+//		int userBirthY = currentUserDB.getUserBirth() / 10000;
+		int userBirthY = 19990101 / 10000;
 		int age = (CurrentY - userBirthY)/10; //연령대 (10대 :1 20대 :2)
 		
 		return age;
@@ -103,13 +106,15 @@ public class GraphController implements Initializable{
 		int sum = 0;
 		int avg = 0;
 		for(String usersId : db.getMembers()) {
-			if(calcAge(usersId) == calcAge(currentUserDB.getUserId())) {
+//			if(calcAge(usersId) == calcAge(currentUserDB.getUserId())) {
+			if(calcAge(usersId) == calcAge("가가가")) {
 				getMatchUser.add(usersId);
 			}
 		}
 
 		for(String userId : getMatchUser) {
-			sum += db.getMonthTotal(currentUserDB.getUserId(), (year*10000)+(mon*100));
+//			sum += db.getMonthTotal(currentUserDB.getUserId(), (year*10000)+(mon*100));
+			sum += db.getMonthTotal("가가가", (year*10000)+(mon*100));
 		}
 		avg = sum /(getMatchUser.size());
 		return avg;		
