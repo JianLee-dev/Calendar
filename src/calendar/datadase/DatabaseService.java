@@ -12,7 +12,7 @@ import calendar.login.LoginController;
 public class DatabaseService implements IDatabaseService{
 	
 	//localhost 125.132.133.80
-	private String url = "jdbc:oracle:thin:@localhost:1521:XE";
+	private String url = "jdbc:oracle:thin:@125.132.133.80:1521:XE";
 	private String uid = "java";
 	private String upw = "1234";
 	private Connection conn = null;
@@ -30,9 +30,7 @@ public class DatabaseService implements IDatabaseService{
 	
 	
 
-
-	//�쉶�썝異붽�
-
+	//회원가입
 	@Override
 	public void addMember(UserVO userVO) {
 		String sql = "INSERT INTO userInfo values(?,?,?,?,?)";
@@ -61,7 +59,7 @@ public class DatabaseService implements IDatabaseService{
 
 
 
-
+	//유저 삭제
 	@Override
 	public void delMember(String userId) {
 		String sql = "DELETE FROM userInfo WHERE id=?";
@@ -83,7 +81,8 @@ public class DatabaseService implements IDatabaseService{
 		}
 		
 	}
-
+	
+	//유저 정보 가져오기
 	@Override
 	public UserVO getMember(String userId) {
 		String sql = "SELECT * FROM userInfo WHERE user_id=?";
@@ -116,7 +115,7 @@ public class DatabaseService implements IDatabaseService{
 	}
 
 
-
+	//유저 수정
 	@Override
 	public void modifyMember(UserVO userVO) {
 		String sql = "UPDATE userInfo SET user_pw=?, user_name=?, user_birth=?, user_phone=? WHERE user_id=?";
@@ -142,6 +141,7 @@ public class DatabaseService implements IDatabaseService{
 		}
 	}
 
+	//로그인 유무 
 	@Override
 	public boolean loginCheck(UserVO userVO) {
 		String sql = "SELECT user_pw FROM userInfo WHERE user_id=?";

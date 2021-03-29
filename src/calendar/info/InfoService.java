@@ -39,7 +39,6 @@ public class InfoService {
 		int year = birth/10000;
 		int month = (birth-(year*10000))/100;
 		int day = birth-((year*10000)+(month*100));
-		System.out.println("생일 : " + birth ); 
 		userBirth.setValue(LocalDate.of(year, month, day));
 		
 		disable();

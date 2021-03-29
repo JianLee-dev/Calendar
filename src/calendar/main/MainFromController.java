@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import calendar.calendar.CalendarMain;
+import calendar.graph.GraphMain;
 import calendar.info.InfoMain;
 import calendar.login.LoginController;
 import calendar.login.LoginMain;
@@ -39,7 +40,6 @@ public class MainFromController implements Initializable{
 
 	public void btn03() {
 		borderPane.setCenter((new InfoMain()).getRoot());
-		System.out.println("회원 정보 화면으로 이동");
 	
 	}
 	
