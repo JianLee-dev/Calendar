@@ -24,8 +24,8 @@
             <Font size="17.0" />
          </font>
       </Label>
-      <PieChart fx:id="pieChart" layoutX="57.0" layoutY="130.0" prefHeight="252.0" prefWidth="251.0" />
-      <AreaChart fx:id="areaChart" layoutX="359.0" layoutY="130.0" prefHeight="252.0" prefWidth="286.0">
+      <PieChart fx:id="pieChart" layoutX="41.0" layoutY="124.0" prefHeight="252.0" prefWidth="251.0" />
+      <AreaChart fx:id="areaChart" layoutX="307.0" layoutY="130.0" prefHeight="252.0" prefWidth="359.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
