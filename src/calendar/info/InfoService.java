@@ -113,10 +113,7 @@ public class InfoService {
 		userBirth.setDisable(true);
 		userPhone.setDisable(true);
 	}
-	
-	public void setImg(Parent root) {
-		((ImageView)root.lookup("#imageView")).setImage(new Image("/calendar/resources/img/purple.jpg"));
-	}
+
 	
 
 }

@@ -14,26 +14,26 @@
             <Font size="23.0" />
          </font>
       </Label>
-      <Label layoutX="125.0" layoutY="54.0" text="Category">
+      <Label layoutX="125.0" layoutY="44.0" text="Category">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="463.0" layoutY="54.0" text="Monthly">
+      <Label layoutX="463.0" layoutY="44.0" text="Monthly">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <PieChart fx:id="pieChart" layoutX="16.0" layoutY="76.0" prefHeight="327.0" prefWidth="295.0" />
-      <AreaChart fx:id="areaChart" layoutX="312.0" layoutY="76.0" prefHeight="327.0" prefWidth="374.0">
+      <PieChart fx:id="pieChart" layoutX="16.0" layoutY="66.0" prefHeight="344.0" prefWidth="307.0" />
+      <AreaChart fx:id="areaChart" layoutX="312.0" layoutY="66.0" prefHeight="344.0" prefWidth="374.0">
         <xAxis>
-          <CategoryAxis side="BOTTOM" />
+          <CategoryAxis prefWidth="315.0" side="BOTTOM" />
         </xAxis>
         <yAxis>
           <NumberAxis prefWidth="29.0" side="LEFT" />
         </yAxis>
       </AreaChart>
-   <AnchorPane layoutX="16.0" layoutY="417.0" prefHeight="64.0" prefWidth="670.0" style="-fx-background-color: #DAEAD9;">
+   <AnchorPane layoutX="16.0" layoutY="414.0" prefHeight="64.0" prefWidth="670.0" style="-fx-background-color: #DAEAD9;">
       <children>
             <Label fx:id="labelCompare" alignment="CENTER" layoutX="43.0" layoutY="20.0" text="이번 달, 가가 님은 00대 평균과 비교했을 때, +00원을 지출하고 있습니다.">
                <font>

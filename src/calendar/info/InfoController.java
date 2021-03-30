@@ -27,7 +27,6 @@ public class InfoController implements Initializable {
 	public void setRoot(Parent root) {
 		this.root = root;
 		is.setInfo(root);
-		is.setImg(root);
 		cancel.setDisable(true);
 		confirm.setDisable(true);
 	}

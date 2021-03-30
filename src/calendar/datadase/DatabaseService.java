@@ -325,10 +325,8 @@ public class DatabaseService implements IDatabaseService{
 			conn = DriverManager.getConnection(url,uid,upw);
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			int i = 1;
 			while(rs.next()) {
-				members.add(rs.getString(i));
-				i++;
+				members.add(rs.getString("C_ID"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

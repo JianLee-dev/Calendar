@@ -20,9 +20,7 @@ public interface IMemberService {
 	//중복회원 체크
 	UserVO duplicateMember(String userId);
 	
-	//이미지 적용
-	void setImg(Parent root);
-	
+
 	//스타일 적용
 	void setStyle(Parent root, MemberController mc);
 	

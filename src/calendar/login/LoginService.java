@@ -36,13 +36,6 @@ public class LoginService implements ILoginService {
 		
 	}
 	
-	//이미지 
-	public void setImg(Parent root) {
-		Image img1 = new Image("/calendar/resources/img/calendar.jpg");
-		ImageView imageView = (ImageView)root.lookup("#imageView");
-		imageView.setImage(img1);
-		
-	}
 	
 	//스타일
 	public void setStyle(Parent root, LoginController lc) {
@@ -52,9 +45,9 @@ public class LoginService implements ILoginService {
 		TextField userId = (TextField)root.lookup("#userId");
 		PasswordField userPw = (PasswordField)root.lookup("#userPw");
 		
-		confirm.setStyle("-fx-base: #8F98FF;");				//버튼 색깔 적용
-		cancel.setStyle("-fx-base: #8F98FF;");
-		register.setStyle("-fx-base: #8F98FF;");
+		confirm.setStyle("-fx-base:  #ECDEC3;");				//버튼 색깔 적용
+		cancel.setStyle("-fx-base:  #ECDEC3;");
+		register.setStyle("-fx-base:  #ECDEC3;");
 		userId.setPromptText("아이디");						//아무것도 입력하지 않았을시 보이는 텍스트 || placeholder 
 		userPw.setPromptText("비밀번호");
 		

@@ -37,8 +37,7 @@ public class LoginController implements Initializable{
 
 	public void setRoot(Parent root) {
 		this.root = root;						
-		ls.setStyle(root,this);					//스타일
-		ls.setImg(root);						//이미지 
+		ls.setStyle(root,this);					//스타일 
 	}
 	
 	
