@@ -9,33 +9,37 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calendar.graph.GraphController">
-      <Label fx:id="labelYM" layoutX="41.0" layoutY="35.0" text="0000년 00월">
+      <Label fx:id="labelYM" layoutX="18.0" layoutY="10.0" text="0000. 00" textFill="#726666">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="125.0" layoutY="44.0" text="Category">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="102.0" layoutY="93.0" text="카테고리별 지출 현황">
+      <Label layoutX="463.0" layoutY="44.0" text="Monthly">
          <font>
-            <Font size="17.0" />
+            <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="447.0" layoutY="93.0" text="월별 지출 현황">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
-      <PieChart fx:id="pieChart" layoutX="41.0" layoutY="124.0" prefHeight="252.0" prefWidth="251.0" />
-      <AreaChart fx:id="areaChart" layoutX="307.0" layoutY="130.0" prefHeight="252.0" prefWidth="359.0">
+      <PieChart fx:id="pieChart" layoutX="16.0" layoutY="66.0" prefHeight="344.0" prefWidth="307.0" />
+      <AreaChart fx:id="areaChart" layoutX="312.0" layoutY="66.0" prefHeight="344.0" prefWidth="374.0">
         <xAxis>
-          <CategoryAxis side="BOTTOM" />
+          <CategoryAxis prefWidth="315.0" side="BOTTOM" />
         </xAxis>
         <yAxis>
-          <NumberAxis side="LEFT" />
+          <NumberAxis prefWidth="29.0" side="LEFT" />
         </yAxis>
       </AreaChart>
-      <Label fx:id="labelCompare" layoutX="56.0" layoutY="417.0" text="이번 달, 가가 님은 00대 평균과 비교했을 때, +00원을 지출하고 있습니다.">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
+   <AnchorPane layoutX="16.0" layoutY="414.0" prefHeight="64.0" prefWidth="670.0" style="-fx-background-color: #DAEAD9;">
+      <children>
+            <Label fx:id="labelCompare" alignment="CENTER" layoutX="43.0" layoutY="20.0" text="이번 달, 가가 님은 00대 평균과 비교했을 때, +00원을 지출하고 있습니다.">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+      </children>
+   </AnchorPane>
 </AnchorPane>

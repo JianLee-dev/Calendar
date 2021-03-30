@@ -8,6 +8,5 @@ public interface ILoginService {
 	boolean loginCheck(Parent root);
 	void setLogin(Parent root);
 	void setStyle(Parent root, LoginController lc);
-	void setImg(Parent root);
 
 }

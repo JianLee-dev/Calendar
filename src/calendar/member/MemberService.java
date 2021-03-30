@@ -120,12 +120,7 @@ public class MemberService implements IMemberService {
 		
 	}
 	
-	
-	@Override
-	public void setImg(Parent root) {
-		((ImageView)root.lookup("#imageView")).setImage(new Image("/calendar/resources/img/red_pink.jpg"));
-		
-	}
+
 
 	@Override
 	public void setStyle(Parent root, MemberController mc) {

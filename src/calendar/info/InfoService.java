@@ -42,7 +42,7 @@ public class InfoService {
 		int month = (birth-(year*10000))/100;
 		int day = birth-((year*10000)+(month*100));
 		userBirth.setValue(LocalDate.of(year, month, day));
-		
+
 		disable();
 	}
 	
@@ -113,10 +113,7 @@ public class InfoService {
 		userBirth.setDisable(true);
 		userPhone.setDisable(true);
 	}
-	
-	public void setImg(Parent root) {
-		((ImageView)root.lookup("#imageView")).setImage(new Image("/calendar/resources/img/purple.jpg"));
-	}
+
 	
 
 }

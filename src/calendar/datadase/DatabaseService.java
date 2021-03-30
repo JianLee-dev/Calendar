@@ -7,8 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import calendar.login.LoginController;
-
 public class DatabaseService implements IDatabaseService{
 	
 	//localhost 125.132.133.80
@@ -260,7 +258,7 @@ public class DatabaseService implements IDatabaseService{
 	@Override
 	//GraphController에서 사용
 	public int getCatAvg(String id, int yearMonth, String category) { //yearMonth형식 : 20210100 
-		String sql = "SELECT AVG(c_price) AS average FROM CALENDAR WHERE C_ID=? and TRUNC(c_date,-2)=? and c_category= ?";
+		String sql = "SELECT AVG(c_price) AS average FROM CALENDAR WHERE C_ID=? and TRUNC(c_date,-2)=? and c_category=?";
 		try {
 			conn = DriverManager.getConnection(url,uid,upw);
 			pstmt = conn.prepareStatement(sql);
@@ -290,15 +288,15 @@ public class DatabaseService implements IDatabaseService{
 	@Override
 	//GraphController에서 사용
 	public int getMonthTotal(String id, int yearMonth) { //yearMonth형식 : 20210100 
-		String sql = "SELECT SUM(C_PRICE) FROM CALENDAR where C_ID=? and TRUNC(C_DATE,-2)=?";
+		String sql = "SELECT SUM(C_PRICE) FROM CALENDAR where C_ID=? and TRUNC(C_DATE,-2)="+yearMonth;
 		try {
 			conn = DriverManager.getConnection(url,uid,upw);
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1,id);
-			pstmt.setInt(2,yearMonth);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				return rs.getInt(1);
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -326,10 +324,8 @@ public class DatabaseService implements IDatabaseService{
 			conn = DriverManager.getConnection(url,uid,upw);
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			int i = 1;
 			while(rs.next()) {
-				members.add(rs.getString(i));
-				i++;
+				members.add(rs.getString("C_ID"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

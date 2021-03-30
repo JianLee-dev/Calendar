@@ -18,7 +18,6 @@ public class MemberController implements Initializable {
 	
 	public void setRoot(Parent root) {
 		this.root = root;
-		ms.setImg(root);
 		ms.setStyle(root, this);
 	}
 	

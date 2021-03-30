@@ -7,6 +7,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class GraphMain extends Application{
@@ -14,6 +15,7 @@ public class GraphMain extends Application{
 
 	@Override
 	public void start(Stage arg0) throws Exception {
+		Font.loadFont(getClass().getResourceAsStream("NanumBarunGothic.ttf"),14);
 		Parent root = null;
 		try {
 			root = FXMLLoader.load(getClass().getResource("graphView.fxml")); 
