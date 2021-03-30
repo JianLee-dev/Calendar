@@ -294,7 +294,6 @@ public class DatabaseService implements IDatabaseService{
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1,id);
 			rs = pstmt.executeQuery();
-
 			if(rs.next()) {
 				return rs.getInt(1);
 
