@@ -7,22 +7,22 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calendar.calendar.CalendarController">
    <top>
       <AnchorPane prefHeight="48.0" prefWidth="653.0" style="-fx-background-color: #EAEAEA;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="460.0" layoutY="13.0" mnemonicParsing="false" text="다음" />
-            <Button layoutX="233.0" layoutY="13.0" mnemonicParsing="false" text="다음" />
-            <DatePicker layoutX="273.0" layoutY="13.0" />
+            <Button fx:id="btnNMonth" layoutX="460.0" layoutY="13.0" mnemonicParsing="false" text="다음" />
+            <Button fx:id="btnBMonth" layoutX="233.0" layoutY="13.0" mnemonicParsing="false" text="이전" />
+            <DatePicker fx:id="dp" layoutX="273.0" layoutY="13.0" />
          </children>
       </AnchorPane>
    </top>
    <center>
-      <GridPane prefHeight="444.0" prefWidth="709.0" BorderPane.alignment="CENTER">
+      <GridPane fx:id="grid" prefHeight="444.0" prefWidth="709.0" BorderPane.alignment="CENTER">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -104,181 +104,181 @@
                   </Label>
                </children>
             </AnchorPane>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+            <HBox fx:id="hbox1" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.rowIndex="1">
                <children>
                   <Label fx:id="lbl00" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            </HBox>
+            <HBox fx:id="hbox2" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
                   <Label fx:id="lbl01" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            </HBox>
+            <HBox fx:id="hbox3" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <children>
                   <Label fx:id="lbl02" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            </HBox>
+            <HBox fx:id="hbox4" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <children>
                   <Label fx:id="lbl03" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+            </HBox>
+            <HBox fx:id="hbox5" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="4" GridPane.rowIndex="1">
                <children>
                   <Label fx:id="lbl04" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
+            </HBox>
+            <HBox fx:id="hbox6" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="5" GridPane.rowIndex="1">
                <children>
                   <Label fx:id="lbl05" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="6" GridPane.rowIndex="1">
+            </HBox>
+            <HBox fx:id="hbox7" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="6" GridPane.rowIndex="1">
                <children>
                   <Label fx:id="lbl06" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+            </HBox>
+            <HBox fx:id="hbox8" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.rowIndex="2">
                <children>
                   <Label fx:id="lbl07" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            </HBox>
+            <HBox fx:id="hbox9" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
                   <Label fx:id="lbl08" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            </HBox>
+            <HBox fx:id="hbox10" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <children>
                   <Label fx:id="lbl09" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+            </HBox>
+            <HBox fx:id="hbox11" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="3" GridPane.rowIndex="2">
                <children>
                   <Label fx:id="lbl10" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+            </HBox>
+            <HBox fx:id="hbox12" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="4" GridPane.rowIndex="2">
                <children>
                   <Label fx:id="lbl11" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
+            </HBox>
+            <HBox fx:id="hbox13" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="5" GridPane.rowIndex="2">
                <children>
                   <Label fx:id="lbl12" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="6" GridPane.rowIndex="2">
+            </HBox>
+            <HBox fx:id="hbox14" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="6" GridPane.rowIndex="2">
                <children>
                   <Label fx:id="lbl13" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="3">
+            </HBox>
+            <HBox fx:id="hbox15" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.rowIndex="3">
                <children>
                   <Label fx:id="lbl14" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            </HBox>
+            <HBox fx:id="hbox16" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <children>
                   <Label fx:id="lbl15" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            </HBox>
+            <HBox fx:id="hbox17" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <children>
                   <Label fx:id="lbl16" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+            </HBox>
+            <HBox fx:id="hbox18" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="3" GridPane.rowIndex="3">
                <children>
                   <Label fx:id="lbl17" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
+            </HBox>
+            <HBox fx:id="hbox19" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="4" GridPane.rowIndex="3">
                <children>
                   <Label fx:id="lbl18" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="3">
+            </HBox>
+            <HBox fx:id="hbox20" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="5" GridPane.rowIndex="3">
                <children>
                   <Label fx:id="lbl19" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="6" GridPane.rowIndex="3">
+            </HBox>
+            <HBox fx:id="hbox21" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="6" GridPane.rowIndex="3">
                <children>
                   <Label fx:id="lbl20" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="4">
+            </HBox>
+            <HBox fx:id="hbox22" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.rowIndex="4">
                <children>
                   <Label fx:id="lbl21" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            </HBox>
+            <HBox fx:id="hbox23" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <children>
                   <Label fx:id="lbl22" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+            </HBox>
+            <HBox fx:id="hbox24" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <children>
                   <Label fx:id="lbl23" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+            </HBox>
+            <HBox fx:id="hbox25" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="3" GridPane.rowIndex="4">
                <children>
                   <Label fx:id="lbl24" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
+            </HBox>
+            <HBox fx:id="hbox26" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="4" GridPane.rowIndex="4">
                <children>
                   <Label fx:id="lbl25" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="4">
+            </HBox>
+            <HBox fx:id="hbox27" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="5" GridPane.rowIndex="4">
                <children>
                   <Label fx:id="lbl26" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="6" GridPane.rowIndex="4">
+            </HBox>
+            <HBox fx:id="hbox28" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="6" GridPane.rowIndex="4">
                <children>
                   <Label fx:id="lbl27" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="5">
+            </HBox>
+            <HBox fx:id="hbox29" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.rowIndex="5">
                <children>
                   <Label fx:id="lbl28" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            </HBox>
+            <HBox fx:id="hbox30" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <children>
                   <Label fx:id="lbl29" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+            </HBox>
+            <HBox fx:id="hbox31" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="2" GridPane.rowIndex="5">
                <children>
                   <Label fx:id="lbl30" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
+            </HBox>
+            <HBox fx:id="hbox32" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="3" GridPane.rowIndex="5">
                <children>
                   <Label fx:id="lbl31" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
+            </HBox>
+            <HBox fx:id="hbox33" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="4" GridPane.rowIndex="5">
                <children>
                   <Label fx:id="lbl32" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
+            </HBox>
+            <HBox fx:id="hbox34" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="5" GridPane.rowIndex="5">
                <children>
                   <Label fx:id="lbl33" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="6" GridPane.rowIndex="5">
+            </HBox>
+            <HBox fx:id="hbox35" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white black black black; -fx-border-style: segments(3, 3, 3, 3);" GridPane.columnIndex="6" GridPane.rowIndex="5">
                <children>
                   <Label fx:id="lbl34" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
-            </VBox>
+            </HBox>
          </children>
       </GridPane>
    </center>

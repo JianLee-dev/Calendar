@@ -12,6 +12,7 @@ public class CalendarMain {
 	
 	
 	public CalendarMain() {
+		
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("calendar.fxml"));
 
 		try {
@@ -19,6 +20,8 @@ public class CalendarMain {
 		} catch (IOException e) {
 			e.printStackTrace();		
 		}
+		CalendarController cc = loader.getController();
+		cc.setRoot(root); 
 	}
 	
 	
