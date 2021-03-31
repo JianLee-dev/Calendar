@@ -104,7 +104,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <HBox fx:id="hbox2" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+            <HBox fx:id="hbox1" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
                <children>
                   <Label fx:id="lbl00" alignment="CENTER" prefHeight="22.0" prefWidth="44.0" text="Label" />
                </children>
