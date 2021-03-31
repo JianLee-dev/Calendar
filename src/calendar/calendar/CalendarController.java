@@ -99,16 +99,25 @@ public class CalendarController implements Initializable {
 			
 		}
 		
-		public void setdp(){
+		public void setdp_now(){//데이트피커의 디폴트 값을 현재로 바꿔주는, 작동은 잘되는데 적용방법 수정필요
 		
 			dp.setValue(LocalDate.now()); //데이트 피커의 값을 현재로
 			 date = dp.getValue();  // 그 값을 date에 저장
 				System.out.println(date);
-				 currentYear = date.getYear();
-				 currentMonthInt = date.getMonthValue(); 	
-			
+				 
 		}
 
+		public void setdp_pick(ActionEvent pick) //유저가 데이터피커를 선택했을때 작동
+		{
+			date = dp.getValue();
+			System.out.println(date);
+			currentYear = date.getYear();
+			currentMonthInt = date.getMonthValue(); 	
+			System.out.println("년,월:"+currentYear+" "+currentMonthInt);
+			
+			
+		}
+	
 		@Override
 		public void initialize(URL location, ResourceBundle resources) {
 			

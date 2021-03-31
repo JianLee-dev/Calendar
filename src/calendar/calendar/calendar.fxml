@@ -17,7 +17,7 @@
          <children>
             <Button fx:id="btnNMonth" layoutX="460.0" layoutY="13.0" mnemonicParsing="false" text="다음" />
             <Button fx:id="btnBMonth" layoutX="233.0" layoutY="13.0" mnemonicParsing="false" text="이전" />
-            <DatePicker fx:id="dp" layoutX="273.0" layoutY="13.0" />
+            <DatePicker fx:id="dp" layoutX="273.0" layoutY="13.0" onAction="#setdp_pick" />
          </children>
       </AnchorPane>
    </top>
