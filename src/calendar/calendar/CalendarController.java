@@ -73,13 +73,13 @@ public class CalendarController implements Initializable {
 		private Button btnNMonth;
 		// 월단위를 다음달로 가는 버튼
 		
-		//데이터피커에서 날짜 데이터 받아오는 부분
-		// 현재의 년과 월을 구합니다.
-	
-		private LocalDate date;   
 		
-		int currentYear; 
-		int currentMonthInt; //수정요망*/
+		
+	
+		private LocalDate date;   //데이트피커의 값을 저장할 변수
+		
+		int currentYear;  //년도를 저장할 변수
+		int currentMonthInt; //월 저장 변수
 	
 		// 월의 첫번째 요일과 마지막 요일을 저장할부분
 		YearMonth firstAndLastDay;
@@ -101,12 +101,12 @@ public class CalendarController implements Initializable {
 		
 		public void setdp(){
 		
-			dp.setValue(LocalDate.now());
-			 date = dp.getValue(); 
-				System.out.println(dp.getValue());
+			dp.setValue(LocalDate.now()); //데이트 피커의 값을 현재로
+			 date = dp.getValue();  // 그 값을 date에 저장
+				System.out.println(date);
 				 currentYear = date.getYear();
 				 currentMonthInt = date.getMonthValue(); 	
-			return;
+			
 		}
 
 		@Override

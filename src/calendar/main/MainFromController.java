@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import calendar.calendar.CalendarMain;
+import calendar.calendar.CalendarController;
 import calendar.graph.GraphMain;
 import calendar.info.InfoMain;
 import calendar.login.LoginController;
