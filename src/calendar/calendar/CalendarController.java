@@ -55,7 +55,7 @@ public class CalendarController implements Initializable {
 		
 		@FXML
 		private Label lbl00, lbl01, lbl02, lbl03, lbl04, lbl05, lbl06,lbl07,lbl08,lbl09, lbl10, lbl11, lbl12, lbl13, lbl14, lbl15, lbl16,
-				lbl17,lbl18,lbl19,lbl20, lbl21, lbl22, lbl23, lbl24, lbl25, lbl26, lbl27,lbl28,lbl29, lbl30, lbl31, lbl32, lbl33, lbl34, lbl35;
+				lbl17,lbl18,lbl19,lbl20, lbl21, lbl22, lbl23, lbl24, lbl25, lbl26, lbl27,lbl28,lbl29, lbl30, lbl31, lbl32, lbl33, lbl34;
 		// 날자를 표시할 레이블 입니다.
 	
 		
@@ -128,8 +128,14 @@ public class CalendarController implements Initializable {
 			
 			// 라벨을 리스트로 만들어 날자를 표시할때 사용합니다.
 						labelList = new Label[] { lbl00, lbl01, lbl02, lbl03, lbl04, lbl05, lbl06, lbl07, lbl08, lbl09,lbl10, lbl11, lbl12, lbl13, lbl14,
-								lbl15, lbl16, lbl17,lbl18,lbl19,lbl20, lbl21, lbl22, lbl23, lbl24, lbl25, lbl26, lbl27,lbl28,lbl29,lbl30, lbl31, lbl32, lbl33, lbl34, lbl35
+								lbl15, lbl16, lbl17,lbl18,lbl19,lbl20, lbl21, lbl22, lbl23, lbl24, lbl25, lbl26, lbl27,lbl28,lbl29,lbl30, lbl31, lbl32, lbl33, lbl34
 								};
+						
+						for(int j=0; j<labelList.length;j++) //캘린더 모든칸을 빈칸으로
+						{
+							labelList[j].setText(" ");
+						}
+						
 						int dd=datenum-1; //요일변수에서 이걸 빼서 날짜를 계산
 						
 						for(int i=datenum; i<length_of_month+datenum;i++)
