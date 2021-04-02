@@ -29,7 +29,6 @@ public class CalendarController implements Initializable {
 	lbl10, lbl11, lbl12, lbl13, lbl14, lbl15, lbl16,lbl17,lbl18,lbl19,lbl20,
 	lbl21, lbl22, lbl23, lbl24, lbl25, lbl26, lbl27,lbl28,lbl29, lbl30, lbl31,
 	lbl32, lbl33, lbl34,lbl35,lbl36,lbl37,lbl38,lbl39,lbl40,lbl41;
-
 	// 날자를 표시할 레이블 입니다.
 
 
