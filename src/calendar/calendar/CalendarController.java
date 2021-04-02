@@ -27,13 +27,10 @@ public class CalendarController implements Initializable {
 
 
 	@FXML
-	private HBox hbox1, hbox2, hbox3, hbox4, hbox5, hbox6, hbox7, hbox8, hbox9, hbox10, hbox11, hbox12, hbox13, hbox14,
-	hbox15, hbox16, hbox17, hbox18, hbox19, hbox20, hbox21, hbox22, hbox23, hbox24, hbox25, hbox26, hbox27,
-	hbox28, hbox29, hbox30, hbox31, hbox32, hbox33, hbox34, hbox35;
-	// 일자별 데이터를 표시할 HBox 입니다.
+	
 
 
-	@FXML
+	
 	private Label lbl00, lbl01, lbl02, lbl03, lbl04, lbl05, lbl06,lbl07,lbl08,lbl09, lbl10, lbl11, lbl12, lbl13, lbl14, lbl15, lbl16,
 	lbl17,lbl18,lbl19,lbl20, lbl21, lbl22, lbl23, lbl24, lbl25, lbl26, lbl27,lbl28,lbl29, lbl30, lbl31, lbl32, lbl33, lbl34,
 	lbl35,lbl36,lbl37,lbl38,lbl39,lbl40,lbl41;
@@ -41,8 +38,8 @@ public class CalendarController implements Initializable {
 
 
 	public Label[] labelList;
-	public HBox[] hboxList;
-	// 레이블과 hbox를 배열로 정합니다.
+	
+	// 레이블 배열로 정합니다.
 
 
 	@FXML
@@ -208,11 +205,7 @@ public class CalendarController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 
 
-		// hbox를 리스트로 만들어 일자별 데이터를 표시할때 사용합니다.
-		hboxList = new HBox[] { hbox1, hbox2, hbox3, hbox4, hbox5, hbox6, hbox7, hbox8, hbox9, hbox10, hbox11, hbox12,
-				hbox13, hbox14, hbox15, hbox16, hbox17, hbox18, hbox19, hbox20, hbox21, hbox22, hbox23, hbox24, hbox25,
-				hbox26, hbox27, hbox28, hbox29, hbox30, hbox31, hbox32, hbox33, hbox34, hbox35};
-
+		
 
 
 	}
