@@ -15,7 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
+
 public class CalendarController implements Initializable {
 
 	@FXML GridPane grid; // 달력을 표시할 그리드 입니다.
@@ -110,7 +110,7 @@ public class CalendarController implements Initializable {
 	public void setdp_pick(ActionEvent pick) //유저가 데이터피커를 선택했을때 작동
 	{
 		date = dp.getValue(); //데이트피커에서 선택한 값을 date로
-		System.out.println(date);
+		
 		currentYear = date.getYear(); //년도저장
 		currentMonthInt = date.getMonthValue(); //월저장
 		currentDay = date.getDayOfMonth(); //일저장
@@ -119,7 +119,7 @@ public class CalendarController implements Initializable {
 		date_first = LocalDate.of(currentYear, currentMonthInt, 1); //해당월의 첫요일을 구하기위해
 		first_date = date_first.getDayOfWeek(); //첫요일구함
 		datenum = first_date.getValue()%7; //첫요일을 숫자로 변환
-		System.out.println("년,월,그달의일수,그달의 첫요일:"+currentYear+" "+currentMonthInt+" "+length_of_month+" "+first_date+" "+datenum);
+		
 		set_date(datenum);
 		countup();
 	}
@@ -168,7 +168,7 @@ public class CalendarController implements Initializable {
 		first_date = date_first.getDayOfWeek(); //첫요일구함
 		datenum = first_date.getValue()%7; //첫요일을 숫자로 변환
 		dp.setValue(date); //dp값을 이전달 같은날로 변화
-		System.out.println("년,월,그달의일수,그달의 첫요일:"+currentYear+" "+currentMonthInt+" "+length_of_month+" "+first_date+" "+datenum);
+		
 		set_date(datenum);
 		countup();
 	}
@@ -195,7 +195,7 @@ public class CalendarController implements Initializable {
 		first_date = date_first.getDayOfWeek(); //첫요일구함
 		datenum = first_date.getValue()%7; //첫요일을 숫자로 변환
 		dp.setValue(date); //dp값을 이전달 같은날로 변화
-		System.out.println("년,월,그달의일수,그달의 첫요일:"+currentYear+" "+currentMonthInt+" "+length_of_month+" "+first_date+" "+datenum);
+		
 		set_date(datenum);
 		countup();
 	}
