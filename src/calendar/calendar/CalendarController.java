@@ -78,15 +78,12 @@ public class CalendarController implements Initializable {
 		return  first_date.getValue()%7; //첫요일을 숫자로 변환
 
 	}
-
-	public void setdp_now(){//데이트피커의 디폴트 값을 현재날짜로 바꿔주는, 작동은 잘되는데 적용방법 수정필요
+	
+	//데이트피커의 디폴트 값을 현재날짜로 바꿔주는
+	public void setdp_now(){
 		LocalDate now = LocalDate.now();
 		dp.setValue(now); //데이트 피커의 값을 현재로
-		currentYear = now.getYear(); //년도저장
-		currentMonthInt = now.getMonthValue(); //월저장
-		length_of_month = now.lengthOfMonth(); //그달의 일수
-
-		setDate(getDateNum(currentYear,currentMonthInt));
+		setDate(getDateNum(now.getYear(),now.getMonthValue()),now.lengthOfMonth());
 
 	}
 
@@ -98,14 +95,15 @@ public class CalendarController implements Initializable {
 		currentMonthInt = date.getMonthValue(); //월저장
 		length_of_month = date.lengthOfMonth(); //그달의 일수
 
-		setDate(getDateNum(currentYear,currentMonthInt));
+		setDate(getDateNum(date.getYear(),date.getMonthValue()),date.lengthOfMonth());
 	}
 
 
 	//날자표시 따로 뺴서 매소드로 구현
-	public void setDate(int datenum) {
+	public void setDate(int datenum,int lengthOfMonth) {
 		// 라벨을 리스트로 만들어 날자를 표시할때 사용합니다.
-
+		
+		length_of_month = lengthOfMonth;
 
 		for(int j=0; j<labelList.length;j++) //캘린더 모든칸을 빈칸으로
 		{
