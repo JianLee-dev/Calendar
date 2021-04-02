@@ -15,7 +15,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import calendar.calendar.CService;
 
 public class CalendarController implements Initializable {
 
@@ -102,11 +101,6 @@ public class CalendarController implements Initializable {
 				cs.mouseOnClicked(labelList[l],dp);
 			});	
 		}
-
-
-
-
-
 	}
 
 	public void countup() //데이트피커 사용횟수up
@@ -115,56 +109,18 @@ public class CalendarController implements Initializable {
 	}
 	public void btnBMonth (ActionEvent btnBMonth)
 	{
-		if(count==0) //데이트픽커 한번도 안썼으면 현재 날짜로 date변수 저장
-		{
-			date= LocalDate.now();
-		}
-
-		if(currentMonthInt==1) //1월달일경우 12월로, 연도 -1
-		{
-			currentMonthInt=12;
-			currentYear --;
-		}
-		else
-			currentMonthInt --; //월-1
-
-		date = LocalDate.of(currentYear, currentMonthInt, currentDay); //일저장); //
-		length_of_month = date.lengthOfMonth(); //그달의 일수
-
-		date_first = LocalDate.of(currentYear, currentMonthInt, 1); //해당월의 첫요일을 구하기위해
-		first_date = date_first.getDayOfWeek(); //첫요일구함
-		datenum = first_date.getValue()%7; //첫요일을 숫자로 변환
-		dp.setValue(date); //dp값을 이전달 같은날로 변화
-
-		cs.setCalendar(date, labelList);; //이부분 서비스쪽으로 넘어갔습니다 !!!!!!!!!!@@@@ 중요@@@@@
-		countup();
+		LocalDate date = dp.getValue().minusMonths(1);
+		dp.setValue(date);
+		cs.setCalendar(date, labelList);
+		
 	}
 
 	public void btnNMonth (ActionEvent btnNMonth)
 	{
-		if(count==0) //데이트피 한번도 안썼으면 현재 날짜로 date변수 저장
-		{
-			date= LocalDate.now();
-		}
-
-		if(currentMonthInt==12) //12월달일경우 1월로, 연도 +1
-		{
-			currentMonthInt=1;
-			currentYear ++;
-		}
-		else
-			currentMonthInt ++; //월+1
-
-		date = LocalDate.of(currentYear, currentMonthInt, currentDay); //일저장); //
-		length_of_month = date.lengthOfMonth(); //그달의 일수
-
-		date_first = LocalDate.of(currentYear, currentMonthInt, 1); //해당월의 첫요일을 구하기위해
-		first_date = date_first.getDayOfWeek(); //첫요일구함
-		datenum = first_date.getValue()%7; //첫요일을 숫자로 변환
-		dp.setValue(date); //dp값을 이전달 같은날로 변화
-
+	
+		LocalDate date = dp.getValue().plusMonths(1);
+		dp.setValue(date);
 		cs.setCalendar(date, labelList);
-		countup();
 	}
 
 
