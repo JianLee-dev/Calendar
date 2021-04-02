@@ -54,10 +54,12 @@ public class CalendarController implements Initializable {
 	private LocalDate date_first; // 그달의 1일 날짜를 저장할 변수
 	int currentYear; // 년도를 저장할 변수
 	int currentMonthInt; // 월 저장 변수
+	int currentDay; //일 저장 변수
+	
 	int length_of_month; // 그달의 일수
 	DayOfWeek first_date; // 첫날의 요일
 	int datenum; // 요일을 숫자로환산
-	int minus; // 라벨 채우는 반복문에서 사용할 변수
+	int count=0; //데이터피커 사용횟수 
 
 	// 월의 첫번째 요일과 마지막 요일을 저장할부분
 	YearMonth firstAndLastDay;
@@ -82,7 +84,7 @@ public class CalendarController implements Initializable {
 		currentYear = now.getYear(); // 년도저장
 		currentMonthInt = now.getMonthValue(); // 월저장
 		length_of_month = now.lengthOfMonth(); // 그달의 일수
-
+		currentDay = now.getDayOfMonth(); //일날짜저장
 		date_first = LocalDate.of(currentYear, currentMonthInt, 1); // 해당월의 첫요일을 구하기위해
 		first_date = date_first.getDayOfWeek(); // 첫요일구함
 		datenum = first_date.getValue() % 7; // 첫요일을 숫자로 변환
@@ -93,16 +95,15 @@ public class CalendarController implements Initializable {
 	public void setdp_pick(ActionEvent pick) // 유저가 데이터피커를 선택했을때 작동
 	{
 		date = dp.getValue(); // 데이트피커에서 선택한 값을 date로
-		System.out.println(date);
+		
 		currentYear = date.getYear(); // 년도저장
 		currentMonthInt = date.getMonthValue(); // 월저장
+		currentDay = date.getDayOfMonth(); //일날짜저장
 		length_of_month = date.lengthOfMonth(); // 그달의 일수
 
 		date_first = LocalDate.of(currentYear, currentMonthInt, 1); // 해당월의 첫요일을 구하기위해
 		first_date = date_first.getDayOfWeek(); // 첫요일구함
-		datenum = first_date.getValue() % 7; // 첫요일을 숫자로 변환
-		System.out.println("년,월,그달의일수,그달의 첫요일:" + currentYear + " " + currentMonthInt + " " + length_of_month + " "
-				+ first_date + " " + datenum);
+		datenum = first_date.getValue() % 7;
 		set_date(datenum);
 	}
 
@@ -150,13 +151,68 @@ public class CalendarController implements Initializable {
 
 	}
 
+	public void countup() //데이트피커 사용횟수up
+	{
+		count++;
+	}
+	public void btnBMonth (ActionEvent btnBMonth)
+	{
+		if(count==0) //데이트픽커 한번도 안썼으면 현재 날짜로 date변수 저장
+		{
+			date= LocalDate.now();
+		}
+		
+		if(currentMonthInt==1) //1월달일경우 12월로, 연도 -1
+		{
+			currentMonthInt=12;
+			currentYear --;
+		}
+		else
+		currentMonthInt --; //월-1
+		
+		date = LocalDate.of(currentYear, currentMonthInt, currentDay); //일저장); //
+		length_of_month = date.lengthOfMonth(); //그달의 일수
+		
+		date_first = LocalDate.of(currentYear, currentMonthInt, 1); //해당월의 첫요일을 구하기위해
+		first_date = date_first.getDayOfWeek(); //첫요일구함
+		datenum = first_date.getValue()%7; //첫요일을 숫자로 변환
+		dp.setValue(date); //dp값을 이전달 같은날로 변화
+		
+		set_date(datenum);
+		countup();
+	}
+	
+	public void btnNMonth (ActionEvent btnNMonth)
+	{
+		if(count==0) //데이트피 한번도 안썼으면 현재 날짜로 date변수 저장
+		{
+			date= LocalDate.now();
+		}
+		
+		if(currentMonthInt==12) //12월달일경우 1월로, 연도 +1
+		{
+			currentMonthInt=1;
+			currentYear ++;
+		}
+		else
+		currentMonthInt ++; //월+1
+		
+		date = LocalDate.of(currentYear, currentMonthInt, currentDay); //일저장); //
+		length_of_month = date.lengthOfMonth(); //그달의 일수
+		
+		date_first = LocalDate.of(currentYear, currentMonthInt, 1); //해당월의 첫요일을 구하기위해
+		first_date = date_first.getDayOfWeek(); //첫요일구함
+		datenum = first_date.getValue()%7; //첫요일을 숫자로 변환
+		dp.setValue(date); //dp값을 이전달 같은날로 변화
+		
+		set_date(datenum);
+		countup();
+	}
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-		// hbox를 리스트로 만들어 일자별 데이터를 표시할때 사용합니다.
-		hboxList = new HBox[] { hbox1, hbox2, hbox3, hbox4, hbox5, hbox6, hbox7, hbox8, hbox9, hbox10, hbox11, hbox12,
-				hbox13, hbox14, hbox15, hbox16, hbox17, hbox18, hbox19, hbox20, hbox21, hbox22, hbox23, hbox24, hbox25,
-				hbox26, hbox27, hbox28, hbox29, hbox30, hbox31, hbox32, hbox33, hbox34, hbox35 };
+		
 
 	}
 
