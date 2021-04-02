@@ -14,8 +14,8 @@
    <top>
       <AnchorPane prefHeight="48.0" prefWidth="653.0" style="-fx-background-color: #EAEAEA;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnNMonth" layoutX="460.0" layoutY="13.0" mnemonicParsing="false" text="다음" />
-            <Button fx:id="btnBMonth" layoutX="233.0" layoutY="13.0" mnemonicParsing="false" text="이전" />
+            <Button fx:id="btnNMonth" layoutX="460.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnNMonth" text="다음" />
+            <Button fx:id="btnBMonth" layoutX="233.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnBMonth" text="이전" />
             <DatePicker fx:id="dp" layoutX="273.0" layoutY="13.0" onAction="#setdp_pick" />
          </children>
       </AnchorPane>
