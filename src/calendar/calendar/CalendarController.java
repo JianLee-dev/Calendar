@@ -131,7 +131,7 @@ public class CalendarController implements Initializable {
 	
 		int selectYear;
 		int selectMonth;
-		String selectdate;
+		int selectdate;
 		System.out.println("날짜 클릭");
 		date = dp.getValue();
 		selectYear = date.getYear();
