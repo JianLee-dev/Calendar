@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import calendar.calendar.CService;
 
 public class CalendarController implements Initializable {
 
@@ -135,7 +136,7 @@ public class CalendarController implements Initializable {
 		datenum = first_date.getValue()%7; //첫요일을 숫자로 변환
 		dp.setValue(date); //dp값을 이전달 같은날로 변화
 
-		set_date(datenum); //이부분 서비스쪽으로 넘어갔습니다 !!!!!!!!!!@@@@ 중요@@@@@
+		cs.setCalendar(date, labelList);; //이부분 서비스쪽으로 넘어갔습니다 !!!!!!!!!!@@@@ 중요@@@@@
 		countup();
 	}
 
@@ -162,7 +163,7 @@ public class CalendarController implements Initializable {
 		datenum = first_date.getValue()%7; //첫요일을 숫자로 변환
 		dp.setValue(date); //dp값을 이전달 같은날로 변화
 
-		set_date(datenum);
+		cs.setCalendar(date, labelList);
 		countup();
 	}
 
