@@ -20,7 +20,7 @@
          <font>
             <Font size="14.0" />
          </font></Button>
-      <Button fx:id="cancel" alignment="CENTER" contentDisplay="CENTER" layoutX="286.0" layoutY="351.0" mnemonicParsing="false" onAction="#cancel" prefHeight="42.0" prefWidth="97.0" style="-fx-background-color: #ECDEC3;" text="Cancle" textFill="#a3684d" />
+      <Button fx:id="cancel" alignment="CENTER" contentDisplay="CENTER" layoutX="286.0" layoutY="351.0" mnemonicParsing="false" onAction="#cancel" prefHeight="42.0" prefWidth="97.0" style="-fx-background-color: #ECDEC3;" text="Cancel" textFill="#a3684d" />
       <Button fx:id="register" alignment="CENTER" contentDisplay="CENTER" layoutX="182.0" layoutY="351.0" mnemonicParsing="false" onAction="#register" prefHeight="42.0" prefWidth="97.0" style="-fx-background-color: #ECDEC3;" text="Join" textFill="#a3684d" />
       <Label layoutX="65.0" layoutY="213.0" text="ID" textFill="#e1b185">
          <font>
