@@ -8,14 +8,17 @@ import java.util.Calendar;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 public class CalendarController implements Initializable {
 
@@ -131,21 +134,25 @@ public class CalendarController implements Initializable {
 	
 		int selectYear;
 		int selectMonth;
-		String selectdate;
+		String selectdate = null;
 		System.out.println("날짜 클릭");
 		date = dp.getValue();
 		selectYear = date.getYear();
 		selectMonth = date.getMonthValue(); 
 		
 		for (int i=0;i<labelList.length;i++) {
-			labelList[i].setOnMouseClicked(e -> {
-			
+				labelList[i].setOnMouseClicked(e -> {
+					
+						
+						new Stage().show();
+						
+					
 			});
-			
+			selectdate = labelList[i].getText();
 			
 		}
 		
-		System.out.println(selectYear + "  " + selectMonth + "  ");
+		System.out.println(selectYear + "  " + selectMonth + "  " + selectdate);
 
 	}
 
