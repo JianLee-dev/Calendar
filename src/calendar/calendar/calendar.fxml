@@ -8,15 +8,16 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calendar.calendar.CalendarController">
+<BorderPane prefHeight="490.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calendar.calendar.CalendarController">
    <top>
       <AnchorPane prefHeight="48.0" prefWidth="653.0" style="-fx-background-color: #EAEAEA;" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="btnNMonth" layoutX="460.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnNMonth" text="다음" />
             <Button fx:id="btnBMonth" layoutX="233.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnBMonth" text="이전" />
-            <DatePicker fx:id="dp" layoutX="273.0" layoutY="13.0" onAction="#setdp_pick" />
+            <DatePicker fx:id="dp" layoutX="273.0" layoutY="13.0" onAction="#setdpPick" />
          </children>
       </AnchorPane>
    </top>
@@ -76,7 +77,12 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="lbl00" alignment="CENTER" prefHeight="94.0" prefWidth="100.0" textAlignment="CENTER" GridPane.rowIndex="1" />
+            <VBox fx:id="vbox0" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+               <children>
+                  <Label fx:id="lbl00" alignment="CENTER" prefHeight="20.0" prefWidth="100.0" textAlignment="CENTER" />
+                  <Label fx:id="lb00" alignment="TOP_LEFT" prefHeight="74.0" prefWidth="100.0" text="Label" />
+               </children>
+            </VBox>
             <Label fx:id="lbl01" alignment="CENTER" prefHeight="94.0" prefWidth="100.0" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label fx:id="lbl02" alignment="CENTER" prefHeight="94.0" prefWidth="100.0" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <Label fx:id="lbl03" alignment="CENTER" prefHeight="94.0" prefWidth="100.0" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1" />

@@ -2,12 +2,19 @@ package calendar.calendar;
 
 import java.time.LocalDate;
 
+import calendar.calendar.info.CalendarInfoMain;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
+import javafx.scene.layout.BorderPane;
 
 
 public class CService {
+	
+	public static BorderPane bp;
+
 
 
 	public void setCalendar(LocalDate date, Label[] labelList) {
@@ -26,17 +33,20 @@ public class CService {
 
 	// 선택 날짜 가져오기
 	public void mouseOnClicked(Label label, DatePicker dp) {
+		
+		int selectDate = 0;
+		
+		try {
+			selectDate = Integer.parseInt(label.getText());
+		} catch (Exception e) {
+			return;
+		}
 		LocalDate date = dp.getValue();
-
 		int selectYear = date.getYear();
 		int selectMonth = date.getMonthValue();
-		int selectDate = Integer.parseInt(label.getText());
-
-		date = dp.getValue();
-		selectYear = date.getYear();
-		selectMonth = date.getMonthValue(); 
-		new Stage().show();
-
+		Parent root = new CalendarInfoMain().getRoot();
+		bp.setCenter(root); 
+		BorderPane.setMargin(root, new Insets(0,0,0,15));
 		System.out.println("라벨 클릭 : " + selectYear + selectMonth + selectDate );
 
 

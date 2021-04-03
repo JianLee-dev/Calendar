@@ -1,9 +1,7 @@
 package calendar.calendar;
 
 import java.net.URL;
-import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.YearMonth;
 import java.util.Calendar;
 import java.util.ResourceBundle;
 
@@ -18,75 +16,52 @@ import javafx.scene.layout.GridPane;
 
 public class CalendarController implements Initializable {
 
-	@FXML
-	GridPane grid; // 달력을 표시할 그리드 입니다.
-	@FXML
-	DatePicker dp;
-	Parent root;
-	Calendar cal = Calendar.getInstance();
-	CService cs;
 
+	
+	
 
-	@FXML
-	private Label lbl00, lbl01, lbl02, lbl03, lbl04, lbl05, lbl06, lbl07, lbl08, lbl09, lbl10, lbl11, lbl12, lbl13,
+	@FXML GridPane grid; // 달력을 표시할 그리드 입니다.
+	@FXML Button btnBMonth;   // 월단위를 이전달로 가는 버튼
+	@FXML Button btnNMonth;   // 월단위를 다음달로 가는 버튼
+	@FXML DatePicker dp;
+	@FXML Label lbl00, lbl01, lbl02, lbl03, lbl04, lbl05, lbl06, lbl07, lbl08, lbl09, lbl10, lbl11, lbl12, lbl13,
 	lbl14, lbl15, lbl16, lbl17, lbl18, lbl19, lbl20, lbl21, lbl22, lbl23, lbl24, lbl25, lbl26, lbl27, lbl28,
 	lbl29, lbl30, lbl31, lbl32, lbl33, lbl34, lbl35, lbl36, lbl37, lbl38, lbl39, lbl40, lbl41;
 	// 날자를 표시할 레이블 입니다.
 
-	public Label[] labelList;
-	// 레이블를 배열로 정합니다.
+	public static Label[] labelList; // 레이블를 배열로 정합니다.
+	public static LocalDate date; 
+	public static Parent root;
+	
+	static CService cs;
+	//Calendar cal = Calendar.getInstance();
 
-	@FXML
-	private Button btnBMonth;
-	// 월단위를 이전달로 가는 버튼
+	
 
-	@FXML
-	private Button btnNMonth;
-	// 월단위를 다음달로 가는 버튼
 
-	private LocalDate date; // 데이트피커의 값을 저장할 변수
-	private LocalDate date_first; // 그달의 1일 날짜를 저장할 변수
-	int currentYear; // 년도를 저장할 변수
-	int currentMonthInt; // 월 저장 변수
-	int currentDay; //일 저장 변수
-
-	int length_of_month; // 그달의 일수
-	DayOfWeek first_date; // 첫날의 요일
-	int datenum; // 요일을 숫자로환산
-	int count=0; //데이터피커 사용횟수 
-
-	// 월의 첫번째 요일과 마지막 요일을 저장할부분
-	YearMonth firstAndLastDay;
-
-	// 첫번째날의 요일
-	String strFirstWeek;
-
-	// 마지막날의 요일
-	String strLastWeek;
-
-	// -----------------날짜의 칸을 클릭했을때 값을 받아오는
-	String clickDate;
+	
 
 	public void setRoot(Parent root) {
-		this.root = root;
+		CalendarController.root = root;
+		
 	}
 
 
-	public void setdp_now() {// 데이트피커의 디폴트 값을 현재날짜로 바꿔주는, 작동은 잘되는데 적용방법 수정필요
+	public static void setdpNow() {// 데이트피커의 디폴트 값을 현재날짜로 세팅
 		LocalDate now = LocalDate.now();
-		dp.setValue(now); // 데이트 피커의 값을 현재로
-
+		((DatePicker)root.lookup("#dp")).setValue(now);
+		//dp.setValue(now); // 데이트 피커의 값을 현재로
 		cs.setCalendar(now, labelList);
-		System.out.println("setdp_now 메서드 동작 => 시작시 현재 날짜로 세팅");
+		System.out.println("setdpnow 메서드 동작 => 시작시 현재 날짜로 세팅");
 
 	}
 
-	public void setdp_pick(ActionEvent pick) // 유저가 데이터피커를 선택했을때 작동
+	public void setdpPick(ActionEvent pick) // 유저가 데이터피커를 선택했을때 작동
 	{		
 		date = dp.getValue(); // 데이트피커에서 선택한 값을 date로
-
 		cs.setCalendar(date, labelList);
-		System.out.println("setdp_pick 메서드 동작 => 데이터피커를 선택했을때 작동" );
+		System.out.println("setdp_pick 메서드 동작 => 데이터피커를 선택했을때 작동 or 데이터피커 값 변경" );
+	
 
 	}
 
@@ -103,24 +78,20 @@ public class CalendarController implements Initializable {
 		}
 	}
 
-	public void countup() //데이트피커 사용횟수up
-	{
-		count++;
-	}
+
+	//이전버튼
 	public void btnBMonth (ActionEvent btnBMonth)
 	{
 		LocalDate date = dp.getValue().minusMonths(1);
 		dp.setValue(date);
-		cs.setCalendar(date, labelList);
+	
 		
 	}
-
+	//다음버튼
 	public void btnNMonth (ActionEvent btnNMonth)
 	{
-	
 		LocalDate date = dp.getValue().plusMonths(1);
 		dp.setValue(date);
-		cs.setCalendar(date, labelList);
 	}
 
 
@@ -131,11 +102,9 @@ public class CalendarController implements Initializable {
 				lbl12, lbl13, lbl14, lbl15, lbl16, lbl17, lbl18, lbl19, lbl20, lbl21, lbl22, lbl23, lbl24, lbl25, lbl26,
 				lbl27, lbl28, lbl29, lbl30, lbl31, lbl32, lbl33, lbl34, lbl35, lbl36, lbl37, lbl38, lbl39, lbl40,
 				lbl41 };
-
-		cs = new CService();
-		setdp_now();
-		dp.setValue(LocalDate.now());
-		mouseOnClicked();
+		date = LocalDate.now(); // 초기 날짜 설정
+		cs = new CService();    //서비스 객체 생성
+		mouseOnClicked();		//마우스 클릭 이벤트 시작
 	}
 
 
