@@ -3,6 +3,7 @@ package calendar.calendar.info;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import calendar.add.CAddMain;
 import calendar.calendar.CService;
 import calendar.calendar.CalendarController;
 import calendar.calendar.CalendarMain;
@@ -28,6 +29,7 @@ public class CalendarInfoController implements Initializable {
 	
 	public void add () {
 		//setTable();
+		
 	}
 	
 	public void cancel() {
@@ -37,15 +39,16 @@ public class CalendarInfoController implements Initializable {
 	}
 	
 	public void setTable() {
-
+		
 		tableView.setItems(cis.setTable(category,name,price));
+		
 	}
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		cis = new CalendarInfoService();
 		tableView.setPlaceholder(new Label("등록된 가계가 없습니다"));
-	
+		
 
 		
 		
