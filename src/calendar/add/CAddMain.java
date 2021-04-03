@@ -12,13 +12,12 @@ import javafx.stage.Stage;
 
 public class CAddMain {
 	
+
 	public static Parent root;
 	public static CAddController cAddController;
 	
 	public CAddMain() {
-		
 
-		
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("add.fxml"));
 		
 		try {
@@ -35,6 +34,6 @@ public class CAddMain {
 		stage.show();
 	}
 	
-	
+
 	
 }

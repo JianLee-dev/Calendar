@@ -26,11 +26,12 @@ public class CalendarInfoController implements Initializable {
 	@FXML Button cancel;
 	@FXML Button add;
 	CalendarInfoService cis;
-	
+	CAddMain cm;
 	
 	public void add () {
 		new CAddMain();
 		
+
 	}
 	
 	public void cancel() {
@@ -49,7 +50,7 @@ public class CalendarInfoController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		cis = new CalendarInfoService();
 		tableView.setPlaceholder(new Label("등록된 가계가 없습니다"));
-		
+		cm = new CAddMain();
 
 		
 		

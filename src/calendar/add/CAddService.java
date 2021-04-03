@@ -9,6 +9,7 @@ import calendar.login.LoginController;
 import javafx.scene.Parent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 
 public class CAddService {
 
@@ -20,13 +21,38 @@ public class CAddService {
 		CalendarVO calendar = new CalendarVO();
 		calendar.setcId(LoginController.user.getUserId());
 		calendar.setcDate(CalendarInfoService.date);
-		//calendar.setcCategory(((ComboBox<String>)root.lookup("#category")).getValue()); 
-		//calendar.setcName(((TextField)root.lookup("#name")).getText());
-		//calendar.setcPrice(Integer.parseInt(((TextField)root.lookup("#price")).getText()));
-		calendar.setcCategory("테스트카테");
-		calendar.setcName("테스트이름");
-		calendar.setcPrice(1000);
+		
+		ComboBox<String> category = ((ComboBox<String>)root.lookup("#category"));
+		TextField name = ((TextField)root.lookup("#name"));
+		TextField price = (TextField)root.lookup("#price");
+		
+		if (category==null) {
+			CommonService.alert(AlertType.WARNING, "카테고리를 선택하세요");
+			return;
+		}
+		if (name == null) {
+			CommonService.alert(AlertType.WARNING, "이름을 입력하세요");
+			return;
+		}
+		if (price == null) {
+			CommonService.alert(AlertType.WARNING, "가격을 입력하세요");
+			return;
+		}
+		
+		calendar.setcCategory(category.getValue()); 
+		calendar.setcName(name.getText());
+		calendar.setcPrice(Integer.parseInt(price.getText()));
 		ds.addCalendar(calendar);
 		CommonService.close(root);
 	}
+	
+	public void setComboBox(Parent root) {
+		ComboBox<String> cmb;
+		cmb = (ComboBox<String>) root.lookup("#category");
+		if(cmb != null) {
+			cmb.getItems().addAll("식비", "생활", "쇼핑", "교육", "교통", "건강", "금융", "문화활동", "여가/숙박", "기타");
+		}
+				 
+	}
+
 }

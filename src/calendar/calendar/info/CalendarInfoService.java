@@ -19,9 +19,9 @@ public class CalendarInfoService {
 	public static Integer date;
 	
 
-	
+
 	public ObservableList<ViewTableModel> setTable(TableColumn<ViewTableModel, String> category, TableColumn<ViewTableModel, String> name, TableColumn<ViewTableModel, Integer> price) {
-		
+	
 		ObservableList<ViewTableModel> myList = FXCollections.observableArrayList();
 		List<CalendarVO> list = new ArrayList<>();
 		list = ds.getCalendar(LoginController.user.getUserId(), date); //캘린더 정보 db에서 불러오기
