@@ -178,7 +178,7 @@ public class DatabaseService implements IDatabaseService{
 	
 
 
-	@Override
+	//캘린더값 디비에 저장
 	public void saveCalendar(CalendarVO cvo) {
 		String sql = "INSERT INTO calendar VALUES(?,?,?,?,?)";
 		try {
@@ -237,9 +237,25 @@ public class DatabaseService implements IDatabaseService{
 
 
 
-	@Override
-	public void deleteCalendar(CalendarVO cvo) {
-		// TODO Auto-generated method stub
+	//삭제 방법 정한 후 수정필요
+	public void deleteCalendar(CalendarVO cvo) { 
+		String sql = "DELETE FROM calendar WHERE c_name=?";
+		try {
+			conn = DriverManager.getConnection(url,uid,upw);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,cvo.getcName());
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 		
 	}
 
