@@ -13,11 +13,10 @@ import javafx.stage.Stage;
 public class CAddMain {
 	
 	Parent root;
-	
-	
-	public CAddMain() {
 		
-Stage stage = new Stage();
+	public void CAddStage() {
+		
+		Stage stage = new Stage();
 		
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("add.fxml"));
 		Parent root = null;
@@ -35,6 +34,6 @@ Stage stage = new Stage();
 		stage.show();
 	}
 	
-	
+
 	
 }
