@@ -15,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -42,6 +43,7 @@ public class CAddController implements Initializable {
 	public void save() {
 		CalendarVO vo = cs.save();
 		 ds.saveCalendar(vo);
+		 CommonService.alert(AlertType.INFORMATION, "저장이 되었습니다.");
 		
 	
 		
