@@ -3,8 +3,10 @@ package calendar.calendar;
 import java.time.LocalDate;
 
 import calendar.calendar.info.CalendarInfoMain;
+import calendar.calendar.info.CalendarInfoService;
+import calendar.datadase.DatabaseService;
+import calendar.login.LoginController;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -14,7 +16,7 @@ import javafx.scene.layout.BorderPane;
 public class CService {
 	
 	public static BorderPane bp;
-
+	DatabaseService ds = new DatabaseService();
 
 
 	public void setCalendar(LocalDate date, Label[] labelList) {
@@ -47,7 +49,24 @@ public class CService {
 		Parent root = new CalendarInfoMain().getRoot();
 		bp.setCenter(root); 
 		BorderPane.setMargin(root, new Insets(0,0,0,15));
+		
+		//데이터베이스에 맞게 가공
+		String month = null, day = null;
+		if (selectMonth < 10 ) {
+			month = "0"+selectMonth; 
+		}else {
+			month = ""+selectMonth;
+		}
+		if(selectDate < 10) {
+			day = "0"+selectDate;
+		}else {
+			day =""+selectDate;
+		}
+	
+		Integer fDate = Integer.parseInt(selectYear + month + day);
+		System.out.println("fdate : " + fDate );
 		System.out.println("라벨 클릭 : " + selectYear + selectMonth + selectDate );
+		CalendarInfoService.date= fDate; //CalendarInfoService 에 날짜정보 저장
 
 
 

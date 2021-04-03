@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseService implements IDatabaseService{
 	
@@ -247,9 +248,42 @@ public class DatabaseService implements IDatabaseService{
 
 
 	@Override
-	public void getCalendar() {
-		// TODO Auto-generated method stub
+	public List<CalendarVO> getCalendar(String id, Integer date) {
+		List<CalendarVO> list = new ArrayList<>();
+		System.out.println("id : " + id);
+		System.out.println("date: " + date);
 		
+		String sql = "SELECT * FROM calendar WHERE c_id=? and c_date=?";
+		try {
+			conn = DriverManager.getConnection(url,uid,upw);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,id);
+			pstmt.setInt(2,date);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				CalendarVO vo = new CalendarVO();
+				vo.setcId(id);
+				vo.setcDate(date);
+				vo.setcCategory(rs.getString("c_category"));
+				vo.setcName(rs.getString("c_name"));
+				vo.setcPrice(rs.getInt("c_price"));
+				list.add(vo);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				rs.close();
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return list;
 	}
 
 

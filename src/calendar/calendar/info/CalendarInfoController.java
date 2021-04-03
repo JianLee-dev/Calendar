@@ -25,8 +25,9 @@ public class CalendarInfoController implements Initializable {
 	@FXML Button add;
 	CalendarInfoService cis;
 	
+	
 	public void add () {
-		setTable();
+		//setTable();
 	}
 	
 	public void cancel() {

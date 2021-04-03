@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import calendar.datadase.CalendarVO;
+import calendar.datadase.DatabaseService;
+import calendar.datadase.IDatabaseService;
+import calendar.login.LoginController;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -12,21 +15,21 @@ import javafx.scene.control.TableColumn;
 
 public class CalendarInfoService {
 
+	IDatabaseService ds = new DatabaseService();
+	public static Integer date;
 	
+
 	
 	public ObservableList<ViewTableModel> setTable(TableColumn<ViewTableModel, String> category, TableColumn<ViewTableModel, String> name, TableColumn<ViewTableModel, Integer> price) {
 		
 		ObservableList<ViewTableModel> myList = FXCollections.observableArrayList();
-		//나중에 DB 연동하면 필요함 
-		List<CalendarVO> list = new ArrayList();
+		List<CalendarVO> list = new ArrayList<>();
+		list = ds.getCalendar(LoginController.user.getUserId(), date); //캘린더 정보 db에서 불러오기
+	
 		for(CalendarVO vo : list) {
-			myList.add(new ViewTableModel(new SimpleStringProperty("#"), new SimpleStringProperty("#"), new SimpleIntegerProperty(3)));
+			myList.add(new ViewTableModel(new SimpleStringProperty(vo.getcCategory()), new SimpleStringProperty(vo.getcName()), new SimpleIntegerProperty(vo.getcPrice())));
 		};
-		
-		new ViewTableModel(new SimpleStringProperty("##"), new SimpleStringProperty("##"), new SimpleIntegerProperty(4));
-		myList.add(new ViewTableModel(new SimpleStringProperty("###"), new SimpleStringProperty("###"), new SimpleIntegerProperty(5)));
-		
-		
+
 		category.setCellValueFactory( cellData -> cellData.getValue().getCategory());
 		name.setCellValueFactory( cellData -> cellData.getValue().getName());
 		price.setCellValueFactory(cellData -> cellData.getValue().getPrice().asObject()); //JavaFX의 잘못된 디자인 결정 -> Integer & Double 은 .asObject() 필수 

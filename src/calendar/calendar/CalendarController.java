@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.ResourceBundle;
 
+import calendar.calendar.info.CalendarInfoController;
+import calendar.calendar.info.CalendarInfoMain;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -74,6 +76,8 @@ public class CalendarController implements Initializable {
 			labelList[i].setOnMouseClicked(e -> {
 
 				cs.mouseOnClicked(labelList[l],dp);
+				CalendarInfoMain.calendarInfoController.setTable(); //테이블 세팅
+				
 			});	
 		}
 	}
