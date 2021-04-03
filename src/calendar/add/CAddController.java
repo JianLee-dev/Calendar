@@ -19,22 +19,26 @@ import javafx.scene.layout.GridPane;
 
 public class CAddController implements Initializable {
 	Parent root;
-
+	CAddService cas;
+	
 	public void setRoot(Parent root) {
 		this.root = root;
-		
 	}
+
+
+		
+	
 	public void close() {
 		CommonService.close(root);
 	}
 
 	public void save() {
-		
+		cas.addCalendar(root);
 	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+		cas = new CAddService();
 		
 	}
 

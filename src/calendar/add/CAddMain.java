@@ -12,26 +12,26 @@ import javafx.stage.Stage;
 
 public class CAddMain {
 	
-	Parent root;
-	
+	public static Parent root;
+	public static CAddController cAddController;
 	
 	public CAddMain() {
 		
-Stage stage = new Stage();
+
 		
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("add.fxml"));
-		Parent root = null;
+		
 		try {
 			root = loader.load();
+			cAddController = loader.getController();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		Scene scene = new Scene(root);
 		
-		CAddController controller = loader.getController();
-		controller.setRoot(root);
+		cAddController.setRoot(root);
 		
-		stage.setScene(scene);
+		Stage stage = new Stage();
+		stage.setScene(new Scene(root));
 		stage.show();
 	}
 	

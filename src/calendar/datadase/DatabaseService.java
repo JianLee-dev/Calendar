@@ -11,7 +11,7 @@ import java.util.List;
 public class DatabaseService implements IDatabaseService{
 	
 	//localhost 125.132.133.80
-	private String url = "jdbc:oracle:thin:@localhost:1521:XE";
+	private String url = "jdbc:oracle:thin:@125.132.133.80:1521:XE";
 	private String uid = "java";
 	private String upw = "1234";
 	private Connection conn = null;
@@ -179,7 +179,7 @@ public class DatabaseService implements IDatabaseService{
 
 
 	@Override
-	public void saveCalendar(CalendarVO cvo) {
+	public void addCalendar(CalendarVO cvo) {
 		String sql = "INSERT INTO calendar VALUES(?,?,?,?,?)";
 		try {
 			conn = DriverManager.getConnection(url,uid,upw);
@@ -246,7 +246,7 @@ public class DatabaseService implements IDatabaseService{
 
 
 
-
+	//캘린더 정보 가져오기
 	@Override
 	public List<CalendarVO> getCalendar(String id, Integer date) {
 		List<CalendarVO> list = new ArrayList<>();

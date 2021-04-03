@@ -8,8 +8,8 @@ import javafx.scene.layout.AnchorPane;
 
 public class CalendarMain {
 	
-	Parent root;
-	
+	public static Parent root;
+	public static CalendarController calednarController;
 	
 	public CalendarMain() {
 		
@@ -17,11 +17,12 @@ public class CalendarMain {
 
 		try {
 			root = loader.load();
+			calednarController = loader.getController();
 		} catch (IOException e) {
 			e.printStackTrace();		
 		}
-		CalendarController cc = loader.getController();
-		cc.setRoot(root); 
+		
+		calednarController.setRoot(root); 
 	}
 	
 	

@@ -12,7 +12,7 @@ public interface IDatabaseService {
 	UserVO getMember(String userId);
 	boolean loginCheck(UserVO userVO);
 	
-	void saveCalendar(CalendarVO cvo);
+	void addCalendar(CalendarVO cvo);
 	void modifyCalendar(CalendarVO cvo);
 	void deleteCalendar(CalendarVO cvo);
 	List<CalendarVO> getCalendar(String id, Integer date);
