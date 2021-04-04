@@ -8,6 +8,8 @@ import calendar.common.CommonService;
 import calendar.datadase.UserVO;
 import calendar.main.MainForm;
 import calendar.member.MemberMain;
+import calendar.member.findId.FindIdMain;
+import calendar.member.findPwd.FindPwdMain;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -75,6 +77,16 @@ public class LoginController implements Initializable{
 			userId.clear(); userPw.clear();
 			userId.requestFocus();
 		}
+	}
+	
+	public void findId() {
+		System.out.println("아이디찾기");
+		new FindIdMain();
+	}
+	
+	public void findPwd() {
+		System.out.println("비밀번호찾기");
+		new FindPwdMain();
 	}
 	
 	@Override
