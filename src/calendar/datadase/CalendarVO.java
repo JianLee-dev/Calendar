@@ -4,21 +4,30 @@ public class CalendarVO {
 /*
 		    
 		CREATE TABLE calendar(
-		    c_id VARCHAR2(20) NOT NULL,
+			c_no NUMBER PRIMARY KEY,
+		    c_id VARCHAR2(50) NOT NULL,
 		    c_date NUMBER NOT NULL,
-		    c_category VARCHAR2(20) NOT NULL,
-		    c_name VARCHAR2(30) NOT NULL,
+		    c_category VARCHAR2(50) NOT NULL,
+		    c_name VARCHAR2(50) NOT NULL,
 		    c_price NUMBER NOT NULL
 		    );
 		    
 		    */
 	
-	
+	private Integer cNo;
 	private String cId;
 	private Integer cDate;
 	private String cCategory;
 	private String cName;
 	private int cPrice;
+	
+	
+	public Integer getcNo() {
+		return cNo;
+	}
+	public void setcNo(Integer cNo) {
+		this.cNo = cNo;
+	}
 	public String getcId() {
 		return cId;
 	}
@@ -49,6 +58,14 @@ public class CalendarVO {
 	public void setcPrice(int cPrice) {
 		this.cPrice = cPrice;
 	}
+	@Override
+	public String toString() {
+		return "CalendarVO [cNo=" + cNo + ", cId=" + cId + ", cDate=" + cDate + ", cCategory=" + cCategory + ", cName="
+				+ cName + ", cPrice=" + cPrice + "]";
+	}
+	
+	
+	
 	
 	
 	

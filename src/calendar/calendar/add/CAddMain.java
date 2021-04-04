@@ -1,4 +1,4 @@
-package calendar.add;
+package calendar.calendar.add;
 
 import java.io.IOException;
 import java.lang.ModuleLayer.Controller;
@@ -23,7 +23,9 @@ public class CAddMain {
 		try {
 			root = loader.load();
 			cAddController = loader.getController();
+
 		} catch (IOException e) {
+	
 			e.printStackTrace();
 		}
 		

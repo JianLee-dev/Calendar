@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="490.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calendar.calendar.info.CalendarInfoController">
    <children>
-      <TableView fx:id="tableView" layoutY="64.0" prefHeight="363.0" prefWidth="670.0">
+      <TableView fx:id="tableView" layoutY="64.0" onMouseClicked="#click" prefHeight="363.0" prefWidth="670.0">
         <columns>
           <TableColumn fx:id="category" prefWidth="229.0" text="품목" />
           <TableColumn fx:id="name" prefWidth="229.0" text="이름" />

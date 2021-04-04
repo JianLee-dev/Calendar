@@ -27,7 +27,7 @@ public class CalendarInfoService {
 		list = ds.getCalendar(LoginController.user.getUserId(), date); //캘린더 정보 db에서 불러오기
 	
 		for(CalendarVO vo : list) {
-			myList.add(new ViewTableModel(new SimpleStringProperty(vo.getcCategory()), new SimpleStringProperty(vo.getcName()), new SimpleIntegerProperty(vo.getcPrice())));
+			myList.add(new ViewTableModel(new SimpleStringProperty(vo.getcCategory()), new SimpleStringProperty(vo.getcName()), new SimpleIntegerProperty(vo.getcPrice()), vo.getcNo()));
 		};
 
 		category.setCellValueFactory( cellData -> cellData.getValue().getCategory());
@@ -52,4 +52,25 @@ public class CalendarInfoService {
 		
 		return myList;
 	}
+	
+	
+	
+	
+	
+	
+	public String getDate() {
+		Integer d = CalendarInfoService.date;
+		int year = d/10000;
+		int month = (d-(year*10000))/100;
+		int day = d-(year*10000)-(month * 100);
+		return year+"년 " + month + "월 " + day + "일";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 }

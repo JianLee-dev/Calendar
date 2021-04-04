@@ -1,4 +1,7 @@
 package info;
+
+import calendar.calendar.add.CAddController;
+
 public class Info {
 
 	/*
@@ -12,7 +15,13 @@ public class Info {
 	 mouseOnClicked 메서드 내부에서 이렇게 클릭한 날짜를 넘겨주고 있음! 위의 내용으로 변경가능!
 	 CalendarInfoService.date= fDate; //CalendarInfoService 에 날짜정보 저장
 	 
+	 CaddMain을 수정이랑 추가를 같이쓰기위해서 
+	 추가인지 수정인지 판단하는 flag 사용
+	 CAddController.flag=true -> 추가
+	 CAddController.flag=false -> 수정
 	 
+	 CAddController.cNo = tableView.getSelectionModel().getSelectedItem().getcNo(); //CAddController 에 현재 클릭한 캘린더 넘버 추가
+	 CalendarInfoController 에서 세팅함
 	 
 	 
 	 

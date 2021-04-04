@@ -6,10 +6,10 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="288.0" prefWidth="270.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calendar.add.CAddController">
+<AnchorPane prefHeight="288.0" prefWidth="270.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calendar.calendar.add.CAddController">
    <children>
-      <Button layoutX="66.0" layoutY="237.0" mnemonicParsing="false" onAction="#save" text="저장" />
-      <Button layoutX="163.0" layoutY="237.0" mnemonicParsing="false" onAction="#close" text="취소" />
+      <Button fx:id="confirm" layoutX="66.0" layoutY="237.0" mnemonicParsing="false" onAction="#confirm" text="저장" />
+      <Button fx:id="cancel" layoutX="163.0" layoutY="237.0" mnemonicParsing="false" onAction="#cancel" text="취소" />
       <ComboBox fx:id="category" layoutX="96.0" layoutY="66.0" prefHeight="22.0" prefWidth="138.0" />
       <Label layoutX="34.0" layoutY="70.0" text="Category" />
       <Label layoutX="34.0" layoutY="131.0" text="Name" />

@@ -11,7 +11,7 @@ import java.util.List;
 public class DatabaseService implements IDatabaseService{
 	
 	//localhost 125.132.133.80
-	private String url = "jdbc:oracle:thin:@localhost:1521:XE";
+	private String url = "jdbc:oracle:thin:@125.132.133.80:1521:XE";
 	private String uid = "java";
 	private String upw = "1234";
 	private Connection conn = null;
@@ -181,7 +181,7 @@ public class DatabaseService implements IDatabaseService{
 	@Override
 	public void addCalendar(CalendarVO cvo) {
 
-		String sql = "INSERT INTO calendar VALUES(?,?,?,?,?)";
+		String sql = "INSERT INTO calendar VALUES(calendar_seq.nextval,?,?,?,?,?)";
 		try {
 			conn = DriverManager.getConnection(url,uid,upw);
 			pstmt = conn.prepareStatement(sql);
@@ -210,15 +210,16 @@ public class DatabaseService implements IDatabaseService{
 
 	@Override
 	public void modifyCalendar(CalendarVO cvo) {
-		String sql = "UPDATE FROM calendar SET c_id=?, c_date=?, c_category=?, c_name=?, c_price=?";
+		String sql = "UPDATE calendar SET c_category=?, c_name=?, c_price=? WHERE c_no=?";
 		try {
 			conn = DriverManager.getConnection(url,uid,upw);
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1,cvo.getcId());
-			pstmt.setInt(2,cvo.getcDate());
-			pstmt.setInt(3,cvo.getcDate());
-			pstmt.setString(4,cvo.getcName());
-			pstmt.setInt(5,cvo.getcPrice());
+		
+	
+			pstmt.setString(1,cvo.getcCategory());
+			pstmt.setString(2,cvo.getcName());
+			pstmt.setInt(3,cvo.getcPrice());
+			pstmt.setInt(4,cvo.getcNo());
 			pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -280,6 +281,7 @@ public class DatabaseService implements IDatabaseService{
 			
 			while(rs.next()) {
 				CalendarVO vo = new CalendarVO();
+				vo.setcNo(rs.getInt("c_no"));
 				vo.setcId(id);
 				vo.setcDate(date);
 				vo.setcCategory(rs.getString("c_category"));
