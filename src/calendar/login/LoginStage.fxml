@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -16,12 +17,12 @@
       </Label>
       <TextField fx:id="userId" layoutX="162.0" layoutY="209.0" prefHeight="30.0" prefWidth="224.0" />
       <PasswordField fx:id="userPw" layoutX="162.0" layoutY="260.0" prefHeight="30.0" prefWidth="224.0" />
-      <Button fx:id="confirm" alignment="CENTER" contentDisplay="CENTER" layoutX="74.0" layoutY="351.0" mnemonicParsing="false" onAction="#confirm" prefHeight="42.0" prefWidth="97.0" style="-fx-background-color: #ECDEC3;" text="Login" textAlignment="CENTER" textFill="#a3684d">
+      <Button fx:id="confirm" alignment="CENTER" contentDisplay="CENTER" layoutX="74.0" layoutY="353.0" mnemonicParsing="false" onAction="#confirm" prefHeight="42.0" prefWidth="97.0" style="-fx-background-color: #ECDEC3;" text="Login" textAlignment="CENTER" textFill="#a3684d">
          <font>
             <Font size="14.0" />
          </font></Button>
-      <Button fx:id="cancel" alignment="CENTER" contentDisplay="CENTER" layoutX="286.0" layoutY="351.0" mnemonicParsing="false" onAction="#cancel" prefHeight="42.0" prefWidth="97.0" style="-fx-background-color: #ECDEC3;" text="Cancel" textFill="#a3684d" />
-      <Button fx:id="register" alignment="CENTER" contentDisplay="CENTER" layoutX="182.0" layoutY="351.0" mnemonicParsing="false" onAction="#register" prefHeight="42.0" prefWidth="97.0" style="-fx-background-color: #ECDEC3;" text="Join" textFill="#a3684d" />
+      <Button fx:id="cancel" alignment="CENTER" contentDisplay="CENTER" layoutX="286.0" layoutY="353.0" mnemonicParsing="false" onAction="#cancel" prefHeight="42.0" prefWidth="97.0" style="-fx-background-color: #ECDEC3;" text="Cancel" textFill="#a3684d" />
+      <Button fx:id="register" alignment="CENTER" contentDisplay="CENTER" layoutX="182.0" layoutY="353.0" mnemonicParsing="false" onAction="#register" prefHeight="42.0" prefWidth="97.0" style="-fx-background-color: #ECDEC3;" text="Join" textFill="#a3684d" />
       <Label layoutX="65.0" layoutY="213.0" text="ID" textFill="#e1b185">
          <font>
             <Font size="18.0" />
@@ -46,5 +47,6 @@
       <AnchorPane layoutY="477.0" prefHeight="23.0" prefWidth="450.0" style="-fx-background-color: #a3684d;" />
       <AnchorPane layoutY="460.0" prefHeight="9.0" prefWidth="450.0" style="-fx-background-color: #ECDEC3;" />
       <AnchorPane layoutY="29.0" prefHeight="9.0" prefWidth="450.0" style="-fx-background-color: #ECDEC3;" />
+      <CheckBox fx:id="ckId" layoutX="162.0" layoutY="301.0" mnemonicParsing="false" text="아이디 기억하기" />
    </children>
 </AnchorPane>

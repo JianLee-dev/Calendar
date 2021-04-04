@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -30,6 +31,7 @@ public class LoginController implements Initializable{
 	@FXML Button register;
 	@FXML TextField userId;
 	@FXML PasswordField userPw;
+	@FXML CheckBox ckId;
 	private Parent root;
 	public static UserVO user;
 	private ILoginService ls;
@@ -51,7 +53,8 @@ public class LoginController implements Initializable{
 			CommonService.close(root); 			//로그인창 닫기
 		}else { //아이디또는 비밀번호 틀릴시 진입 	
 			CommonService.alert(AlertType.WARNING, "없는 사용자 이거나 잘못된 비밀번호 입니다."); 
-			((PasswordField)root.lookup("#userPw")).clear(); 								//비밀번호 오류시 비밀번호 삭제
+			//((PasswordField)root.lookup("#userPw")).clear(); 								//비밀번호 오류시 비밀번호 삭제
+			clear();
 		}
 		
 		
@@ -64,7 +67,15 @@ public class LoginController implements Initializable{
 	}
 	
 	
-	
+	private void clear() {
+		if(ckId.isSelected()==true) {
+			userPw.clear();
+			userPw.requestFocus();
+		}else {
+			userId.clear(); userPw.clear();
+			userId.requestFocus();
+		}
+	}
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
