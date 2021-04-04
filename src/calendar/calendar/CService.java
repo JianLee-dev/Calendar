@@ -6,6 +6,7 @@ import calendar.calendar.info.CalendarInfoMain;
 import calendar.calendar.info.CalendarInfoService;
 import calendar.datadase.CalendarVO;
 import calendar.datadase.DatabaseService;
+import calendar.datadase.IDatabaseService;
 import calendar.login.LoginController;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
@@ -32,6 +33,8 @@ public class CService {
 		for (int i = datenum; i < date.lengthOfMonth() + datenum; i++) {
 			labelList[i].setText("" + (i - (datenum - 1))); // 요일변수에서 이걸 빼서 날짜를 계산
 		}
+		
+//		setDayTotal(date, labelList);
 	}
 
 	// 선택 날짜 가져오기
@@ -75,6 +78,19 @@ public class CService {
 
 	}
 	
+	public void setDayTotal(LocalDate date, Label[] labelList) {
+		IDatabaseService db = new DatabaseService();
+		int dayNum = 0;
+		int dayTotal = 0;
+		
+		for(Label lb : labelList) {
+			if(!lb.getText().equals(" ")) {
+				dayNum = Integer.parseInt(lb.getText());
+				dayTotal = db.getDayTotal(LoginController.user.getUserId(), (date.getYear()*10000+date.getMonthValue()*100+dayNum));
+				lb.setText(dayNum+"\n"+dayTotal+"원");
+			}
+		}
+	}
 
 
 }

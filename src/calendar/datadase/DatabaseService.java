@@ -11,7 +11,7 @@ import java.util.List;
 public class DatabaseService implements IDatabaseService{
 	
 	//localhost 125.132.133.80
-	private String url = "jdbc:oracle:thin:@125.132.133.80:1521:XE";
+	private String url = "jdbc:oracle:thin:@localhost:1521:XE";
 	private String uid = "java";
 	private String upw = "1234";
 	private Connection conn = null;
@@ -309,7 +309,7 @@ public class DatabaseService implements IDatabaseService{
 
 
 	@Override
-	//GraphController에서 사용
+	//GraphController에서 사용  //해당 월, 해당 카테고리 평균
 	public int getCatAvg(String id, int yearMonth, String category) { //yearMonth형식 : 20210100 
 		String sql = "SELECT AVG(c_price) AS average FROM CALENDAR WHERE C_ID=? and TRUNC(c_date,-2)=? and c_category=?";
 		try {
@@ -339,7 +339,7 @@ public class DatabaseService implements IDatabaseService{
 
 
 	@Override
-	//GraphController에서 사용
+	//GraphController에서 사용  //해달 월 총 지출 금액
 	public int getMonthTotal(String id, int yearMonth) { //yearMonth형식 : 20210100 
 		String sql = "SELECT SUM(C_PRICE) FROM CALENDAR where C_ID=? and TRUNC(C_DATE,-2)="+yearMonth;
 		try {
@@ -365,11 +365,35 @@ public class DatabaseService implements IDatabaseService{
 		return 0;
 	}
 
+	public int getDayTotal(String id, int date) { //day형식 : 20210101 
+		String sql = "SELECT SUM(C_PRICE) FROM CALENDAR where C_ID=? and TRUNC(C_DATE)="+date;
+		try {
+			conn = DriverManager.getConnection(url,uid,upw);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getInt(1);
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				conn.close();
+				rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return 0;
+	}
 
 
 
 	@Override
-	//GraphController에서 사용
+	//GraphController에서 사용  //지출내역이 존재하는 유저목록 반환
 	public ArrayList<String> getMembers() {
 		ArrayList<String> members = new ArrayList<String>();
 		String sql = "SELECT DISTINCT C_ID FROM CALENDAR";
