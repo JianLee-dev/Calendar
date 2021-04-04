@@ -240,12 +240,12 @@ public class DatabaseService implements IDatabaseService{
 
 
 	//삭제 방법 정한 후 수정필요
-	public void deleteCalendar(CalendarVO cvo) { 
-		String sql = "DELETE FROM calendar WHERE c_name=?";
+	public void deleteCalendar(Integer cNo) { 
+		String sql = "DELETE FROM calendar WHERE c_no=?";
 		try {
 			conn = DriverManager.getConnection(url,uid,upw);
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1,cvo.getcName());
+			pstmt.setInt(1,cNo);
 			pstmt.executeUpdate();
 			
 		} catch (SQLException e) {

@@ -14,7 +14,7 @@ public interface IDatabaseService {
 	
 	void addCalendar(CalendarVO cvo);
 	void modifyCalendar(CalendarVO cvo);
-	void deleteCalendar(CalendarVO cvo);
+	void deleteCalendar(Integer cNo);
 	List<CalendarVO> getCalendar(String id, Integer date);
 	
 	int getCatAvg(String id, int yearMonth, String category);

@@ -67,7 +67,9 @@ public class CalendarInfoService {
 	}
 	
 	
-	
+	public void deleteCalendar(Integer cNo) {
+		ds.deleteCalendar(cNo);
+	}
 	
 	
 	

@@ -46,6 +46,14 @@ public class CalendarInfoController implements Initializable {
 		new CService().setCalendar(CalendarController.date, CalendarController.labelList);
 	}
 	
+	
+	public void delete() {
+		System.out.println("calendarInfoController delete 눌림");
+		System.out.println(tableView.getSelectionModel().getSelectedItem().getcNo() + "번 목록 삭제  ");
+		cis.deleteCalendar(tableView.getSelectionModel().getSelectedItem().getcNo());
+		setTable();
+	}
+	
 	public void setTable() {
 
 		
