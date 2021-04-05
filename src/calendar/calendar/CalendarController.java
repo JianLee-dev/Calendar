@@ -2,10 +2,8 @@ package calendar.calendar;
 
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.Calendar;
 import java.util.ResourceBundle;
 
-import calendar.calendar.info.CalendarInfoController;
 import calendar.calendar.info.CalendarInfoMain;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

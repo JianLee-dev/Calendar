@@ -11,7 +11,7 @@ import java.util.List;
 public class DatabaseService implements IDatabaseService{
 	
 	//localhost 125.132.133.80
-	private String url = "jdbc:oracle:thin:@localhost:1521:XE";
+	private String url = "jdbc:oracle:thin:@125.132.133.80:1521:XE";
 	private String uid = "java";
 	private String upw = "1234";
 	private Connection conn = null;
