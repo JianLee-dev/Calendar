@@ -4,15 +4,39 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="366.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calendar.member.findId.FindIdController">
    <children>
-      <Label layoutX="118.0" layoutY="74.0" text="아이디 찾기" />
-      <Label layoutX="58.0" layoutY="141.0" text="이름 :" />
-      <Label layoutX="23.0" layoutY="181.0" text="핸드폰 번호 :" />
-      <TextField fx:id="txtName" layoutX="99.0" layoutY="137.0" promptText="회원가입 시 입력한 이름" />
-      <TextField fx:id="txtNum" layoutX="99.0" layoutY="184.0" promptText="회원가입 시 입력한 번호" />
-      <Button fx:id="btnFind" layoutX="161.0" layoutY="238.0" mnemonicParsing="false" onAction="#btnFindId" text="찾기" />
-      <Button fx:id="btnClose" layoutX="213.0" layoutY="238.0" mnemonicParsing="false" onMouseClicked="#closeFindId" text="닫기" />
+      <Label layoutX="91.0" layoutY="62.0" text="아이디 찾기" textFill="#a3684d">
+         <font>
+            <Font name="SansSerif Bold" size="20.0" />
+         </font></Label>
+      <TextField fx:id="txtName" layoutX="98.0" layoutY="136.0" promptText="회원가입 시 입력한 이름" />
+      <TextField fx:id="txtNum" layoutX="98.0" layoutY="183.0" promptText="회원가입 시 입력한 번호" />
+      <Button fx:id="btnFind" layoutX="38.0" layoutY="260.0" mnemonicParsing="false" onAction="#btnFindId" prefHeight="29.0" prefWidth="106.0" style="-fx-background-color: #ECDEC3;" text="CONFIRM" textFill="#a3684d" />
+      <Button fx:id="btnClose" layoutX="154.0" layoutY="260.0" mnemonicParsing="false" onMouseClicked="#closeFindId" prefHeight="29.0" prefWidth="106.0" style="-fx-background-color: #ECDEC3;" text="CANCLE" textFill="#a3684d" />
+      <AnchorPane layoutY="10.0" prefHeight="6.0" prefWidth="300.0" style="-fx-background-color: #a3684d;" />
+      <AnchorPane layoutY="347.0" prefHeight="6.0" prefWidth="300.0" style="-fx-background-color: #a3684d;" />
+      <Label layoutX="86.0" layoutY="138.0" text="|" textFill="#e1b185">
+         <font>
+            <Font name="Candara Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="86.0" layoutY="185.0" text="|" textFill="#e1b185">
+         <font>
+            <Font name="Candara Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="140.0" text="Name" textFill="#e1b185">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="187.0" text="Phone" textFill="#e1b185">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

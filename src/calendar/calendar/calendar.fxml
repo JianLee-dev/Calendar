@@ -14,9 +14,15 @@
    <top>
       <AnchorPane prefHeight="48.0" prefWidth="653.0" style="-fx-background-color: #EAEAEA;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnNMonth" layoutX="460.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnNMonth" text="다음" />
-            <Button fx:id="btnBMonth" layoutX="233.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnBMonth" text="이전" />
-            <DatePicker fx:id="dp" layoutX="273.0" layoutY="13.0" onAction="#setdpPick" />
+            <Button fx:id="btnNMonth" layoutX="443.0" layoutY="11.0" mnemonicParsing="false" onAction="#btnNMonth" prefHeight="27.0" prefWidth="80.0" style="-fx-background-color: #ECDEC3;" text="&gt;&gt;" textFill="#a3684d">
+               <font>
+                  <Font name="SansSerif Bold" size="15.0" />
+               </font></Button>
+            <Button fx:id="btnBMonth" layoutX="167.0" layoutY="11.0" mnemonicParsing="false" onAction="#btnBMonth" prefHeight="27.0" prefWidth="80.0" style="-fx-background-color: #ECDEC3;" text="&lt;&lt;" textFill="#a3684d">
+               <font>
+                  <Font name="SansSerif Bold" size="15.0" />
+               </font></Button>
+            <DatePicker fx:id="dp" layoutX="252.0" layoutY="10.0" onAction="#setdpPick" prefHeight="28.0" prefWidth="186.0" />
          </children>
       </AnchorPane>
    </top>
@@ -41,37 +47,37 @@
             <RowConstraints maxHeight="94.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER" prefHeight="45.0" prefWidth="100.0" text="Sun" textAlignment="CENTER">
+            <Label alignment="CENTER" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: #DAEAD9;" text="Sun" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="45.0" prefWidth="100.0" text="Mon" textAlignment="CENTER" GridPane.columnIndex="1">
+            <Label alignment="CENTER" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: #fafff9;" text="Mon" textAlignment="CENTER" GridPane.columnIndex="1">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="45.0" prefWidth="100.0" text="Tue" textAlignment="CENTER" GridPane.columnIndex="2">
+            <Label alignment="CENTER" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: #fafff9;" text="Tue" textAlignment="CENTER" GridPane.columnIndex="2">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="45.0" prefWidth="100.0" text="Wed" textAlignment="CENTER" GridPane.columnIndex="3">
+            <Label alignment="CENTER" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: #fafff9;" text="Wed" textAlignment="CENTER" GridPane.columnIndex="3">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="45.0" prefWidth="100.0" text="Thu" textAlignment="CENTER" GridPane.columnIndex="4">
+            <Label alignment="CENTER" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: #fafff9;" text="Thu" textAlignment="CENTER" GridPane.columnIndex="4">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="45.0" prefWidth="100.0" text=" Fri" textAlignment="CENTER" GridPane.columnIndex="5">
+            <Label alignment="CENTER" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: #fafff9;" text=" Fri" textAlignment="CENTER" GridPane.columnIndex="5">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="45.0" prefWidth="100.0" text="Sat" textAlignment="CENTER" GridPane.columnIndex="6">
+            <Label alignment="CENTER" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: #DAEAD9;" text="Sat" textAlignment="CENTER" GridPane.columnIndex="6">
                <font>
                   <Font size="16.0" />
                </font>

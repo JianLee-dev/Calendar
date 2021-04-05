@@ -7,22 +7,33 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="490.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calendar.calendar.info.CalendarInfoController">
+<AnchorPane prefHeight="500.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calendar.calendar.info.CalendarInfoController">
    <children>
-      <TableView fx:id="tableView" layoutY="64.0" onMouseClicked="#click" prefHeight="363.0" prefWidth="670.0">
+      <TableView fx:id="tableView" layoutY="69.0" onMouseClicked="#click" prefHeight="363.0" prefWidth="710.0">
         <columns>
           <TableColumn fx:id="category" prefWidth="229.0" text="품목" />
           <TableColumn fx:id="name" prefWidth="229.0" text="이름" />
             <TableColumn fx:id="price" minWidth="0.0" prefWidth="231.0" text="가격" />
         </columns>
       </TableView>
-      <Label fx:id="date" alignment="CENTER" layoutX="279.0" layoutY="14.0" prefHeight="45.0" prefWidth="150.0" text="Date">
+      <Label fx:id="date" alignment="CENTER" layoutX="280.0" layoutY="8.0" prefHeight="45.0" prefWidth="150.0" text="Date" textFill="#a3684d">
          <font>
-            <Font size="18.0" />
+            <Font name="SansSerif Bold" size="20.0" />
          </font>
       </Label>
-      <Button fx:id="add" layoutX="238.0" layoutY="444.0" mnemonicParsing="false" onAction="#add" text="추가" />
-      <Button fx:id="cancel" layoutX="389.0" layoutY="444.0" mnemonicParsing="false" onAction="#cancel" text="취소" />
-      <Button fx:id="delete" layoutX="309.0" layoutY="444.0" mnemonicParsing="false" onAction="#delete" text="삭제" />
+      <Button fx:id="add" layoutX="186.0" layoutY="457.0" mnemonicParsing="false" onAction="#add" prefHeight="29.0" prefWidth="106.0" style="-fx-background-color: #ECDEC3;" text="add" textFill="#a3684d">
+         <font>
+            <Font name="SansSerif Regular" size="15.0" />
+         </font></Button>
+      <Button fx:id="cancel" layoutX="418.0" layoutY="457.0" mnemonicParsing="false" onAction="#cancel" prefHeight="29.0" prefWidth="106.0" style="-fx-background-color: #ECDEC3;" text="cancle" textFill="#a3684d">
+         <font>
+            <Font name="SansSerif Regular" size="15.0" />
+         </font></Button>
+      <Button fx:id="delete" layoutX="302.0" layoutY="457.0" mnemonicParsing="false" onAction="#delete" prefHeight="29.0" prefWidth="106.0" style="-fx-background-color: #ECDEC3;" text="delete" textFill="#a3684d">
+         <font>
+            <Font name="SansSerif Regular" size="15.0" />
+         </font></Button>
+      <AnchorPane layoutY="53.0" prefHeight="7.0" prefWidth="710.0" style="-fx-background-color: #DAEAD9;" />
+      <AnchorPane layoutY="440.0" prefHeight="7.0" prefWidth="710.0" style="-fx-background-color: #DAEAD9;" />
    </children>
 </AnchorPane>

@@ -83,7 +83,7 @@ public class LoginController implements Initializable{
 	private void saveUserId(String userId) {
 		try {
 			//I:\\오후_취업반\\test\\savedId.txt
-			File path = new File("I:\\오후_취업반\\test\\savedId.txt");
+			File path = new File("C:\\Users\\ssp\\Desktop\\SpringProject\\projectData\\savedId.txt");
 			FileOutputStream fos;
 			fos = new FileOutputStream(path);
 			BufferedOutputStream bos = new BufferedOutputStream(fos);
@@ -99,7 +99,7 @@ public class LoginController implements Initializable{
 	
 	private void setLoginText() {
 		try {
-			File path = new File("I:\\오후_취업반\\test\\savedId.txt");
+			File path = new File("C:\\Users\\ssp\\Desktop\\SpringProject\\projectData\\savedId.txt");
 			FileInputStream fis = new FileInputStream(path);
 			BufferedInputStream bis = new BufferedInputStream(fis);
 			DataInputStream dis = new DataInputStream(bis);
@@ -118,6 +118,7 @@ public class LoginController implements Initializable{
 		}
 	
 	}
+	
 	
 	public void findId() {
 		System.out.println("아이디찾기");
