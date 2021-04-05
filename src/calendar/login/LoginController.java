@@ -116,6 +116,9 @@ public class LoginController implements Initializable{
 		try {
 			System.out.println("setLoginText 메서드 작동");
 			path = new File("saveId.txt");
+			path.createNewFile();
+		System.out.println(	path.getCanonicalPath());
+			System.out.println(path);
 			fis = new FileInputStream(path);
 			bis = new BufferedInputStream(fis);
 			dis = new DataInputStream(bis);
@@ -124,7 +127,7 @@ public class LoginController implements Initializable{
 
 
 		}catch(Exception e) {
-			e.printStackTrace();
+			System.out.println("savedUser 실패");
 		}finally {
 			try {
 				dis.close(); bis.close(); fis.close();
