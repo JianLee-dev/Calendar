@@ -8,12 +8,9 @@ import calendar.common.CommonService;
 import calendar.datadase.UserVO;
 import calendar.main.MainForm;
 import calendar.member.MemberMain;
-<<<<<<< HEAD
 import calendar.member.findId.FindIdMain;
 import calendar.member.findPwd.FindPwdMain;
 import javafx.event.EventHandler;
-=======
->>>>>>> cbdd4c992f17b250bd5cda18ac9c4bb2ef34123c
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
