@@ -29,12 +29,18 @@ public class CService {
 		for (int j = 0; j < labelList.length; j++){ // 캘린더 모든칸을 빈칸으로
 			labelList[j].setText(" ");
 		}
-
+	
 		for (int i = datenum; i < date.lengthOfMonth() + datenum; i++) {
-			labelList[i].setText("" + (i - (datenum - 1))); // 요일변수에서 이걸 빼서 날짜를 계산
+			Integer dayTotal = ds.getDayTotal(LoginController.user.getUserId(), (date.getYear()*10000+date.getMonthValue()*100+(i - (datenum - 1))));
+			if (dayTotal == 0) {
+				labelList[i].setText(""+(i - (datenum - 1)));
+			}else {
+				
+				labelList[i].setText((i - (datenum - 1))  +"\n" + dayTotal); // 요일변수에서 이걸 빼서 날짜를 계산
+			}
 		}
 		
-//		setDayTotal(date, labelList);
+
 	}
 
 	// 선택 날짜 가져오기
@@ -43,7 +49,7 @@ public class CService {
 		int selectDate = 0;
 		
 		try {
-			selectDate = Integer.parseInt(label.getText());
+			selectDate = Integer.parseInt(label.getText().split("\n")[0]);
 		} catch (Exception e) {
 			return;
 		}
@@ -72,25 +78,11 @@ public class CService {
 		System.out.println("라벨 클릭 : " + selectYear + selectMonth + selectDate );
 		CalendarInfoService.date= fDate; //CalendarInfoService 에 날짜정보 저장
 		
-	
-		
-
-
 	}
 	
-	public void setDayTotal(LocalDate date, Label[] labelList) {
-		IDatabaseService db = new DatabaseService();
-		int dayNum = 0;
-		int dayTotal = 0;
+	
 		
-		for(Label lb : labelList) {
-			if(!lb.getText().equals(" ")) {
-				dayNum = Integer.parseInt(lb.getText());
-				dayTotal = db.getDayTotal(LoginController.user.getUserId(), (date.getYear()*10000+date.getMonthValue()*100+dayNum));
-				lb.setText(dayNum+"\n"+dayTotal+"원");
-			}
-		}
-	}
+	
 
 
 }
