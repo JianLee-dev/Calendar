@@ -11,7 +11,7 @@ import java.util.List;
 public class DatabaseService implements IDatabaseService{
 	
 	//localhost 125.132.133.80
-	private String url = "jdbc:oracle:thin:@125.132.133.80:1521:XE";
+	private String url = "jdbc:oracle:thin:@localhost:1521:XE";
 	private String uid = "java";
 	private String upw = "1234";
 	private Connection conn = null;
@@ -307,7 +307,7 @@ public class DatabaseService implements IDatabaseService{
 
 
 
-
+	 
 	@Override
 	//GraphController에서 사용  //해당 월, 해당 카테고리 평균
 	public int getCatAvg(String id, int yearMonth, String category) { //yearMonth형식 : 20210100 
