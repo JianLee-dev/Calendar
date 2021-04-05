@@ -19,6 +19,9 @@ public interface IDatabaseService {
 	
 	int getCatAvg(String id, int yearMonth, String category);
 	int getMonthTotal(String id, int yearMonth);
-	public int getDayTotal(String id, int date);
+	int getDayTotal(String id, int date);
 	ArrayList<String> getMembers();
+	
+	String findId(String Name, int Num);
+	String findPwd(String Id, String Name, int Num);
 }

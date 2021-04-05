@@ -419,10 +419,59 @@ public class DatabaseService implements IDatabaseService{
 	}
 
 	
+	public String findId(String Name, int Num) {
+		String sql = "SELECT USER_ID FROM USERINFO WHERE USER_NAME=? and USER_PHONE=?";
+		try {
+			conn = DriverManager.getConnection(url,uid,upw);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,Name);
+			pstmt.setInt(2,Num);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getString(1);
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				conn.close();
+				rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
 	
 	
-	
-	
+	public String findPwd(String Id, String Name, int Num) {  
+		String sql = "SELECT USER_PW FROM USERINFO WHERE USER_ID=? and USER_NAME=? and USER_PHONE=?";
+		try {
+			conn = DriverManager.getConnection(url,uid,upw);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,Id);
+			pstmt.setString(2,Name);
+			pstmt.setInt(3,Num);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getString(1);
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				conn.close();
+				rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
 	
 	
 	
