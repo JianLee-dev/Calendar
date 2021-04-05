@@ -22,6 +22,7 @@ import calendar.member.findPwd.FindPwdMain;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -42,25 +43,25 @@ public class LoginController implements Initializable{
 	private Parent root;
 	public static UserVO user;
 	private ILoginService ls;
-	
+
 	private String savedUser;
-	
+
 
 	public void setRoot(Parent root) {
 		this.root = root;						
 		ls.setStyle(root,this);					//스타일 
 	}
-	
-	
-	
+
+
+
 	public void confirm() {
-		TextField loginId = (TextField)root.lookup("#userId");
+
 		if(ckId.isSelected()==true) {
-			saveUserId(loginId.getText());
+			saveUserId(userId.getText());
 		}else {
-			saveUserId(" ");
+			saveUserId("");
 		}
-		
+
 		if(ls.loginCheck(root)) { 				//비밀번호 확인
 			ls.setLogin(root);					//로그인 사용자정보 저장 
 			new MainForm(); 					// MainForm 오픈
@@ -70,8 +71,8 @@ public class LoginController implements Initializable{
 			CommonService.alert(AlertType.WARNING, "없는 사용자 이거나 잘못된 비밀번호 입니다."); 
 			((PasswordField)root.lookup("#userPw")).clear(); 								//비밀번호 오류시 비밀번호 삭제
 		}
-		
-		
+
+
 	}
 	public void cancel() {
 		CommonService.close(root);				//취소 누를시 로그인창 닫기
@@ -79,57 +80,80 @@ public class LoginController implements Initializable{
 	public void register() {
 		new MemberMain(); 						//회원가입 누를시 회원가입창 오픈
 	}
-	
+
 	private void saveUserId(String userId) {
+		File path=null;
+		FileOutputStream fos =null;
+		BufferedOutputStream bos = null;
+		DataOutputStream dos  = null;
+
 		try {
-			//I:\\오후_취업반\\test\\savedId.txt
-			File path = new File("C:\\Users\\ssp\\Desktop\\SpringProject\\projectData\\savedId.txt");
-			FileOutputStream fos;
+			System.out.println("saveUserId 메서드 작동");
+			path = new File("saveId.txt");
 			fos = new FileOutputStream(path);
-			BufferedOutputStream bos = new BufferedOutputStream(fos);
-			DataOutputStream dos = new DataOutputStream(bos);
-			
+			bos = new BufferedOutputStream(fos);
+			dos = new DataOutputStream(bos);
+
 			dos.writeUTF(userId);
-			
-			dos.close(); bos.close(); fos.close();
+
+
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
-	}
-	
-	private void setLoginText() {
-		try {
-			File path = new File("C:\\Users\\ssp\\Desktop\\SpringProject\\projectData\\savedId.txt");
-			FileInputStream fis = new FileInputStream(path);
-			BufferedInputStream bis = new BufferedInputStream(fis);
-			DataInputStream dis = new DataInputStream(bis);
-		
-			savedUser = dis.readUTF();
-			if(!savedUser.equals(" ")) {
-				userId.setText(savedUser);
-				userPw.requestFocus();
-			}else {
-				userId.requestFocus();
+		}finally{
+			try {
+				dos.close(); bos.close(); fos.close();
+			} catch (Exception e2) {
 			}
-			
-			dis.close(); bis.close(); fis.close();
-		}catch(Exception e) {
-			e.printStackTrace();
 		}
-	
 	}
-	
+
+	private void setLoginText() {
+		File path=null;
+		FileInputStream fis = null;
+		BufferedInputStream bis = null;
+		DataInputStream dis = null;
+		try {
+			System.out.println("setLoginText 메서드 작동");
+			path = new File("saveId.txt");
+			path.createNewFile();
+		System.out.println(	path.getCanonicalPath());
+			System.out.println(path);
+			fis = new FileInputStream(path);
+			bis = new BufferedInputStream(fis);
+			dis = new DataInputStream(bis);
+
+			savedUser = dis.readUTF();
+
+
+		}catch(Exception e) {
+			System.out.println("savedUser 실패");
+		}finally {
+			try {
+				dis.close(); bis.close(); fis.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}	
+		}
+		System.out.println(savedUser);
+		if(savedUser != null && !savedUser.equals("")) {
+
+			userId.setText(savedUser);
+			ckId.setSelected(true);
+
+		}
+	}
+
 	
 	public void findId() {
 		System.out.println("아이디찾기");
 		new FindIdMain();
 	}
-	
+
 	public void findPwd() {
 		System.out.println("비밀번호찾기");
 		new FindPwdMain();
 	}
-	
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		ls = new LoginService();

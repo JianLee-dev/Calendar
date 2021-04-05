@@ -42,7 +42,8 @@ public class CAddService {
 
 		calendar.setcCategory(category.getValue()); 
 		calendar.setcName(name.getText());
-		calendar.setcPrice(Integer.parseInt(price.getText()));
+		calendar.setcPrice(Integer.parseInt(price.getText().trim()));
+		
 		ds.addCalendar(calendar);
 		CommonService.close(root);
 	}

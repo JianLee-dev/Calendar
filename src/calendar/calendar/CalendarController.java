@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import calendar.calendar.info.CalendarInfoMain;
+import calendar.login.LoginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -28,6 +29,8 @@ public class CalendarController implements Initializable {
 	lbl14, lbl15, lbl16, lbl17, lbl18, lbl19, lbl20, lbl21, lbl22, lbl23, lbl24, lbl25, lbl26, lbl27, lbl28,
 	lbl29, lbl30, lbl31, lbl32, lbl33, lbl34, lbl35, lbl36, lbl37, lbl38, lbl39, lbl40, lbl41;
 	// 날자를 표시할 레이블 입니다.
+	
+	static Label total;
 
 	public static Label[] labelList; // 레이블를 배열로 정합니다.
 	public static LocalDate date; 
@@ -53,6 +56,9 @@ public class CalendarController implements Initializable {
 		//dp.setValue(now); // 데이트 피커의 값을 현재로
 		cs.setCalendar(now, labelList);
 		System.out.println("setdpnow 메서드 동작 => 시작시 현재 날짜로 세팅");
+		total = (Label)CalendarMain.root.lookup("#total");
+		cs.setMonthTotal(date, total);
+		System.out.println("Total Month set");
 
 	}
 
@@ -61,7 +67,8 @@ public class CalendarController implements Initializable {
 		date = dp.getValue(); // 데이트피커에서 선택한 값을 date로
 		cs.setCalendar(date, labelList);
 		System.out.println("setdp_pick 메서드 동작 => 데이터피커를 선택했을때 작동 or 데이터피커 값 변경" );
-	
+		cs.setMonthTotal(date, total);
+		System.out.println("Total Month set");
 
 	}
 

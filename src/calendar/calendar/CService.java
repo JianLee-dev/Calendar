@@ -81,6 +81,16 @@ public class CService {
 	}
 	
 	
+	public void setMonthTotal(LocalDate date, Label total) {
+		String month;
+		if(date.getMonthValue()<10) {
+			month = "0"+date.getMonthValue();
+		}else {
+			month = ""+date.getMonthValue();
+		}
+	
+		total.setText(date.getMonthValue()+"월 지출총액 \n"+ds.getMonthTotal(LoginController.user.getUserId(),Integer.parseInt(date.getYear()+month+"00")));
+	}
 		
 	
 

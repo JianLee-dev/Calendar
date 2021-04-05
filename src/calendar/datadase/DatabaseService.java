@@ -307,7 +307,7 @@ public class DatabaseService implements IDatabaseService{
 
 
 
-
+	 
 	@Override
 	//GraphController에서 사용  //해당 월, 해당 카테고리 평균
 	public int getCatAvg(String id, int yearMonth, String category) { //yearMonth형식 : 20210100 
