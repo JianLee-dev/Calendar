@@ -8,19 +8,20 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class LoginMain extends Application {
-
+	public static Parent root;
+	public static LoginController loginController;
 	@Override
 	public void start(Stage primaryStage) {
-		Parent root = null;
-		LoginController lc = null;
+		root = null;
+		loginController = null;
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginStage.fxml"));
 		try {
 			root = loader.load();
-			lc = loader.getController();
+			loginController = loader.getController();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		lc.setRoot(root);
+		loginController.setRoot(root);
 		primaryStage.setScene(new Scene(root));
 		primaryStage.show();
 	}

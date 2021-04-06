@@ -10,10 +10,8 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
-public class InfoService {
+public class InfoService implements IInfoService {
 	
 	
 	private TextField userId=null;
