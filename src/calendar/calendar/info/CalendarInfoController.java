@@ -44,6 +44,8 @@ public class CalendarInfoController implements Initializable {
 		CService.bp.setCenter(new CalendarMain().getRoot()); 
 		((DatePicker)CalendarController.root.lookup("#dp")).setValue(CalendarController.date);
 		new CService().setCalendar(CalendarController.date, CalendarController.labelList);
+		CService cs = new CService();  
+		cs.setMonthTotal(CalendarController.date,CalendarController.total);
 	}
 
 

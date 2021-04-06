@@ -30,13 +30,13 @@ public class CalendarController implements Initializable {
 	lbl29, lbl30, lbl31, lbl32, lbl33, lbl34, lbl35, lbl36, lbl37, lbl38, lbl39, lbl40, lbl41;
 	// 날자를 표시할 레이블 입니다.
 	
-	static Label total;
+	public static Label total;
 
 	public static Label[] labelList; // 레이블를 배열로 정합니다.
 	public static LocalDate date; 
 	public static Parent root;
 	
-	static CService cs;
+	public static CService cs;
 	//Calendar cal = Calendar.getInstance();
 
 	
@@ -46,6 +46,7 @@ public class CalendarController implements Initializable {
 
 	public void setRoot(Parent root) {
 		CalendarController.root = root;
+		total = (Label)CalendarMain.root.lookup("#total");
 		
 	}
 
@@ -56,7 +57,6 @@ public class CalendarController implements Initializable {
 		//dp.setValue(now); // 데이트 피커의 값을 현재로
 		cs.setCalendar(now, labelList);
 		System.out.println("setdpnow 메서드 동작 => 시작시 현재 날짜로 세팅");
-		total = (Label)CalendarMain.root.lookup("#total");
 		cs.setMonthTotal(date, total);
 		System.out.println("Total Month set");
 
@@ -114,6 +114,7 @@ public class CalendarController implements Initializable {
 		date = LocalDate.now(); // 초기 날짜 설정
 		cs = new CService();    //서비스 객체 생성
 		mouseOnClicked();		//마우스 클릭 이벤트 시작
+		
 	}
 
 
