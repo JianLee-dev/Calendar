@@ -39,7 +39,7 @@ public class LoginController implements Initializable{
 	public void setRoot(Parent root) {
 		this.root = root;						
 		ls.setStyle(root,this);					//스타일 
-		new LoginService().setLoginText(this);
+		ls.setLoginText(this);
 	}
 
 
