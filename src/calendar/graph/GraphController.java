@@ -2,17 +2,13 @@ package calendar.graph;
 
 
 import java.net.URL;
-import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.ResourceBundle;
 
-import calendar.datadase.CalendarVO;
 import calendar.datadase.DatabaseService;
 import calendar.datadase.UserVO;
 import calendar.login.LoginController;
-import calendar.login.LoginService;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -54,6 +50,8 @@ public class GraphController implements Initializable{
 					));
 		}
 		
+		
+		
 		XYChart.Series series1 = new XYChart.Series();
 		series1.setData(FXCollections.observableArrayList(
 //				new XYChart.Data("1월",db.getMonthTotal("가가가", (getCurrentYear()*10000)+100)) :테스트
@@ -80,10 +78,10 @@ public class GraphController implements Initializable{
 			System.out.println(getMemberMonthAvg(getCurrentYear(), getCurrentMonth()));
 			System.out.println(db.getMonthTotal(currentUserDB.getUserId(), (getCurrentYear()*10000)+(getCurrentMonth()*100)));
 			labelCompare.setText("현재 "+currentUserDB.getUserId()+" 님은 평균적으로 지출하고 있습니다.");
-		}else if(comparePrice > 0) {
+		}else if(comparePrice < 0) {
+			comparePrice *= -1;
 			labelCompare.setText("현재 "+currentUserDB.getUserId()+" 님은 "+(calcAge(currentUserDB.getUserId())*10)+"대 평균과 비교했을 때, "+comparePrice+"원을 더 소비하고 있습니다.");
 		}else {
-			comparePrice *= -1;
 			labelCompare.setText("현재 "+currentUserDB.getUserId()+" 님은 "+(calcAge(currentUserDB.getUserId())*10)+"대 평균과 비교했을 때, "+comparePrice+"원을 절약하고 있습니다.");
 		}
 		
@@ -93,23 +91,19 @@ public class GraphController implements Initializable{
 	
 	
 	private int getCurrentYear() {
-		SimpleDateFormat format1 = new SimpleDateFormat ("yyyy");
-		Date time = new Date();
-		String year = format1.format(time);
-		return Integer.parseInt(year);
+		Calendar currentDate = Calendar.getInstance();
+		return currentDate.get(Calendar.YEAR);
 	}
 	
 	private int getCurrentMonth() {
-		SimpleDateFormat format2 = new SimpleDateFormat ("MM");
-		Date time = new Date();
-		String month = format2.format(time);
-		return Integer.parseInt(month);
+		Calendar currentDate = Calendar.getInstance();
+		return (currentDate.get(Calendar.MONTH)+1);
 	}
+	
 	private int calcAge(String userId) {
 		
 		int CurrentY = getCurrentYear();
 		int userBirthY = currentUserDB.getUserBirth() / 10000;
-//		int userBirthY = 19990101 / 10000;   : 테스트
 		int age = (CurrentY - userBirthY)/10; //연령대 (10대 :1 20대 :2)
 		
 		return age;
@@ -122,15 +116,12 @@ public class GraphController implements Initializable{
 		int avg = 0;
 		for(String usersId : db.getMembers()) {
 			if(calcAge(usersId) == calcAge(currentUserDB.getUserId())) {
-//			if(calcAge(usersId) == calcAge("가가가")) {   : 테스트
 				getMatchUser.add(usersId);
 			}
 		}
 
 		for(String userId : getMatchUser) {
-//			System.out.println(userId);	: 테스트
 			sum += db.getMonthTotal(userId, (year*10000)+(mon*100));
-//			sum += db.getMonthTotal("가가가", (year*10000)+(mon*100));  : 테스트
 		}
 
 		if(getMatchUser.size() != 0) {
